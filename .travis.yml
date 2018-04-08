@@ -36,6 +36,7 @@ script:
 #  - yarn test
 #  - ./mvnw verify -Pprod -DskipTests
 after_success:
+  - echo $TRAVIS_BRANCH
   - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
     echo "$DOCKER_PASSWD" | docker login -u "$DOCKER_USERNAME" --password-stdin;
     docker tag sensebrand pp7589/sensebrand:latest;
