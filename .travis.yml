@@ -38,7 +38,7 @@ after_success:
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
-- scp   employ@123.56.232.6:/sensebrand;
+- scp $TRAVIS_BUILD_DIR/sense-brand-0.0.1-SNAPSHOT.war employ@123.56.232.6:/sensebrand;
 
 notifications:
   webhooks:
