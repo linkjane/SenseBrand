@@ -42,13 +42,7 @@ before_deploy:
 - ssh-add /tmp/deploy_rsa
 
 after_success:
-  - if [ "$TRAVIS_BRANCH" == "master" ] && [ "$TRAVIS_PULL_REQUEST" == "false" ]; then
-#    echo "$DOCKER_PASSWD" | docker login -u "$DOCKER_USERNAME" --password-stdin;
-#    docker tag sensebrand pp7589/sensebrand:latest;
-#    docker push pp7589/sensebrand:latest;
-
-    scp  youjumpijump-android employ@123.56.232.6:/sensebrand;
-    fi
+-scp  youjumpijump-android employ@123.56.232.6:/sensebrand;
 
 notifications:
   webhooks:
