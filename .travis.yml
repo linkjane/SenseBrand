@@ -39,7 +39,9 @@ after_success:
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
 - scp $TRAVIS_BUILD_DIR/target/sense-brand-0.0.1-SNAPSHOT.war employ@123.56.232.6:/sensebrand.war;
-
+branches:
+  only:
+  - master
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
