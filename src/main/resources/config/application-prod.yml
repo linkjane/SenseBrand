@@ -29,7 +29,7 @@ spring:
         type: com.zaxxer.hikari.HikariDataSource
         url: jdbc:mysql://localhost:3306/SenseBrand?useUnicode=true&characterEncoding=utf8&useSSL=false
         username: root
-        password:
+        password: sense090327
         hikari:
             data-source-properties:
                 cachePrepStmts: true
