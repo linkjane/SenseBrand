@@ -42,7 +42,7 @@ before_deploy:
 - ssh-add /tmp/deploy_rsa
 
 after_success:
--scp  youjumpijump-android employ@123.56.232.6:/sensebrand;
+- scp  youjumpijump-android employ@123.56.232.6:/sensebrand;
 
 notifications:
   webhooks:
