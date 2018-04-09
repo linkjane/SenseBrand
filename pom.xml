@@ -813,7 +813,7 @@
                         <version>${spring-boot.version}</version>
                         <configuration>
                             <mainClass>${start-class}</mainClass>
-                            <executable>true</executable>
+                            <!--<executable>true</executable>-->
                         </configuration>
                         <executions>
                             <execution>
