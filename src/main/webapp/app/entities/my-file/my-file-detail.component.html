@@ -1,0 +1,43 @@
+
+<div *ngIf="myFile">
+    <h2><span jhiTranslate="senseBrandApp.myFile.detail.title">My File</span> {{myFile.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.myFile.filename">Filename</span></dt>
+        <dd>
+            <span>{{myFile.filename}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.myFile.myFile">My File</span></dt>
+        <dd>
+            <span>{{myFile.myFile}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.myFile.imageExample">Image Example</span></dt>
+        <dd>
+            <div *ngIf="myFile.imageExample">
+                <a (click)="openFile(myFile.imageExampleContentType, myFile.imageExample)">
+                    <img [src]="'data:' + myFile.imageExampleContentType + ';base64,' + myFile.imageExample" style="max-width: 100%;" alt="myFile image"/>
+                </a>
+                {{myFile.imageExampleContentType}}, {{byteSize(myFile.imageExample)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.myFile.testExample">Test Example</span></dt>
+        <dd>
+            <span>{{myFile.testExample}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'my-file/'+ myFile.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

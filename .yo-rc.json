@@ -28,7 +28,9 @@
     "nativeLanguage": "zh-cn",
     "languages": [
       "ru",
-      "zh-cn"
+      "zh-cn",
+      "en",
+      "ja"
     ],
     "clientFramework": "angularX",
     "jhipsterVersion": "4.14.2",

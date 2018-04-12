@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myMyFileLabel" jhiTranslate="senseBrandApp.myFile.home.createOrEditLabel">Create or edit a My File</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!myFile.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="myFile.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.filename" for="field_filename">Filename</label>
+            <input type="text" class="form-control" name="filename" id="field_filename"
+                [(ngModel)]="myFile.filename" required/>
+            <div [hidden]="!(editForm.controls.filename?.dirty && editForm.controls.filename?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.filename?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.myFile" for="field_myFile">My File</label>
+            <input type="text" class="form-control" name="myFile" id="field_myFile"
+                [(ngModel)]="myFile.myFile" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.imageExample" for="field_imageExample">Image Example</label>
+            <div>
+                <img [src]="'data:' + myFile.imageExampleContentType + ';base64,' + myFile.imageExample" style="max-height: 100px;" *ngIf="myFile.imageExample; else fileUrlBlock" alt="myFile image"/>
+                <ng-template #fileUrlBlock>
+                    <img [src]="myFile.fileUrl" style="max-height: 100px;" *ngIf="myFile.fileUrl" alt="myFile image"/>
+                </ng-template>
+                <div *ngIf="myFile.imageExample" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{myFile.imageExampleContentType}}, {{byteSize(myFile.imageExample)}}</span>
+                    <button type="button" (click)="clearInputImage('imageExample', 'imageExampleContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file"  id="file_imageExample" (change)="setFileData($event, myFile, 'imageExample', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="imageExample" id="field_imageExample"
+                [(ngModel)]="myFile.imageExample" />
+            <input type="hidden" class="form-control" name="imageExampleContentType" id="field_imageExampleContentType"
+                [(ngModel)]="myFile.imageExampleContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.testExample" for="field_testExample">Test Example</label>
+            <textarea class="form-control" name="testExample" id="field_testExample"
+                [(ngModel)]="myFile.testExample" ></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

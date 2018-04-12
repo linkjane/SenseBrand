@@ -1,0 +1,33 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "fieldName": "filename",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "myFile",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imageExample",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "testExample",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20180410144837",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "my_file",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

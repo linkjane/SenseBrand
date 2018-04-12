@@ -1,0 +1,65 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myPersonLabel" jhiTranslate="senseBrandApp.person.home.createOrEditLabel">Create or edit a Person</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!person.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="person.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.person.file1" for="field_file1">File 1</label>
+            <div>
+                <img [src]="'data:' + person.file1ContentType + ';base64,' + person.file1" style="max-height: 100px;" *ngIf="person.file1" alt="person image"/>
+                <div *ngIf="person.file1" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{person.file1ContentType}}, {{byteSize(person.file1)}}</span>
+                    <button type="button" (click)="clearInputImage('file1', 'file1ContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_file1" (change)="setFileData($event, person, 'file1', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="file1" id="field_file1"
+                [(ngModel)]="person.file1" />
+            <input type="hidden" class="form-control" name="file1ContentType" id="field_file1ContentType"
+                [(ngModel)]="person.file1ContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.person.file2" for="field_file2">File 2</label>
+            <div>
+                <div *ngIf="person.file2" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(person.file2ContentType, person.file2)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{person.file2ContentType}}, {{byteSize(person.file2)}}</span>
+                    <button type="button" (click)="person.file2=null;person.file2ContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_file2" (change)="setFileData($event, person, 'file2', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="file2" id="field_file2"
+                [(ngModel)]="person.file2" />
+            <input type="hidden" class="form-control" name="file2ContentType" id="field_file2ContentType"
+                [(ngModel)]="person.file2ContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.person.file3" for="field_file3">File 3</label>
+            <textarea class="form-control" name="file3" id="field_file3"
+                [(ngModel)]="person.file3" ></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

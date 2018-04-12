@@ -1,0 +1,42 @@
+
+<div *ngIf="person">
+    <h2><span jhiTranslate="senseBrandApp.person.detail.title">Person</span> {{person.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.person.file1">File 1</span></dt>
+        <dd>
+            <div *ngIf="person.file1">
+                <a (click)="openFile(person.file1ContentType, person.file1)">
+                    <img [src]="'data:' + person.file1ContentType + ';base64,' + person.file1" style="max-width: 100%;" alt="person image"/>
+                </a>
+                {{person.file1ContentType}}, {{byteSize(person.file1)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.person.file2">File 2</span></dt>
+        <dd>
+            <div *ngIf="person.file2">
+                <a (click)="openFile(person.file2ContentType, person.file2)" jhiTranslate="entity.action.open">open</a>
+                {{person.file2ContentType}}, {{byteSize(person.file2)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.person.file3">File 3</span></dt>
+        <dd>
+            <span>{{person.file3}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'person/'+ person.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

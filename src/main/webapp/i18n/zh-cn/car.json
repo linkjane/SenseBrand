@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "car" : {
+            "home": {
+                "title": "Cars",
+                "createLabel": "创建新 Car",
+                "createOrEditLabel": "创建或编辑 Car",
+                "search": "查找 Car"
+            },
+            "created": "Car {{ param }} 创建成功",
+            "updated": "Car {{ param }} 更新成功",
+            "deleted": "Car {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Car {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Car"
+            },
+            "name": "Name",
+            "owner": "Owner",
+            "driver": "Driver"
+        }
+    }
+}

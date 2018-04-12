@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "myFile" : {
+            "home": {
+                "title": "My Files",
+                "createLabel": "Создать новый My File",
+                "createOrEditLabel": "Создать или отредактировать My File",
+                "search": "Найти My File"
+            },
+            "created": "Новый My File создан с идентификатором {{ param }}",
+            "updated": "My File обновлен с идентификатором {{ param }}",
+            "deleted": "My File удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить My File {{ id }}?"
+            },
+            "detail": {
+                "title": "My File"
+            },
+            "filename": "Filename",
+            "myFile": "My File",
+            "imageExample": "Image Example",
+            "testExample": "Test Example"
+        }
+    }
+}
