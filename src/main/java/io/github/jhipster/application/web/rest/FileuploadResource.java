@@ -37,7 +37,7 @@ public class FileuploadResource {
     }
 
     @PostMapping(value = "/file-upload", consumes = "multipart/form-data")
-    public ResponseEntity<Map<String, Object>> upload(@RequestPart("file") MultipartFile file) throws IOException {
+    public ResponseEntity<Map<String, Object>> upload(@RequestPart("file") MultipartFile file, @RequestPart("key") String key) throws IOException {
 
 
         log.warn("文件名是: {}", file.getOriginalFilename());
@@ -53,11 +53,11 @@ public class FileuploadResource {
         String extensionName = fileOriginalName.substring(fileOriginalName.lastIndexOf(".") + 1);
         String dirUrl = formatDate + "/" + extensionName + "/";
         String saveFileName =  fileOriginalName;
-
-        if (extensionName.matches("jp(e)g|png|gif|bmp")) {
+        log.warn("是否匹配? {}", extensionName.toLowerCase().matches("jpe?g|png|gif|bmp"));
+        if (extensionName.toLowerCase().matches("jpe?g|png|gif|bmp")) {
             String uuidName = UUID.randomUUID().toString();
             dirUrl =  formatDate + "/" + "images/";
-            saveFileName =  uuidName;
+            saveFileName =  uuidName + '.' + extensionName;
         }
 
         File dir = new File(dirUrl);
@@ -70,22 +70,25 @@ public class FileuploadResource {
         //mac环境
         File upload = new File("/var/www/static/upload");
 
-        if (!upload.exists()) {
-            upload.mkdirs();
-        }
+
         log.warn("操作系统是: {}", sysName);
         if (sysName.toLowerCase().contains("windows")){
             upload = new File("D:/nginxwww/static/upload/" + dirUrl);
         } else if (sysName.toLowerCase().contains("mac")) {
             upload = new File("/usr/local/var/www/static/upload", dirUrl);
         }
-
-        file.transferTo(new File(upload.getAbsolutePath() + "/" + saveFileName));
+        if (!upload.exists()) {
+            upload.mkdirs();
+        }
+        File destFile = new File(upload.getAbsolutePath() + "/" + saveFileName);
+        destFile.deleteOnExit();
+        file.transferTo(destFile);
 
         HashMap<String, Object> map = new HashMap<>();
         map.put("fileName", fileOriginalName);
         map.put("extensionName", extensionName);
         map.put("fileUrl", "static/upload/" + dirUrl + saveFileName);
+        map.put("key", key);
 
         return ResponseEntity.ok().body(map);
     }

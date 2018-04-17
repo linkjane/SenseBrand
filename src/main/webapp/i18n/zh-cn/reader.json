@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "reader" : {
+            "home": {
+                "title": "Readers",
+                "createLabel": "创建新 Reader",
+                "createOrEditLabel": "创建或编辑 Reader",
+                "search": "查找 Reader"
+            },
+            "created": "Reader {{ param }} 创建成功",
+            "updated": "Reader {{ param }} 更新成功",
+            "deleted": "Reader {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Reader {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Reader"
+            },
+            "imageFile": "Image File",
+            "textFile": "Text File",
+            "blobFile": "Blob File"
+        }
+    }
+}

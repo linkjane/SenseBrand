@@ -1,0 +1,46 @@
+
+<div *ngIf="readerOld">
+    <h2><span jhiTranslate="senseBrandApp.readerOld.detail.title">Reader Old</span> {{readerOld.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.readerOld.imageFile">Image File</span></dt>
+        <dd>
+            <div *ngIf="readerOld.imageFile">
+                <a (click)="openFile(readerOld.imageFileContentType, readerOld.imageFile)">
+                    <img [src]="'data:' + readerOld.imageFileContentType + ';base64,' + readerOld.imageFile" style="max-width: 100%;" alt="readerOld image"/>
+                </a>
+                {{readerOld.imageFileContentType}}, {{byteSize(readerOld.imageFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.readerOld.textFile">Text File</span></dt>
+        <dd>
+            <span>{{readerOld.textFile}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.readerOld.blobFile">Blob File</span></dt>
+        <dd>
+            <div *ngIf="readerOld.blobFile">
+                <a (click)="openFile(readerOld.blobFileContentType, readerOld.blobFile)" jhiTranslate="entity.action.open">open</a>
+                {{readerOld.blobFileContentType}}, {{byteSize(readerOld.blobFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.readerOld.localTime">Local Time</span></dt>
+        <dd>
+            <span>{{readerOld.localTime | date:'mediumDate'}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'reader-old/'+ readerOld.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

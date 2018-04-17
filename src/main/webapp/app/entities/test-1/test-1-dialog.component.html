@@ -1,0 +1,85 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myTest1Label" jhiTranslate="senseBrandApp.test1.home.createOrEditLabel">Create or edit a Test 1</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!test1.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="test1.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.test" for="field_test">Test</label>
+            <input type="text" class="form-control" name="test" id="field_test"
+                [(ngModel)]="test1.test" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.n" for="field_n">N</label>
+            <input type="text" class="form-control" name="n" id="field_n"
+                [(ngModel)]="test1.n" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.sdf" for="field_sdf">Sdf</label>
+            <input type="text" class="form-control" name="sdf" id="field_sdf"
+                [(ngModel)]="test1.sdf" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.imageFile" for="field_imageFile">Image File</label>
+            <div>
+                <img [src]=" test1.imageFileBase64Data ? 'data:' + test1.imageFileContentType + ';base64,' + test1.imageFileBase64Data : test1.imageFileUrl" style="max-height: 100px;" *ngIf="test1.imageFileBase64Data || test1.imageFileUrl" alt="test1 image"/>
+                <div *ngIf="test1.imageFileBase64Data || test1.imageFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{test1.imageFileContentType}} {{byteSize(test1.imageFileBase64Data || test1.imageFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( imageFileBase64Data ? 'imageFileBase64Data' : 'imageFileUrl', 'imageFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_imageFileBase64Data" (change)="setFileData($event, test1, 'imageFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="imageFile" id="field_imageFile"
+                [(ngModel)]="test1.imageFile" />
+            <input type="hidden" class="form-control" name="imageFileContentType" id="field_imageFileContentType"
+                [(ngModel)]="test1.imageFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.blobFile" for="field_blobFile">Blob File</label>
+            <div>
+                <div *ngIf="test1.blobFileBase64Data || test1.blobFileUrl" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(test1.blobFileContentType, test1.blobFileBase64Data || test1.blobFileUrl)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{test1.blobFileContentType}} {{byteSize(test1.blobFileBase64Data || test1.blobFileUrl )}}</span>
+                    <button type="button" (click)="test1.blobFileBase64Data=null;test1.blobFileContentType=null;test1.blobFileUrl=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_blobFileBase64Data" (change)="setFileData($event, test1, 'blobFile', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="blobFile" id="field_blobFile"
+                [(ngModel)]="test1.blobFile" />
+            <input type="hidden" class="form-control" name="blobFileContentType" id="field_blobFileContentType"
+                [(ngModel)]="test1.blobFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.textFile" for="field_textFile">Text File</label>
+            <input type="text" class="form-control" name="textFile" id="field_textFile"
+                [(ngModel)]="test1.textFile" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.test1.textFileTest" for="field_textFileTest">Text File Test</label>
+            <textarea class="form-control" name="textFileTest" id="field_textFileTest"
+                [(ngModel)]="test1.textFileTest" ></textarea>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

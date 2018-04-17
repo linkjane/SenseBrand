@@ -1,0 +1,58 @@
+
+<div *ngIf="test1">
+    <h2><span jhiTranslate="senseBrandApp.test1.detail.title">Test 1</span> {{test1.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.test1.test">Test</span></dt>
+        <dd>
+            <span>{{test1.test}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.test1.n">N</span></dt>
+        <dd>
+            <span>{{test1.n}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.test1.sdf">Sdf</span></dt>
+        <dd>
+            <span>{{test1.sdf}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.test1.imageFile">Image File</span></dt>
+        <dd>
+            <div *ngIf="test1.imageFileUrl">
+                <a (click)="openFile(test1.imageFileContentType, test1.imageFileUrl)">
+                    <img [src]="test1.imageFileUrl" style="max-width: 100%;" alt="test1 image"/>
+                </a>
+                {{test1.imageFileContentType}} {{byteSize(test1.imageFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.test1.blobFile">Blob File</span></dt>
+        <dd>
+            <div *ngIf="test1.blobFileUrl">
+                <a (click)="openFile(test1.blobFileContentType, test1.blobFileUrl)" jhiTranslate="entity.action.open">open</a>
+                {{test1.blobFileContentType}} {{byteSize(test1.blobFileUrl)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.test1.textFile">Text File</span></dt>
+        <dd>
+            <span>{{test1.textFile}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.test1.textFileTest">Text File Test</span></dt>
+        <dd>
+            <span>{{test1.textFileTest}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'test-1/'+ test1.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

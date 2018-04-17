@@ -12,6 +12,10 @@
                 "driver": "Driver",
                 "myFile": "My File",
                 "person": "Person",
+                "reader": "Reader",
+                "readerOld": "Reader Old",
+                "test1": "Test 1",
+                "designer": "Designer",
                 "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
             },
             "account": {

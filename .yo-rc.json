@@ -37,5 +37,44 @@
     "packageFolder": "io/github/jhipster/application",
     "jwtSecretKey": "57c1ee8d27aefb8b1845eb18e1c9b08ffacaa2a7",
     "jhiPrefix": "jhi"
+  },
+  "generator-jhipster-entity-wfile": {
+    "applicationType": "monolith",
+    "gitHubOrganization": "uncle-link",
+    "baseName": "SenseBrand",
+    "packageName": "io.github.jhipster.application",
+    "serverPort": 8080,
+    "serviceDiscoveryType": false,
+    "authenticationType": "jwt",
+    "uaaBaseName": "../uaa",
+    "cacheProvider": "ehcache",
+    "enableHibernateCache": true,
+    "websocket": "spring-websocket",
+    "databaseType": "sql",
+    "devDatabaseType": "mysql",
+    "prodDatabaseType": "mysql",
+    "searchEngine": "elasticsearch",
+    "enableSwaggerCodegen": "true",
+    "messageBroker": false,
+    "buildTool": "maven",
+    "enableSocialSignIn": true,
+    "useSass": true,
+    "clientPackageManager": "yarn",
+    "testFrameworks": [
+      "protractor"
+    ],
+    "enableTranslation": true,
+    "nativeLanguage": "zh-cn",
+    "languages": [
+      "ru",
+      "zh-cn",
+      "en",
+      "ja"
+    ],
+    "clientFramework": "angularX",
+    "jhipsterVersion": "4.14.2",
+    "packageFolder": "io/github/jhipster/application",
+    "jwtSecretKey": "57c1ee8d27aefb8b1845eb18e1c9b08ffacaa2a7",
+    "jhiPrefix": "jhi"
   }
 }

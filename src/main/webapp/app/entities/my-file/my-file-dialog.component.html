@@ -31,17 +31,14 @@
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.imageExample" for="field_imageExample">Image Example</label>
             <div>
-                <img [src]="'data:' + myFile.imageExampleContentType + ';base64,' + myFile.imageExample" style="max-height: 100px;" *ngIf="myFile.imageExample; else fileUrlBlock" alt="myFile image"/>
-                <ng-template #fileUrlBlock>
-                    <img [src]="myFile.fileUrl" style="max-height: 100px;" *ngIf="myFile.fileUrl" alt="myFile image"/>
-                </ng-template>
+                <img [src]="'data:' + myFile.imageExampleContentType + ';base64,' + myFile.imageExample" style="max-height: 100px;" *ngIf="myFile.imageExample" alt="myFile image"/>
                 <div *ngIf="myFile.imageExample" class="form-text text-danger clearfix">
                     <span class="pull-left">{{myFile.imageExampleContentType}}, {{byteSize(myFile.imageExample)}}</span>
                     <button type="button" (click)="clearInputImage('imageExample', 'imageExampleContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
                         <span class="fa fa-times"></span>
                     </button>
                 </div>
-                <input type="file"  id="file_imageExample" (change)="setFileData($event, myFile, 'imageExample', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+                <input type="file" id="file_imageExample" (change)="setFileData($event, myFile, 'imageExample', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
             </div>
             <input type="hidden" class="form-control" name="imageExample" id="field_imageExample"
                 [(ngModel)]="myFile.imageExample" />
@@ -52,6 +49,17 @@
             <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.testExample" for="field_testExample">Test Example</label>
             <textarea class="form-control" name="testExample" id="field_testExample"
                 [(ngModel)]="myFile.testExample" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.myFile.textFile" for="field_textFile">Text File</label>
+            <textarea class="form-control" name="textFile" id="field_textFile"
+                [(ngModel)]="myFile.textFile" required></textarea>
+            <div [hidden]="!(editForm.controls.textFile?.dirty && editForm.controls.textFile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.textFile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
         </div>
 
     </div>

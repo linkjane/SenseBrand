@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "isSaveUrl": false,
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "englishName",
+            "fieldType": "String"
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "position",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180417094529",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "designer",
+    "jpaMetamodelFiltering": false,
+    "pagination": "pagination"
+}

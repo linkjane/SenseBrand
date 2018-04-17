@@ -42,6 +42,8 @@ describe('MyFile e2e test', () => {
         myFileDialogPage.setImageExampleInput(absolutePath);
         myFileDialogPage.setTestExampleInput('testExample');
         expect(myFileDialogPage.getTestExampleInput()).toMatch('testExample');
+        myFileDialogPage.setTextFileInput('textFile');
+        expect(myFileDialogPage.getTextFileInput()).toMatch('textFile');
         myFileDialogPage.save();
         expect(myFileDialogPage.getSaveButton().isPresent()).toBeFalsy();
     });
@@ -72,6 +74,7 @@ export class MyFileDialogPage {
     myFileInput = element(by.css('input#field_myFile'));
     imageExampleInput = element(by.css('input#file_imageExample'));
     testExampleInput = element(by.css('textarea#field_testExample'));
+    textFileInput = element(by.css('textarea#field_textFile'));
 
     getModalTitle() {
         return this.modalTitle.getAttribute('jhiTranslate');
@@ -107,6 +110,14 @@ export class MyFileDialogPage {
 
     getTestExampleInput = function() {
         return this.testExampleInput.getAttribute('value');
+    };
+
+    setTextFileInput = function(textFile) {
+        this.textFileInput.sendKeys(textFile);
+    };
+
+    getTextFileInput = function() {
+        return this.textFileInput.getAttribute('value');
     };
 
     save() {

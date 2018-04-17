@@ -1,0 +1,91 @@
+<div>
+    <h2>
+        <span jhiTranslate="senseBrandApp.test1.home.title">Test 1 S</span>
+        <button class="btn btn-primary float-right jh-create-entity create-test-1" [routerLink]="['/', { outlets: { popup: ['test-1-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="senseBrandApp.test1.home.createLabel">
+            Create new Test 1
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'senseBrandApp.test1.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="test1S">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.test">Test</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.n">N</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.sdf">Sdf</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.imageFile">Image File</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.blobFile">Blob File</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.textFile">Text File</span></th>
+            <th><span jhiTranslate="senseBrandApp.test1.textFileTest">Text File Test</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let test1 of test1S ;trackBy: trackId">
+                <td><a [routerLink]="['../test-1', test1.id ]">{{test1.id}}</a></td>
+                <td>{{test1.test}}</td>
+                <td>{{test1.n}}</td>
+                <td>{{test1.sdf}}</td>
+                <td>
+                    <a *ngIf="test1.imageFileUrl" (click)="openFile(test1.imageFileContentType, test1.imageFileUrl)">
+                        <img [src]="test1.imageFileUrl" style="max-height: 30px;" alt="test1 image"/>
+                    </a>
+                    <span *ngIf="test1.imageFileUrl">{{test1.imageFileContentType}} {{byteSize(test1.imageFileUrl)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="test1.blobFileUrl" (click)="openFile(test1.blobFileContentType, test1.blobFileUrl)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="test1.blobFileUrl">{{test1.blobFileContentType}} {{byteSize(test1.blobFileUrl)}}</span>
+                </td>
+                <td>{{test1.textFile}}</td>
+                <td>{{test1.textFileTest}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../test-1', test1.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'test-1/'+ test1.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'test-1/'+ test1.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

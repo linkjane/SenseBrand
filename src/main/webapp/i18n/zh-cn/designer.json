@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "designer" : {
+            "home": {
+                "title": "Designers",
+                "createLabel": "创建新 Designer",
+                "createOrEditLabel": "创建或编辑 Designer",
+                "search": "查找 Designer"
+            },
+            "created": "Designer {{ param }} 创建成功",
+            "updated": "Designer {{ param }} 更新成功",
+            "deleted": "Designer {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Designer {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Designer"
+            },
+            "name": "Name",
+            "englishName": "English Name",
+            "position": "Position"
+        }
+    }
+}

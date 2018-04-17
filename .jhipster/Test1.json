@@ -1,0 +1,50 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "isSaveUrl": false,
+            "fieldName": "test",
+            "fieldType": "String"
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "n",
+            "fieldType": "String"
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "sdf",
+            "fieldType": "String"
+        },
+        {
+            "isSaveUrl": true,
+            "fieldName": "imageFile",
+            "fieldType": "String",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "isSaveUrl": true,
+            "fieldName": "blobFile",
+            "fieldType": "String",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "textFile",
+            "fieldType": "String"
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "textFileTest",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20180416114400",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "test1",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

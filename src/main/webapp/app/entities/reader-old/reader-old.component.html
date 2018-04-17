@@ -1,0 +1,85 @@
+<div>
+    <h2>
+        <span jhiTranslate="senseBrandApp.readerOld.home.title">Reader Olds</span>
+        <button class="btn btn-primary float-right jh-create-entity create-reader-old" [routerLink]="['/', { outlets: { popup: ['reader-old-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="senseBrandApp.readerOld.home.createLabel">
+            Create new Reader Old
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'senseBrandApp.readerOld.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="readerOlds">
+        <table class="table table-striped">
+            <thead>
+            <tr>
+            <th><span jhiTranslate="global.field.id">ID</span></th>
+            <th><span jhiTranslate="senseBrandApp.readerOld.imageFile">Image File</span></th>
+            <th><span jhiTranslate="senseBrandApp.readerOld.textFile">Text File</span></th>
+            <th><span jhiTranslate="senseBrandApp.readerOld.blobFile">Blob File</span></th>
+            <th><span jhiTranslate="senseBrandApp.readerOld.localTime">Local Time</span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let readerOld of readerOlds ;trackBy: trackId">
+                <td><a [routerLink]="['../reader-old', readerOld.id ]">{{readerOld.id}}</a></td>
+                <td>
+                    <a *ngIf="readerOld.imageFile" (click)="openFile(readerOld.imageFileContentType, readerOld.imageFile)">
+                        <img [src]="'data:' + readerOld.imageFileContentType + ';base64,' + readerOld.imageFile" style="max-height: 30px;" alt="readerOld image"/>
+                    </a>
+                    <span *ngIf="readerOld.imageFile">{{readerOld.imageFileContentType}}, {{byteSize(readerOld.imageFile)}}</span>
+                </td>
+                <td>{{readerOld.textFile}}</td>
+                <td>
+                    <a *ngIf="readerOld.blobFile" (click)="openFile(readerOld.blobFileContentType, readerOld.blobFile)" jhiTranslate="entity.action.open">open</a>
+                    <span *ngIf="readerOld.blobFile">{{readerOld.blobFileContentType}}, {{byteSize(readerOld.blobFile)}}</span>
+                </td>
+                <td>{{readerOld.localTime | date:'mediumDate'}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../reader-old', readerOld.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'reader-old/'+ readerOld.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'reader-old/'+ readerOld.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

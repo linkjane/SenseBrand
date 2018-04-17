@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "designer" : {
+            "home": {
+                "title": "Designers",
+                "createLabel": "Create a new Designer",
+                "createOrEditLabel": "Create or edit a Designer",
+                "search": "Search for Designer"
+            },
+            "created": "A new Designer is created with identifier {{ param }}",
+            "updated": "A Designer is updated with identifier {{ param }}",
+            "deleted": "A Designer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Designer {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer"
+            },
+            "name": "Name",
+            "englishName": "English Name",
+            "position": "Position"
+        }
+    }
+}

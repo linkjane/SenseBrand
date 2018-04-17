@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [],
+    "fields": [
+        {
+            "isSaveUrl": true,
+            "fieldName": "imageFile",
+            "fieldType": "String",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "isSaveUrl": false,
+            "fieldName": "textFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "isSaveUrl": true,
+            "fieldName": "blobFile",
+            "fieldType": "String",
+            "fieldTypeBlobContent": "any"
+        }
+    ],
+    "changelogDate": "20180416094255",
+    "dto": "no",
+    "service": "no",
+    "entityTableName": "reader",
+    "jpaMetamodelFiltering": false,
+    "pagination": "no"
+}

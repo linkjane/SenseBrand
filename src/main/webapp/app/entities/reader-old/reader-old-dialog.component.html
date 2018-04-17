@@ -1,0 +1,81 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myReaderOldLabel" jhiTranslate="senseBrandApp.readerOld.home.createOrEditLabel">Create or edit a Reader Old</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!readerOld.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="readerOld.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.readerOld.imageFile" for="field_imageFile">Image File</label>
+            <div>
+                <img [src]="'data:' + readerOld.imageFileContentType + ';base64,' + readerOld.imageFile" style="max-height: 100px;" *ngIf="readerOld.imageFile" alt="readerOld image"/>
+                <div *ngIf="readerOld.imageFile" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{readerOld.imageFileContentType}}, {{byteSize(readerOld.imageFile)}}</span>
+                    <button type="button" (click)="clearInputImage('imageFile', 'imageFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_imageFile" (change)="setFileData($event, readerOld, 'imageFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="imageFile" id="field_imageFile"
+                [(ngModel)]="readerOld.imageFile" />
+            <input type="hidden" class="form-control" name="imageFileContentType" id="field_imageFileContentType"
+                [(ngModel)]="readerOld.imageFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.readerOld.textFile" for="field_textFile">Text File</label>
+            <textarea class="form-control" name="textFile" id="field_textFile"
+                [(ngModel)]="readerOld.textFile" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.readerOld.blobFile" for="field_blobFile">Blob File</label>
+            <div>
+                <div *ngIf="readerOld.blobFile" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(readerOld.blobFileContentType, readerOld.blobFile)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{readerOld.blobFileContentType}}, {{byteSize(readerOld.blobFile)}}</span>
+                    <button type="button" (click)="readerOld.blobFile=null;readerOld.blobFileContentType=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_blobFile" (change)="setFileData($event, readerOld, 'blobFile', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="blobFile" id="field_blobFile"
+                [(ngModel)]="readerOld.blobFile" required/>
+            <input type="hidden" class="form-control" name="blobFileContentType" id="field_blobFileContentType"
+                [(ngModel)]="readerOld.blobFileContentType" />
+            <div [hidden]="!(editForm.controls.blobFile?.dirty && editForm.controls.blobFile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.blobFile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.readerOld.localTime" for="field_localTime">Local Time</label>
+            <div class="input-group">
+                <input id="field_localTime" type="text" class="form-control" name="localTime" ngbDatepicker  #localTimeDp="ngbDatepicker" [(ngModel)]="readerOld.localTime"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="localTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

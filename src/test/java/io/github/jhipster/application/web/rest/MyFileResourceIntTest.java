@@ -20,6 +20,7 @@ import org.springframework.test.context.junit4.SpringRunner;
 import org.springframework.test.web.servlet.MockMvc;
 import org.springframework.test.web.servlet.setup.MockMvcBuilders;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.util.Base64Utils;
 
 import javax.persistence.EntityManager;
 import java.util.List;
@@ -44,6 +45,17 @@ public class MyFileResourceIntTest {
 
     private static final String DEFAULT_MY_FILE = "AAAAAAAAAA";
     private static final String UPDATED_MY_FILE = "BBBBBBBBBB";
+
+    private static final byte[] DEFAULT_IMAGE_EXAMPLE = TestUtil.createByteArray(1, "0");
+    private static final byte[] UPDATED_IMAGE_EXAMPLE = TestUtil.createByteArray(2, "1");
+    private static final String DEFAULT_IMAGE_EXAMPLE_CONTENT_TYPE = "image/jpg";
+    private static final String UPDATED_IMAGE_EXAMPLE_CONTENT_TYPE = "image/png";
+
+    private static final String DEFAULT_TEST_EXAMPLE = "AAAAAAAAAA";
+    private static final String UPDATED_TEST_EXAMPLE = "BBBBBBBBBB";
+
+    private static final String DEFAULT_TEXT_FILE = "AAAAAAAAAA";
+    private static final String UPDATED_TEXT_FILE = "BBBBBBBBBB";
 
     @Autowired
     private MyFileRepository myFileRepository;
@@ -87,7 +99,11 @@ public class MyFileResourceIntTest {
     public static MyFile createEntity(EntityManager em) {
         MyFile myFile = new MyFile()
             .filename(DEFAULT_FILENAME)
-            .myFile(DEFAULT_MY_FILE);
+            .myFile(DEFAULT_MY_FILE)
+            .imageExample(DEFAULT_IMAGE_EXAMPLE)
+            .imageExampleContentType(DEFAULT_IMAGE_EXAMPLE_CONTENT_TYPE)
+            .testExample(DEFAULT_TEST_EXAMPLE)
+            .textFile(DEFAULT_TEXT_FILE);
         return myFile;
     }
 
@@ -114,6 +130,10 @@ public class MyFileResourceIntTest {
         MyFile testMyFile = myFileList.get(myFileList.size() - 1);
         assertThat(testMyFile.getFilename()).isEqualTo(DEFAULT_FILENAME);
         assertThat(testMyFile.getMyFile()).isEqualTo(DEFAULT_MY_FILE);
+        assertThat(testMyFile.getImageExample()).isEqualTo(DEFAULT_IMAGE_EXAMPLE);
+        assertThat(testMyFile.getImageExampleContentType()).isEqualTo(DEFAULT_IMAGE_EXAMPLE_CONTENT_TYPE);
+        assertThat(testMyFile.getTestExample()).isEqualTo(DEFAULT_TEST_EXAMPLE);
+        assertThat(testMyFile.getTextFile()).isEqualTo(DEFAULT_TEXT_FILE);
 
         // Validate the MyFile in Elasticsearch
         MyFile myFileEs = myFileSearchRepository.findOne(testMyFile.getId());
@@ -159,6 +179,24 @@ public class MyFileResourceIntTest {
 
     @Test
     @Transactional
+    public void checkTextFileIsRequired() throws Exception {
+        int databaseSizeBeforeTest = myFileRepository.findAll().size();
+        // set the field null
+        myFile.setTextFile(null);
+
+        // Create the MyFile, which fails.
+
+        restMyFileMockMvc.perform(post("/api/my-files")
+            .contentType(TestUtil.APPLICATION_JSON_UTF8)
+            .content(TestUtil.convertObjectToJsonBytes(myFile)))
+            .andExpect(status().isBadRequest());
+
+        List<MyFile> myFileList = myFileRepository.findAll();
+        assertThat(myFileList).hasSize(databaseSizeBeforeTest);
+    }
+
+    @Test
+    @Transactional
     public void getAllMyFiles() throws Exception {
         // Initialize the database
         myFileRepository.saveAndFlush(myFile);
@@ -169,7 +207,11 @@ public class MyFileResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(myFile.getId().intValue())))
             .andExpect(jsonPath("$.[*].filename").value(hasItem(DEFAULT_FILENAME.toString())))
-            .andExpect(jsonPath("$.[*].myFile").value(hasItem(DEFAULT_MY_FILE.toString())));
+            .andExpect(jsonPath("$.[*].myFile").value(hasItem(DEFAULT_MY_FILE.toString())))
+            .andExpect(jsonPath("$.[*].imageExampleContentType").value(hasItem(DEFAULT_IMAGE_EXAMPLE_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].imageExample").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE_EXAMPLE))))
+            .andExpect(jsonPath("$.[*].testExample").value(hasItem(DEFAULT_TEST_EXAMPLE.toString())))
+            .andExpect(jsonPath("$.[*].textFile").value(hasItem(DEFAULT_TEXT_FILE.toString())));
     }
 
     @Test
@@ -184,7 +226,11 @@ public class MyFileResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.id").value(myFile.getId().intValue()))
             .andExpect(jsonPath("$.filename").value(DEFAULT_FILENAME.toString()))
-            .andExpect(jsonPath("$.myFile").value(DEFAULT_MY_FILE.toString()));
+            .andExpect(jsonPath("$.myFile").value(DEFAULT_MY_FILE.toString()))
+            .andExpect(jsonPath("$.imageExampleContentType").value(DEFAULT_IMAGE_EXAMPLE_CONTENT_TYPE))
+            .andExpect(jsonPath("$.imageExample").value(Base64Utils.encodeToString(DEFAULT_IMAGE_EXAMPLE)))
+            .andExpect(jsonPath("$.testExample").value(DEFAULT_TEST_EXAMPLE.toString()))
+            .andExpect(jsonPath("$.textFile").value(DEFAULT_TEXT_FILE.toString()));
     }
 
     @Test
@@ -209,7 +255,11 @@ public class MyFileResourceIntTest {
         em.detach(updatedMyFile);
         updatedMyFile
             .filename(UPDATED_FILENAME)
-            .myFile(UPDATED_MY_FILE);
+            .myFile(UPDATED_MY_FILE)
+            .imageExample(UPDATED_IMAGE_EXAMPLE)
+            .imageExampleContentType(UPDATED_IMAGE_EXAMPLE_CONTENT_TYPE)
+            .testExample(UPDATED_TEST_EXAMPLE)
+            .textFile(UPDATED_TEXT_FILE);
 
         restMyFileMockMvc.perform(put("/api/my-files")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -222,6 +272,10 @@ public class MyFileResourceIntTest {
         MyFile testMyFile = myFileList.get(myFileList.size() - 1);
         assertThat(testMyFile.getFilename()).isEqualTo(UPDATED_FILENAME);
         assertThat(testMyFile.getMyFile()).isEqualTo(UPDATED_MY_FILE);
+        assertThat(testMyFile.getImageExample()).isEqualTo(UPDATED_IMAGE_EXAMPLE);
+        assertThat(testMyFile.getImageExampleContentType()).isEqualTo(UPDATED_IMAGE_EXAMPLE_CONTENT_TYPE);
+        assertThat(testMyFile.getTestExample()).isEqualTo(UPDATED_TEST_EXAMPLE);
+        assertThat(testMyFile.getTextFile()).isEqualTo(UPDATED_TEXT_FILE);
 
         // Validate the MyFile in Elasticsearch
         MyFile myFileEs = myFileSearchRepository.findOne(testMyFile.getId());
@@ -281,7 +335,11 @@ public class MyFileResourceIntTest {
             .andExpect(content().contentType(MediaType.APPLICATION_JSON_UTF8_VALUE))
             .andExpect(jsonPath("$.[*].id").value(hasItem(myFile.getId().intValue())))
             .andExpect(jsonPath("$.[*].filename").value(hasItem(DEFAULT_FILENAME.toString())))
-            .andExpect(jsonPath("$.[*].myFile").value(hasItem(DEFAULT_MY_FILE.toString())));
+            .andExpect(jsonPath("$.[*].myFile").value(hasItem(DEFAULT_MY_FILE.toString())))
+            .andExpect(jsonPath("$.[*].imageExampleContentType").value(hasItem(DEFAULT_IMAGE_EXAMPLE_CONTENT_TYPE)))
+            .andExpect(jsonPath("$.[*].imageExample").value(hasItem(Base64Utils.encodeToString(DEFAULT_IMAGE_EXAMPLE))))
+            .andExpect(jsonPath("$.[*].testExample").value(hasItem(DEFAULT_TEST_EXAMPLE.toString())))
+            .andExpect(jsonPath("$.[*].textFile").value(hasItem(DEFAULT_TEXT_FILE.toString())));
     }
 
     @Test

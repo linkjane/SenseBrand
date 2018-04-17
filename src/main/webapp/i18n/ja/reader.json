@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "reader" : {
+            "home": {
+                "title": "Readers",
+                "createLabel": "Reader を追加",
+                "createOrEditLabel": "Readerを追加または編集",
+                "search": "Search for Reader"
+            },
+            "created": "A new Reader is created with identifier {{ param }}",
+            "updated": "A Reader is updated with identifier {{ param }}",
+            "deleted": "A Reader is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Reader {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Reader"
+            },
+            "imageFile": "Image File",
+            "textFile": "Text File",
+            "blobFile": "Blob File"
+        }
+    }
+}

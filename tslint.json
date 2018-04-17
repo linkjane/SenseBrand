@@ -10,16 +10,11 @@
         ],
         "curly": true,
         "eofline": true,
-        "forin": true,
         "indent": [
             true,
             "spaces"
         ],
         "label-position": true,
-        "max-line-length": [
-            true,
-            180
-        ],
         "member-access": false,
         "member-ordering": [
             true,
@@ -52,10 +47,8 @@
         "object-literal-sort-keys": false,
         "one-line": [
             true,
-            "check-open-brace",
             "check-catch",
-            "check-else",
-            "check-whitespace"
+            "check-else"
         ],
         "quotemark": [
             true,

@@ -1,0 +1,29 @@
+
+{
+    "senseBrandApp": {
+        "test1" : {
+            "home": {
+                "title": "Test 1 S",
+                "createLabel": "Создать новый Test 1",
+                "createOrEditLabel": "Создать или отредактировать Test 1",
+                "search": "Найти Test 1"
+            },
+            "created": "Новый Test 1 создан с идентификатором {{ param }}",
+            "updated": "Test 1 обновлен с идентификатором {{ param }}",
+            "deleted": "Test 1 удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Test 1 {{ id }}?"
+            },
+            "detail": {
+                "title": "Test 1"
+            },
+            "test": "Test",
+            "n": "N",
+            "sdf": "Sdf",
+            "imageFile": "Image File",
+            "blobFile": "Blob File",
+            "textFile": "Text File",
+            "textFileTest": "Text File Test"
+        }
+    }
+}

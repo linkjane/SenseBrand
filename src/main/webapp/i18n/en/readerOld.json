@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "readerOld" : {
+            "home": {
+                "title": "Reader Olds",
+                "createLabel": "Create a new Reader Old",
+                "createOrEditLabel": "Create or edit a Reader Old",
+                "search": "Search for Reader Old"
+            },
+            "created": "A new Reader Old is created with identifier {{ param }}",
+            "updated": "A Reader Old is updated with identifier {{ param }}",
+            "deleted": "A Reader Old is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Reader Old {{ id }}?"
+            },
+            "detail": {
+                "title": "Reader Old"
+            },
+            "imageFile": "Image File",
+            "textFile": "Text File",
+            "blobFile": "Blob File",
+            "localTime": "Local Time"
+        }
+    }
+}

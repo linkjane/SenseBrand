@@ -41,7 +41,6 @@ export class MyFileDialogComponent implements OnInit {
     }
 
     setFileData(event, entity, field, isImage) {
-        this.myFile.imageFile = event.target;
         this.dataUtils.setFileData(event, entity, field, isImage);
     }
 

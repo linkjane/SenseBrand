@@ -5,11 +5,10 @@ export class MyFile implements BaseEntity {
         public id?: number,
         public filename?: string,
         public myFile?: string,
-        public fileUrl?: string,
         public imageExampleContentType?: string,
         public imageExample?: any,
         public testExample?: any,
-        public imageFile?: any
+        public textFile?: any,
     ) {
     }
 }

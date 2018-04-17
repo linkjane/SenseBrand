@@ -20,7 +20,8 @@
             "filename": "Filename",
             "myFile": "My File",
             "imageExample": "Image Example",
-            "testExample": "Test Example"
+            "testExample": "Test Example",
+            "textFile": "Text File"
         }
     }
 }

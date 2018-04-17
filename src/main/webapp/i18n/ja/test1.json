@@ -1,0 +1,29 @@
+
+{
+    "senseBrandApp": {
+        "test1" : {
+            "home": {
+                "title": "Test1S",
+                "createLabel": "Test 1 を追加",
+                "createOrEditLabel": "Test 1を追加または編集",
+                "search": "Search for Test 1"
+            },
+            "created": "A new Test 1 is created with identifier {{ param }}",
+            "updated": "A Test 1 is updated with identifier {{ param }}",
+            "deleted": "A Test 1 is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Test 1 {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Test 1"
+            },
+            "test": "Test",
+            "n": "N",
+            "sdf": "Sdf",
+            "imageFile": "Image File",
+            "blobFile": "Blob File",
+            "textFile": "Text File",
+            "textFileTest": "Text File Test"
+        }
+    }
+}

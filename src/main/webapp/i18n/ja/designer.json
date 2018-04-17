@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "designer" : {
+            "home": {
+                "title": "Designers",
+                "createLabel": "Designer を追加",
+                "createOrEditLabel": "Designerを追加または編集",
+                "search": "Search for Designer"
+            },
+            "created": "A new Designer is created with identifier {{ param }}",
+            "updated": "A Designer is updated with identifier {{ param }}",
+            "deleted": "A Designer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer"
+            },
+            "name": "Name",
+            "englishName": "English Name",
+            "position": "Position"
+        }
+    }
+}

@@ -10,6 +10,13 @@
     <include file="config/liquibase/changelog/20180409135919_added_entity_Driver.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180410144837_added_entity_MyFile.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180412094000_added_entity_Person.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416074419_added_entity_Reader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416083924_added_entity_Reader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416085918_added_entity_Reader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416094255_added_entity_Reader.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416095141_added_entity_ReaderOld.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180416114400_added_entity_Test1.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180417094529_added_entity_Designer.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180409130608_added_entity_constraints_Car.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->

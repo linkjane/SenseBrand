@@ -59,8 +59,6 @@ public class MyFileResource {
     @PostMapping("/my-files")
     @Timed
     public ResponseEntity<MyFile> createMyFile(@Valid @RequestBody MyFile myFile) throws URISyntaxException {
-
-
         log.debug("REST request to save MyFile : {}", myFile);
         if (myFile.getId() != null) {
             throw new BadRequestAlertException("A new myFile cannot already have an ID", ENTITY_NAME, "idexists");
@@ -84,8 +82,6 @@ public class MyFileResource {
     @PutMapping("/my-files")
     @Timed
     public ResponseEntity<MyFile> updateMyFile(@Valid @RequestBody MyFile myFile) throws URISyntaxException {
-
-
         log.debug("REST request to update MyFile : {}", myFile);
         if (myFile.getId() == null) {
             return createMyFile(myFile);

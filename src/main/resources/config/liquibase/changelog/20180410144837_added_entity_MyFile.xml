@@ -30,6 +30,21 @@
                 <constraints nullable="true" />
             </column>
 
+            <column name="image_example" type="longblob">
+                <constraints nullable="true" />
+            </column>
+            <column name="image_example_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="test_example" type="clob">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="text_file" type="clob">
+                <constraints nullable="false" />
+            </column>
+
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
         </createTable>
         

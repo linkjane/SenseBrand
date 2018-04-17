@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "readerOld" : {
+            "home": {
+                "title": "Reader Olds",
+                "createLabel": "创建新 Reader Old",
+                "createOrEditLabel": "创建或编辑 Reader Old",
+                "search": "查找 Reader Old"
+            },
+            "created": "Reader Old {{ param }} 创建成功",
+            "updated": "Reader Old {{ param }} 更新成功",
+            "deleted": "Reader Old {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Reader Old {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Reader Old"
+            },
+            "imageFile": "Image File",
+            "textFile": "Text File",
+            "blobFile": "Blob File",
+            "localTime": "Local Time"
+        }
+    }
+}

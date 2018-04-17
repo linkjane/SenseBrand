@@ -34,6 +34,7 @@
             <th jhiSortBy="myFile"><span jhiTranslate="senseBrandApp.myFile.myFile">My File</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="imageExample"><span jhiTranslate="senseBrandApp.myFile.imageExample">Image Example</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="testExample"><span jhiTranslate="senseBrandApp.myFile.testExample">Test Example</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="textFile"><span jhiTranslate="senseBrandApp.myFile.textFile">Text File</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
             </thead>
@@ -43,17 +44,13 @@
                 <td>{{myFile.filename}}</td>
                 <td>{{myFile.myFile}}</td>
                 <td>
-                    <a *ngIf="myFile.imageExample; else fileUrlBlock" (click)="openFile(myFile.imageExampleContentType, myFile.imageExample)">
+                    <a *ngIf="myFile.imageExample" (click)="openFile(myFile.imageExampleContentType, myFile.imageExample)">
                         <img [src]="'data:' + myFile.imageExampleContentType + ';base64,' + myFile.imageExample" style="max-height: 30px;" alt="myFile image"/>
                     </a>
-                    <ng-template #fileUrlBlock>
-                        <a (click)="openFile(myFile.imageExampleContentType, myFile.imageExample)">
-                            <img [src]="myFile.fileUrl" style="max-height: 100px;" *ngIf="myFile.fileUrl" alt="myFile image"/>
-                        </a>
-                    </ng-template>
                     <span *ngIf="myFile.imageExample">{{myFile.imageExampleContentType}}, {{byteSize(myFile.imageExample)}}</span>
                 </td>
                 <td>{{myFile.testExample}}</td>
+                <td>{{myFile.textFile}}</td>
                 <td class="text-right">
                     <div class="btn-group flex-btn-group-container">
                         <button type="submit"

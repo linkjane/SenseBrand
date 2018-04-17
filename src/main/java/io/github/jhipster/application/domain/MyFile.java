@@ -32,16 +32,21 @@ public class MyFile implements Serializable {
     @Column(name = "my_file")
     private String myFile;
 
-    @Column(name = "file_url")
-    private String fileUrl;
+    @Lob
+    @Column(name = "image_example")
+    private byte[] imageExample;
 
-    public String getFileUrl() {
-        return fileUrl;
-    }
+    @Column(name = "image_example_content_type")
+    private String imageExampleContentType;
 
-    public void setFileUrl(String fileUrl) {
-        this.fileUrl = fileUrl;
-    }
+    @Lob
+    @Column(name = "test_example")
+    private String testExample;
+
+    @NotNull
+    @Lob
+    @Column(name = "text_file", nullable = false)
+    private String textFile;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
     public Long getId() {
@@ -77,6 +82,58 @@ public class MyFile implements Serializable {
     public void setMyFile(String myFile) {
         this.myFile = myFile;
     }
+
+    public byte[] getImageExample() {
+        return imageExample;
+    }
+
+    public MyFile imageExample(byte[] imageExample) {
+        this.imageExample = imageExample;
+        return this;
+    }
+
+    public void setImageExample(byte[] imageExample) {
+        this.imageExample = imageExample;
+    }
+
+    public String getImageExampleContentType() {
+        return imageExampleContentType;
+    }
+
+    public MyFile imageExampleContentType(String imageExampleContentType) {
+        this.imageExampleContentType = imageExampleContentType;
+        return this;
+    }
+
+    public void setImageExampleContentType(String imageExampleContentType) {
+        this.imageExampleContentType = imageExampleContentType;
+    }
+
+    public String getTestExample() {
+        return testExample;
+    }
+
+    public MyFile testExample(String testExample) {
+        this.testExample = testExample;
+        return this;
+    }
+
+    public void setTestExample(String testExample) {
+        this.testExample = testExample;
+    }
+
+    public String getTextFile() {
+        return textFile;
+    }
+
+    public MyFile textFile(String textFile) {
+        this.textFile = textFile;
+        return this;
+    }
+
+    public void setTextFile(String textFile) {
+        this.textFile = textFile;
+    }
     // jhipster-needle-entity-add-getters-setters - JHipster will add getters and setters here, do not remove
 
     @Override
@@ -105,6 +162,10 @@ public class MyFile implements Serializable {
             "id=" + getId() +
             ", filename='" + getFilename() + "'" +
             ", myFile='" + getMyFile() + "'" +
+            ", imageExample='" + getImageExample() + "'" +
+            ", imageExampleContentType='" + getImageExampleContentType() + "'" +
+            ", testExample='" + getTestExample() + "'" +
+            ", textFile='" + getTextFile() + "'" +
             "}";
     }
 }
