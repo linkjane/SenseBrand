@@ -10,16 +10,11 @@
         ],
         "curly": true,
         "eofline": true,
-        "forin": true,
         "indent": [
             true,
             "spaces"
         ],
         "label-position": true,
-        "max-line-length": [
-            true,
-            180
-        ],
         "member-access": false,
         "member-ordering": [
             true,
@@ -45,7 +40,6 @@
         "no-shadowed-variable": true,
         "no-string-literal": false,
         "no-switch-case-fall-through": true,
-        "no-trailing-whitespace": true,
         "no-unused-expression": true,
         "no-var-keyword": true,
         "no-unused-variable": true,
@@ -54,8 +48,7 @@
             true,
             "check-open-brace",
             "check-catch",
-            "check-else",
-            "check-whitespace"
+            "check-else"
         ],
         "quotemark": [
             true,
