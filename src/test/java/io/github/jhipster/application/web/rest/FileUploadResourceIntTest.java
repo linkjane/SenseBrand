@@ -39,7 +39,7 @@ public class FileUploadResourceIntTest {
     */
     @Test
     public void testDefaultAction() throws Exception {
-        restMockMvc.perform(get("/api/file-upload/default-action"))
+        restMockMvc.perform(get("/api/file-upload/upload"))
             .andExpect(status().isOk());
     }
 
