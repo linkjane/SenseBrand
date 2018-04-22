@@ -27,7 +27,7 @@ install:
   - yarn install
 script:
   - chmod +x mvnw
-  - ./mvnw package
+  - ./mvnw -Pprod package
 #  - ./mvnw clean test
 #  - yarn test
 #  - ./mvnw verify -Pprod -DskipTests
