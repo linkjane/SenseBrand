@@ -47,11 +47,6 @@ public class FileUploadResource {
             saveFileName =  uuidName + '.' + extensionName;
         }
 
-        File dir = new File(dirUrl);
-        if (!dir.exists()) {
-            dir.mkdirs();
-        }
-
         log.warn("扩展名是: {}", extensionName);
 
         //mac环境
