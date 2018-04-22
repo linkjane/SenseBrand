@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaMedia" : {
+            "home": {
+                "title": "Designer Idea Medias",
+                "createLabel": "创建新 Designer Idea Media",
+                "createOrEditLabel": "创建或编辑 Designer Idea Media",
+                "search": "查找 Designer Idea Media"
+            },
+            "created": "Designer Idea Media {{ param }} 创建成功",
+            "updated": "Designer Idea Media {{ param }} 更新成功",
+            "deleted": "Designer Idea Media {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Designer Idea Media {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Designer Idea Media"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "introduction": "Introduction",
+            "mediaFile": "Media File",
+            "designer": "Designer"
+        }
+    }
+}

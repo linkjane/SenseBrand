@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "designerSentiment" : {
+            "home": {
+                "title": "DesignerSentiments",
+                "createLabel": "Designer Sentiment を追加",
+                "createOrEditLabel": "Designer Sentimentを追加または編集",
+                "search": "Search for Designer Sentiment"
+            },
+            "created": "A new Designer Sentiment is created with identifier {{ param }}",
+            "updated": "A Designer Sentiment is updated with identifier {{ param }}",
+            "deleted": "A Designer Sentiment is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer Sentiment {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer Sentiment"
+            },
+            "firstLevelTitle": "First Level Title",
+            "secondLevelTitle": "Second Level Title",
+            "imgFile": "Img File",
+            "designer": "Designer"
+        }
+    }
+}

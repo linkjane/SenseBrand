@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaMedia" : {
+            "home": {
+                "title": "Designer Idea Medias",
+                "createLabel": "Создать новый Designer Idea Media",
+                "createOrEditLabel": "Создать или отредактировать Designer Idea Media",
+                "search": "Найти Designer Idea Media"
+            },
+            "created": "Новый Designer Idea Media создан с идентификатором {{ param }}",
+            "updated": "Designer Idea Media обновлен с идентификатором {{ param }}",
+            "deleted": "Designer Idea Media удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Designer Idea Media {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Idea Media"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "introduction": "Introduction",
+            "mediaFile": "Media File",
+            "designer": "Designer"
+        }
+    }
+}

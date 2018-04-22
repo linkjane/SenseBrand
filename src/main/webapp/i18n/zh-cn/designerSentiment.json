@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "designerSentiment" : {
+            "home": {
+                "title": "Designer Sentiments",
+                "createLabel": "创建新 Designer Sentiment",
+                "createOrEditLabel": "创建或编辑 Designer Sentiment",
+                "search": "查找 Designer Sentiment"
+            },
+            "created": "Designer Sentiment {{ param }} 创建成功",
+            "updated": "Designer Sentiment {{ param }} 更新成功",
+            "deleted": "Designer Sentiment {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Designer Sentiment {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Designer Sentiment"
+            },
+            "firstLevelTitle": "First Level Title",
+            "secondLevelTitle": "Second Level Title",
+            "imgFile": "Img File",
+            "designer": "Designer"
+        }
+    }
+}

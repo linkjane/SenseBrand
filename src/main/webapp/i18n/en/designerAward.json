@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerAward" : {
+            "home": {
+                "title": "Designer Awards",
+                "createLabel": "Create a new Designer Award",
+                "createOrEditLabel": "Create or edit a Designer Award",
+                "search": "Search for Designer Award"
+            },
+            "created": "A new Designer Award is created with identifier {{ param }}",
+            "updated": "A Designer Award is updated with identifier {{ param }}",
+            "deleted": "A Designer Award is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Designer Award {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Award"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "imgFile": "Img File",
+            "detailLink": "Detail Link",
+            "designer": "Designer"
+        }
+    }
+}

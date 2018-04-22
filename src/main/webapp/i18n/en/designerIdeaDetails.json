@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaDetails" : {
+            "home": {
+                "title": "Designer Idea Details",
+                "createLabel": "Create a new Designer Idea Details",
+                "createOrEditLabel": "Create or edit a Designer Idea Details",
+                "search": "Search for Designer Idea Details"
+            },
+            "created": "A new Designer Idea Details is created with identifier {{ param }}",
+            "updated": "A Designer Idea Details is updated with identifier {{ param }}",
+            "deleted": "A Designer Idea Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Designer Idea Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Idea Details"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "secondLevelTitle": "Second Level Title",
+            "introduction": "Introduction",
+            "designer": "Designer"
+        }
+    }
+}

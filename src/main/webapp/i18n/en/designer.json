@@ -1,0 +1,35 @@
+
+{
+    "senseBrandApp": {
+        "designer" : {
+            "home": {
+                "title": "Designers",
+                "createLabel": "Create a new Designer",
+                "createOrEditLabel": "Create or edit a Designer",
+                "search": "Search for Designer"
+            },
+            "created": "A new Designer is created with identifier {{ param }}",
+            "updated": "A Designer is updated with identifier {{ param }}",
+            "deleted": "A Designer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Designer {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer"
+            },
+            "znName": "Zn Name",
+            "enName": "En Name",
+            "profileBackFile": "Profile Back File",
+            "profileThumbnailFile": "Profile Thumbnail File",
+            "position": "Position",
+            "introduction": "Introduction",
+            "isShow": "Is Show",
+            "designerShowImg": "Designer Show Img",
+            "designerSentiment": "Designer Sentiment",
+            "designerAward": "Designer Award",
+            "designerIdeaMedia": "Designer Idea Media",
+            "designerIdeaDetails": "Designer Idea Details",
+            "designerShow": "Designer Show"
+        }
+    }
+}

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity DesignerSentiment.
+    -->
+    <changeSet id="20180422092924-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="designer_id"
+                                 baseTableName="designer_sentiment"
+                                 constraintName="fk_designer_sentiment_designer_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="designer"/>
+
+    </changeSet>
+</databaseChangeLog>

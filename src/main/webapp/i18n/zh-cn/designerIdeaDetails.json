@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaDetails" : {
+            "home": {
+                "title": "Designer Idea Details",
+                "createLabel": "创建新 Designer Idea Details",
+                "createOrEditLabel": "创建或编辑 Designer Idea Details",
+                "search": "查找 Designer Idea Details"
+            },
+            "created": "Designer Idea Details {{ param }} 创建成功",
+            "updated": "Designer Idea Details {{ param }} 更新成功",
+            "deleted": "Designer Idea Details {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Designer Idea Details {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Designer Idea Details"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "secondLevelTitle": "Second Level Title",
+            "introduction": "Introduction",
+            "designer": "Designer"
+        }
+    }
+}

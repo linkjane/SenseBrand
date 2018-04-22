@@ -1,0 +1,39 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "many-to-one",
+            "relationshipValidateRules": "required",
+            "relationshipName": "designer",
+            "otherEntityName": "designer",
+            "otherEntityField": "znName"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "firstLevelTitle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "secondLevelTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "imgFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180422092924",
+    "entityTableName": "designer_sentiment",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

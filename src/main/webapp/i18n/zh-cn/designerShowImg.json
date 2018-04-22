@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "designerShowImg" : {
+            "home": {
+                "title": "Designer Show Imgs",
+                "createLabel": "创建新 Designer Show Img",
+                "createOrEditLabel": "创建或编辑 Designer Show Img",
+                "search": "查找 Designer Show Img"
+            },
+            "created": "Designer Show Img {{ param }} 创建成功",
+            "updated": "Designer Show Img {{ param }} 更新成功",
+            "deleted": "Designer Show Img {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Designer Show Img {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Designer Show Img"
+            },
+            "imgTile": "Img Tile",
+            "imgFile": "Img File",
+            "designer": "Designer"
+        }
+    }
+}

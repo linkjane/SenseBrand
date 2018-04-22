@@ -43,6 +43,17 @@ public class CacheConfiguration {
             cm.createCache(io.github.jhipster.application.domain.Authority.class.getName(), jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.User.class.getName() + ".authorities", jcacheConfiguration);
             cm.createCache(io.github.jhipster.application.domain.SocialUserConnection.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Designer.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Designer.class.getName() + ".designerShowImgs", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Designer.class.getName() + ".designerSentiments", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Designer.class.getName() + ".designerAwards", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.Designer.class.getName() + ".designerIdeaMedias", jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DesignerShow.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DesignerShowImg.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DesignerSentiment.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DesignerAward.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DesignerIdeaDetails.class.getName(), jcacheConfiguration);
+            cm.createCache(io.github.jhipster.application.domain.DesignerIdeaMedia.class.getName(), jcacheConfiguration);
             // jhipster-needle-ehcache-add-entry
         };
     }

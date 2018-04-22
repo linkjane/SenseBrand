@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "designerSentiment" : {
+            "home": {
+                "title": "Designer Sentiments",
+                "createLabel": "Создать новый Designer Sentiment",
+                "createOrEditLabel": "Создать или отредактировать Designer Sentiment",
+                "search": "Найти Designer Sentiment"
+            },
+            "created": "Новый Designer Sentiment создан с идентификатором {{ param }}",
+            "updated": "Designer Sentiment обновлен с идентификатором {{ param }}",
+            "deleted": "Designer Sentiment удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Designer Sentiment {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Sentiment"
+            },
+            "firstLevelTitle": "First Level Title",
+            "secondLevelTitle": "Second Level Title",
+            "imgFile": "Img File",
+            "designer": "Designer"
+        }
+    }
+}

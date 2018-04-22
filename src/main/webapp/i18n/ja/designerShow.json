@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "designerShow" : {
+            "home": {
+                "title": "DesignerShows",
+                "createLabel": "Designer Show を追加",
+                "createOrEditLabel": "Designer Showを追加または編集",
+                "search": "Search for Designer Show"
+            },
+            "created": "A new Designer Show is created with identifier {{ param }}",
+            "updated": "A Designer Show is updated with identifier {{ param }}",
+            "deleted": "A Designer Show is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer Show {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer Show"
+            },
+            "firstLevelTitle": "First Level Title",
+            "secondLevelTitle": "Second Level Title",
+            "introduction": "Introduction",
+            "designer": "Designer"
+        }
+    }
+}

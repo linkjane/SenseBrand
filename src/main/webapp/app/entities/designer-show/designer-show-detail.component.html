@@ -1,0 +1,40 @@
+
+<div *ngIf="designerShow">
+    <h2><span jhiTranslate="senseBrandApp.designerShow.detail.title">Designer Show</span> {{designerShow.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.designerShow.firstLevelTitle">First Level Title</span></dt>
+        <dd>
+            <span>{{designerShow.firstLevelTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerShow.secondLevelTitle">Second Level Title</span></dt>
+        <dd>
+            <span>{{designerShow.secondLevelTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerShow.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{designerShow.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerShow.designer">Designer</span></dt>
+        <dd>
+            <div *ngIf="designerShow.designer">
+                <a [routerLink]="['/designer', designerShow.designer?.id]">{{designerShow.designer?.znName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'designer-show/'+ designerShow.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -1,0 +1,35 @@
+
+{
+    "senseBrandApp": {
+        "designer" : {
+            "home": {
+                "title": "Designers",
+                "createLabel": "Designer を追加",
+                "createOrEditLabel": "Designerを追加または編集",
+                "search": "Search for Designer"
+            },
+            "created": "A new Designer is created with identifier {{ param }}",
+            "updated": "A Designer is updated with identifier {{ param }}",
+            "deleted": "A Designer is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer"
+            },
+            "znName": "Zn Name",
+            "enName": "En Name",
+            "profileBackFile": "Profile Back File",
+            "profileThumbnailFile": "Profile Thumbnail File",
+            "position": "Position",
+            "introduction": "Introduction",
+            "isShow": "Is Show",
+            "designerShowImg": "Designer Show Img",
+            "designerSentiment": "Designer Sentiment",
+            "designerAward": "Designer Award",
+            "designerIdeaMedia": "Designer Idea Media",
+            "designerIdeaDetails": "Designer Idea Details",
+            "designerShow": "Designer Show"
+        }
+    }
+}

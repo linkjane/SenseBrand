@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaDetails" : {
+            "home": {
+                "title": "Designer Idea Details",
+                "createLabel": "Создать новый Designer Idea Details",
+                "createOrEditLabel": "Создать или отредактировать Designer Idea Details",
+                "search": "Найти Designer Idea Details"
+            },
+            "created": "Новый Designer Idea Details создан с идентификатором {{ param }}",
+            "updated": "Designer Idea Details обновлен с идентификатором {{ param }}",
+            "deleted": "Designer Idea Details удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Designer Idea Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Idea Details"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "secondLevelTitle": "Second Level Title",
+            "introduction": "Introduction",
+            "designer": "Designer"
+        }
+    }
+}

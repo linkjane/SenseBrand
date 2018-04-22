@@ -1,0 +1,49 @@
+
+<div *ngIf="designerAward">
+    <h2><span jhiTranslate="senseBrandApp.designerAward.detail.title">Designer Award</span> {{designerAward.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.designerAward.title">Title</span></dt>
+        <dd>
+            <span>{{designerAward.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerAward.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{designerAward.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerAward.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="designerAward.imgFileUrl">
+                <a (click)="openFile(designerAward.imgFileContentType, designerAward.imgFileUrl)">
+                    <img [src]="designerAward.imgFileUrl" style="max-width: 100%;" alt="designerAward image"/>
+                </a>
+                {{designerAward.imgFileContentType}} {{byteSize(designerAward.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerAward.detailLink">Detail Link</span></dt>
+        <dd>
+            <span>{{designerAward.detailLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerAward.designer">Designer</span></dt>
+        <dd>
+            <div *ngIf="designerAward.designer">
+                <a [routerLink]="['/designer', designerAward.designer?.id]">{{designerAward.designer?.znName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'designer-award/'+ designerAward.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

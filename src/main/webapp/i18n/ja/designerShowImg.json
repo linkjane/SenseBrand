@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "designerShowImg" : {
+            "home": {
+                "title": "DesignerShowImgs",
+                "createLabel": "Designer Show Img を追加",
+                "createOrEditLabel": "Designer Show Imgを追加または編集",
+                "search": "Search for Designer Show Img"
+            },
+            "created": "A new Designer Show Img is created with identifier {{ param }}",
+            "updated": "A Designer Show Img is updated with identifier {{ param }}",
+            "deleted": "A Designer Show Img is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer Show Img {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer Show Img"
+            },
+            "imgTile": "Img Tile",
+            "imgFile": "Img File",
+            "designer": "Designer"
+        }
+    }
+}

@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaMedia" : {
+            "home": {
+                "title": "DesignerIdeaMedias",
+                "createLabel": "Designer Idea Media を追加",
+                "createOrEditLabel": "Designer Idea Mediaを追加または編集",
+                "search": "Search for Designer Idea Media"
+            },
+            "created": "A new Designer Idea Media is created with identifier {{ param }}",
+            "updated": "A Designer Idea Media is updated with identifier {{ param }}",
+            "deleted": "A Designer Idea Media is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer Idea Media {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer Idea Media"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "introduction": "Introduction",
+            "mediaFile": "Media File",
+            "designer": "Designer"
+        }
+    }
+}

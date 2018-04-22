@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaDetails" : {
+            "home": {
+                "title": "DesignerIdeaDetails",
+                "createLabel": "Designer Idea Details を追加",
+                "createOrEditLabel": "Designer Idea Detailsを追加または編集",
+                "search": "Search for Designer Idea Details"
+            },
+            "created": "A new Designer Idea Details is created with identifier {{ param }}",
+            "updated": "A Designer Idea Details is updated with identifier {{ param }}",
+            "deleted": "A Designer Idea Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Designer Idea Details {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Designer Idea Details"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "secondLevelTitle": "Second Level Title",
+            "introduction": "Introduction",
+            "designer": "Designer"
+        }
+    }
+}

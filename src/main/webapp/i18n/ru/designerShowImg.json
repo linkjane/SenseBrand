@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "designerShowImg" : {
+            "home": {
+                "title": "Designer Show Imgs",
+                "createLabel": "Создать новый Designer Show Img",
+                "createOrEditLabel": "Создать или отредактировать Designer Show Img",
+                "search": "Найти Designer Show Img"
+            },
+            "created": "Новый Designer Show Img создан с идентификатором {{ param }}",
+            "updated": "Designer Show Img обновлен с идентификатором {{ param }}",
+            "deleted": "Designer Show Img удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Designer Show Img {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Show Img"
+            },
+            "imgTile": "Img Tile",
+            "imgFile": "Img File",
+            "designer": "Designer"
+        }
+    }
+}

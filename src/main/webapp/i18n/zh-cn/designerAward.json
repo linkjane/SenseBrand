@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerAward" : {
+            "home": {
+                "title": "Designer Awards",
+                "createLabel": "创建新 Designer Award",
+                "createOrEditLabel": "创建或编辑 Designer Award",
+                "search": "查找 Designer Award"
+            },
+            "created": "Designer Award {{ param }} 创建成功",
+            "updated": "Designer Award {{ param }} 更新成功",
+            "deleted": "Designer Award {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Designer Award {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Designer Award"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "imgFile": "Img File",
+            "detailLink": "Detail Link",
+            "designer": "Designer"
+        }
+    }
+}

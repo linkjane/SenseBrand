@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "designerIdeaMedia" : {
+            "home": {
+                "title": "Designer Idea Medias",
+                "createLabel": "Create a new Designer Idea Media",
+                "createOrEditLabel": "Create or edit a Designer Idea Media",
+                "search": "Search for Designer Idea Media"
+            },
+            "created": "A new Designer Idea Media is created with identifier {{ param }}",
+            "updated": "A Designer Idea Media is updated with identifier {{ param }}",
+            "deleted": "A Designer Idea Media is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Designer Idea Media {{ id }}?"
+            },
+            "detail": {
+                "title": "Designer Idea Media"
+            },
+            "title": "Title",
+            "shareTime": "Share Time",
+            "introduction": "Introduction",
+            "mediaFile": "Media File",
+            "designer": "Designer"
+        }
+    }
+}
