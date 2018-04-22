@@ -65,6 +65,8 @@ public class FileUploadResource {
             upload = new File("D:/nginxwww/static/upload/" + dirUrl);
         } else if (sysName.toLowerCase().contains("mac")) {
             upload = new File("/usr/local/var/www/static/upload", dirUrl);
+        } else {
+            upload = new File(upload.getAbsolutePath(), dirUrl);
         }
         if (!upload.exists()) {
             upload.mkdirs();

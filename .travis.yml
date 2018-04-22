@@ -39,7 +39,7 @@ after_success:
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
 - scp $TRAVIS_BUILD_DIR/target/sense-brand-0.0.1-SNAPSHOT.war root@bytecode.top:/root/web-services/sensebrand.war;
-- ssh root@bytecode.top "/root/web/start.sh"
+- ssh root@bytecode.top "/root/web-services/start.sh"
 branches:
   only:
   - master
