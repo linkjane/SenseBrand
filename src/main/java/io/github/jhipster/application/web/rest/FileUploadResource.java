@@ -2,6 +2,7 @@ package io.github.jhipster.application.web.rest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -22,6 +23,9 @@ import java.util.UUID;
 public class FileUploadResource {
 
     private final Logger log = LoggerFactory.getLogger(FileUploadResource.class);
+
+    @Value("${application.file-upload-url}")
+    private String fileUploadUrl;
 
     @PostMapping(value = "/upload", consumes = "multipart/form-data")
     public ResponseEntity<Map<String, Object>> upload(@RequestPart("file") MultipartFile file, @RequestPart("key") String key) throws IOException {
@@ -49,9 +53,9 @@ public class FileUploadResource {
 
         log.warn("扩展名是: {}", extensionName);
 
-        //mac环境
-        File upload = new File("/var/www/static/upload");
-
+        //linux环境
+        File upload = new File(this.fileUploadUrl);
+        log.warn("读取配置文件的fileupload url 是: {}", upload);
 
         log.warn("操作系统是: {}", sysName);
         if (sysName.toLowerCase().contains("windows")){
