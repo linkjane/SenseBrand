@@ -61,8 +61,8 @@ module.exports = webpackMerge(commonConfig({ env: ENV }), {
     plugins: [
         new webpack.DefinePlugin({
             'process.env': {
-                STATIC_SERVER_URL: `http://localhost:443`,
-                FILE_UPLOAD_URL: '/api/file-upload/upload'
+                STATIC_SERVER_URL: `'http://localhost:443'`,
+                FILE_UPLOAD_URL: `'/api/file-upload/upload'`
             }
         }),
         extractSASS,
