@@ -32,16 +32,18 @@ script:
 #  - yarn test
 #  - ./mvnw verify -Pprod -DskipTests
 addons:
-  ssh_known_hosts: 123.56.232.6
+  ssh_known_hosts: bytecode.top
 after_success:
 - openssl aes-256-cbc -K $encrypted_d112fb8aa38d_key -iv $encrypted_d112fb8aa38d_iv -in deploy_rsa.enc -out /tmp/deploy_rsa -d
 - eval "$(ssh-agent -s)"
 - chmod 600 /tmp/deploy_rsa
 - ssh-add /tmp/deploy_rsa
-- scp $TRAVIS_BUILD_DIR/target/sense-brand-0.0.1-SNAPSHOT.war employ@123.56.232.6:/sensebrand.war;
+- scp $TRAVIS_BUILD_DIR/target/sense-brand-0.0.1-SNAPSHOT.war root@bytecode.top:/root/web-services/sensebrand.war;
+- ssh root@bytecode "/root/web/start.sh"
 branches:
   only:
   - master
+  - dev
 notifications:
   webhooks:
     on_success: change  # options: [always|never|change] default: always
