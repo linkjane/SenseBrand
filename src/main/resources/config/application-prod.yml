@@ -96,13 +96,6 @@ server:
 # ===================================================================
 
 jhipster:
-     cors:
-        allowed-origins: "*"
-        allowed-methods: "*"
-        allowed-headers: "*"
-        exposed-headers: "Authorization,Link,X-Total-Count"
-        allow-credentials: true
-        max-age: 1800
     http:
         version: V_1_1 # To use HTTP/2 you will need SSL support (see above the "server.ssl" configuration)
         cache: # Used by the CachingHttpHeadersFilter
@@ -136,7 +129,7 @@ jhipster:
             report-frequency: 60 # in seconds
     logging:
         logstash: # Forward logs to logstash over a socket, used by LoggingConfiguration
-            enabled: true
+            enabled: false
             host: localhost
             port: 5000
             queue-size: 512
