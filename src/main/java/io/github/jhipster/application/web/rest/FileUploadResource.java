@@ -56,7 +56,8 @@ public class FileUploadResource {
         log.warn("扩展名是: {}", extensionName);
 
         //linux环境
-        String fileUploadUrl = this.applicationProperties.getFileUploadUrl() == null ? "" : this.applicationProperties.getFileUploadUrl();
+//        String fileUploadUrl = this.applicationProperties.getFileUploadUrl() == null ? "" : this.applicationProperties.getFileUploadUrl();
+        String fileUploadUrl = "/root/static-server/static/upload/";
         File upload = new File(fileUploadUrl);
         log.warn("读取配置文件的fileupload url 是: {}", upload);
 
@@ -64,7 +65,7 @@ public class FileUploadResource {
         if (sysName.toLowerCase().contains("windows")){
             upload = new File("D:/nginxwww/static/upload/" + dirUrl);
         } else if (sysName.toLowerCase().contains("mac")) {
-            upload = new File("/usr/local/var/www/static/upload", dirUrl);
+            upload = new File("/usr/local/var/www/static/upload/", dirUrl);
         } else {
             upload = new File(upload.getAbsolutePath(), dirUrl);
         }
