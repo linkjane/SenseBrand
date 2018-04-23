@@ -72,6 +72,7 @@ public class FileUploadResource {
             upload.mkdirs();
         }
         File destFile = new File(upload.getAbsolutePath() + "/" + saveFileName);
+        destFile.deleteOnExit();
         file.transferTo(destFile);
 
         HashMap<String, Object> map = new HashMap<>();
