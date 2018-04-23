@@ -56,8 +56,7 @@ public class FileUploadResource {
         log.warn("扩展名是: {}", extensionName);
 
         //linux环境
-//        String fileUploadUrl = this.applicationProperties.getFileUploadUrl() == null ? "" : this.applicationProperties.getFileUploadUrl();
-        String fileUploadUrl = "/root/static-server/static/upload/";
+        String fileUploadUrl = this.applicationProperties.getFileUploadUrl() == null ? "" : this.applicationProperties.getFileUploadUrl();
         File upload = new File(fileUploadUrl);
         log.warn("读取配置文件的fileupload url 是: {}", upload);
 
@@ -73,7 +72,6 @@ public class FileUploadResource {
             upload.mkdirs();
         }
         File destFile = new File(upload.getAbsolutePath() + "/" + saveFileName);
-        destFile.deleteOnExit();
         file.transferTo(destFile);
 
         HashMap<String, Object> map = new HashMap<>();
