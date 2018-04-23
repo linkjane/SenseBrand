@@ -56,8 +56,8 @@ public class FileUploadResource {
         log.warn("扩展名是: {}", extensionName);
 
         //linux环境
-
-        File upload = new File(this.applicationProperties.getFileUploadUrl());
+        String fileUploadUrl = this.applicationProperties.getFileUploadUrl() == null ? "" : this.applicationProperties.getFileUploadUrl();
+        File upload = new File(fileUploadUrl);
         log.warn("读取配置文件的fileupload url 是: {}", upload);
 
         log.warn("操作系统是: {}", sysName);
