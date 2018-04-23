@@ -7,6 +7,8 @@ import { SERVER_API_URL, FILE_UPLOAD_URL, STATIC_SERVER_URL } from '../../app.co
 import { Designer } from './designer.model';
 import { createRequestOption } from '../../shared';
 
+import { NgxSpinnerService } from 'ngx-spinner';
+
 export type EntityResponseType = HttpResponse<Designer>;
 
 class FileCallbackModel {
@@ -24,7 +26,7 @@ export class DesignerService {
     private fileUploadUrl = FILE_UPLOAD_URL;
     private resourceUrl =  SERVER_API_URL + 'api/designers';
     private resourceSearchUrl = SERVER_API_URL + 'api/_search/designers';
-    constructor(private http: HttpClient) { }
+    constructor(private http: HttpClient, private spinner: NgxSpinnerService) { }
 
     create(designer: Designer): Observable<EntityResponseType> {
         const copy = this.convert(designer);
@@ -45,6 +47,8 @@ export class DesignerService {
             }
 
         }
+        console.error(this.spinner);
+        this.spinner.show();
         if (filePostArr.length <= 0) {
             return this.http.post<Designer>(this.resourceUrl, copy, { observe: 'response' })
                 .map((res: EntityResponseType) => this.convertResponse(res));
@@ -63,6 +67,7 @@ export class DesignerService {
 
         const filePostArr = [];
         let idx = 0;
+        // 匹配url
         const reg = /^(?:([A-Za-z]+):)?(\/{0,3})([0-9.\-A-Za-z]+)(?::(\d+))?(?:\/([^?#]*))?(?:\?([^#]*))?(?:#(.*))?$/;
         for (const key in copy) {
             const entityFileName = key.substring(0, key.indexOf('FileSource'));
@@ -82,6 +87,8 @@ export class DesignerService {
                 copy[key] = exec[5];
             }
         }
+        console.error(this.spinner);
+        this.spinner.show();
         if (filePostArr.length <= 0) {
             return this.http.put<Designer>(this.resourceUrl, copy, { observe: 'response' })
                 .map((res: EntityResponseType) => this.convertResponse(res));
@@ -118,6 +125,7 @@ export class DesignerService {
 
     private convertResponse(res: EntityResponseType): EntityResponseType {
         const body: Designer = this.convertItemFromServer(res.body);
+        this.spinner.hide();
         return res.clone({body});
     }
 

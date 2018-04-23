@@ -152,4 +152,4 @@ jhipster:
 # ===================================================================
 
 application:
-    file-upload-url: '/usr/share/nginx/html/static/upload'
+    file-upload-url: '/root/static-server/static/upload'
