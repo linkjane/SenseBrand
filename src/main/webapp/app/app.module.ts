@@ -6,12 +6,13 @@ import { HTTP_INTERCEPTORS } from '@angular/common/http';
 import { Ng2Webstorage, LocalStorageService, SessionStorageService  } from 'ngx-webstorage';
 import { JhiEventManager } from 'ng-jhipster';
 
-import { NgxSpinnerModule } from 'ngx-spinner';
+import { NgxSpinnerModule, NgxSpinnerService } from 'ngx-spinner';
 
 import { AuthInterceptor } from './blocks/interceptor/auth.interceptor';
 import { AuthExpiredInterceptor } from './blocks/interceptor/auth-expired.interceptor';
 import { ErrorHandlerInterceptor } from './blocks/interceptor/errorhandler.interceptor';
 import { NotificationInterceptor } from './blocks/interceptor/notification.interceptor';
+import { LoadingInterceptor } from './blocks/interceptor/loading.interceptor';
 import { SenseBrandSharedModule, UserRouteAccessService } from './shared';
 import { SenseBrandAppRoutingModule} from './app-routing.module';
 import { SenseBrandHomeModule } from './home/home.module';
@@ -86,6 +87,14 @@ import {
             multi: true,
             deps: [
                 Injector
+            ]
+        },
+        {
+            provide: HTTP_INTERCEPTORS,
+            useClass: LoadingInterceptor,
+            multi: true,
+            deps: [
+                NgxSpinnerService
             ]
         }
     ],
