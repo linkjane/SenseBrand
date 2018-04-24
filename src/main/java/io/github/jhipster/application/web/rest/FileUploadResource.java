@@ -4,7 +4,6 @@ import io.github.jhipster.application.config.ApplicationProperties;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 import org.springframework.web.multipart.MultipartFile;
@@ -72,7 +71,14 @@ public class FileUploadResource {
             upload.mkdirs();
         }
         File destFile = new File(upload.getAbsolutePath() + "/" + saveFileName);
-        destFile.deleteOnExit();
+        if (destFile.exists()) {
+            log.warn("{} 文件已经存在了", destFile.getAbsolutePath());
+            if (destFile.delete()) {
+                log.warn("删除了原有的文件");
+            } else {
+                log.warn("删除原有文件失败");
+            }
+        }
         file.transferTo(destFile);
 
         HashMap<String, Object> map = new HashMap<>();
