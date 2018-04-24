@@ -46,8 +46,12 @@ branches:
   - dev
 notifications:
   email:
-    - 916969890@qq.com
-    - 1013168652@qq.com
+    recipients:
+      - 916969890@qq.com
+      - 1013168652@qq.com
+    on_success: always # default: change
+    on_failure: always # default: always
+
   webhooks:
     on_success: always  # options: [always|never|change] default: always
     on_failure: always  # options: [always|never|change] default: always
