@@ -55,8 +55,7 @@ public class DesignerAward implements Serializable {
     private String detailLink;
 
 
-    @ManyToOne(optional = false)
-    @NotNull
+    @ManyToOne
     private Designer designer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

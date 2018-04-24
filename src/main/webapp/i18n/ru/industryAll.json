@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "industryAll" : {
+            "home": {
+                "title": "Industry Alls",
+                "createLabel": "Создать новый Industry All",
+                "createOrEditLabel": "Создать или отредактировать Industry All",
+                "search": "Найти Industry All"
+            },
+            "created": "Новый Industry All создан с идентификатором {{ param }}",
+            "updated": "Industry All обновлен с идентификатором {{ param }}",
+            "deleted": "Industry All удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Industry All {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry All"
+            },
+            "name": "Name",
+            "industryFirstClass": "Industry First Class"
+        }
+    }
+}

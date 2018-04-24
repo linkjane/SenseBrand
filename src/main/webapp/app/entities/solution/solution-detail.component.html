@@ -1,0 +1,77 @@
+
+<div *ngIf="solution">
+    <h2><span jhiTranslate="senseBrandApp.solution.detail.title">Solution</span> {{solution.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.solution.title">Title</span></dt>
+        <dd>
+            <span>{{solution.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{solution.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.bannerImgFile">Banner Img File</span></dt>
+        <dd>
+            <div *ngIf="solution.bannerImgFileUrl">
+                <a (click)="openFile(solution.bannerImgFileContentType, solution.bannerImgFileUrl)">
+                    <img [src]="solution.bannerImgFileUrl" style="max-width: 100%;" alt="solution image"/>
+                </a>
+                {{solution.bannerImgFileContentType}} {{byteSize(solution.bannerImgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.bannerIntroduction">Banner Introduction</span></dt>
+        <dd>
+            <span>{{solution.bannerIntroduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.summarizeImgFile">Summarize Img File</span></dt>
+        <dd>
+            <div *ngIf="solution.summarizeImgFileUrl">
+                <a (click)="openFile(solution.summarizeImgFileContentType, solution.summarizeImgFileUrl)">
+                    <img [src]="solution.summarizeImgFileUrl" style="max-width: 100%;" alt="solution image"/>
+                </a>
+                {{solution.summarizeImgFileContentType}} {{byteSize(solution.summarizeImgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.summarizeIntroduction">Summarize Introduction</span></dt>
+        <dd>
+            <span>{{solution.summarizeIntroduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.significanceTitle">Significance Title</span></dt>
+        <dd>
+            <span>{{solution.significanceTitle}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.significanceImgFile">Significance Img File</span></dt>
+        <dd>
+            <div *ngIf="solution.significanceImgFileUrl">
+                <a (click)="openFile(solution.significanceImgFileContentType, solution.significanceImgFileUrl)">
+                    <img [src]="solution.significanceImgFileUrl" style="max-width: 100%;" alt="solution image"/>
+                </a>
+                {{solution.significanceImgFileContentType}} {{byteSize(solution.significanceImgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.significanceIntroduction">Significance Introduction</span></dt>
+        <dd>
+            <span>{{solution.significanceIntroduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solution.detailAnalysisTitle">Detail Analysis Title</span></dt>
+        <dd>
+            <span>{{solution.detailAnalysisTitle}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'solution/'+ solution.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

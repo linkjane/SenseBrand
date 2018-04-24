@@ -1,0 +1,36 @@
+
+{
+    "senseBrandApp": {
+        "brand" : {
+            "home": {
+                "title": "Brands",
+                "createLabel": "Brand を追加",
+                "createOrEditLabel": "Brandを追加または編集",
+                "search": "Search for Brand"
+            },
+            "created": "A new Brand is created with identifier {{ param }}",
+            "updated": "A Brand is updated with identifier {{ param }}",
+            "deleted": "A Brand is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Brand {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Brand"
+            },
+            "title": "Title",
+            "bannerImgFile": "Banner Img File",
+            "profileImgFile": "Profile Img File",
+            "introduction": "Introduction",
+            "logo": "Logo",
+            "establishTime": "Establish Time",
+            "chairman": "Chairman",
+            "phoneNumber": "Phone Number",
+            "officialWebsite": "Official Website",
+            "adPhrase": "Ad Phrase",
+            "brandSub": "Brand Sub",
+            "brandRank": "Brand Rank",
+            "brandRegion": "Brand Region",
+            "industrySecondClass": "Industry Second Class"
+        }
+    }
+}

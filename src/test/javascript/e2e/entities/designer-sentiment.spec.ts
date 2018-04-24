@@ -31,7 +31,7 @@ describe('DesignerSentiment e2e test', () => {
         designerSentimentDialogPage.close();
     });
 
-   /* it('should create and save DesignerSentiments', () => {
+    it('should create and save DesignerSentiments', () => {
         designerSentimentComponentsPage.clickOnCreateButton();
         designerSentimentDialogPage.setFirstLevelTitleInput('firstLevelTitle');
         expect(designerSentimentDialogPage.getFirstLevelTitleInput()).toMatch('firstLevelTitle');
@@ -42,7 +42,7 @@ describe('DesignerSentiment e2e test', () => {
         designerSentimentDialogPage.designerSelectLastOption();
         designerSentimentDialogPage.save();
         expect(designerSentimentDialogPage.getSaveButton().isPresent()).toBeFalsy();
-    });*/
+    });
 
     afterAll(() => {
         navBarPage.autoSignOut();

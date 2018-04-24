@@ -3,7 +3,6 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.SenseBrandApp;
 
 import io.github.jhipster.application.domain.DesignerSentiment;
-import io.github.jhipster.application.domain.Designer;
 import io.github.jhipster.application.repository.DesignerSentimentRepository;
 import io.github.jhipster.application.service.DesignerSentimentService;
 import io.github.jhipster.application.repository.search.DesignerSentimentSearchRepository;
@@ -98,11 +97,6 @@ public class DesignerSentimentResourceIntTest {
             .firstLevelTitle(DEFAULT_FIRST_LEVEL_TITLE)
             .secondLevelTitle(DEFAULT_SECOND_LEVEL_TITLE)
             .imgFile(DEFAULT_IMG_FILE);
-        // Add required entity
-        Designer designer = DesignerResourceIntTest.createEntity(em);
-        em.persist(designer);
-        em.flush();
-        designerSentiment.setDesigner(designer);
         return designerSentiment;
     }
 

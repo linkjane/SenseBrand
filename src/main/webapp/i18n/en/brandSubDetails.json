@@ -1,0 +1,28 @@
+
+{
+    "senseBrandApp": {
+        "brandSubDetails" : {
+            "home": {
+                "title": "Brand Sub Details",
+                "createLabel": "Create a new Brand Sub Details",
+                "createOrEditLabel": "Create or edit a Brand Sub Details",
+                "search": "Search for Brand Sub Details"
+            },
+            "created": "A new Brand Sub Details is created with identifier {{ param }}",
+            "updated": "A Brand Sub Details is updated with identifier {{ param }}",
+            "deleted": "A Brand Sub Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Brand Sub Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand Sub Details"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "bannerImgFile": "Banner Img File",
+            "content": "Content",
+            "createdTime": "Created Time",
+            "brandSub": "Brand Sub"
+        }
+    }
+}

@@ -1,0 +1,45 @@
+
+<div *ngIf="industryTypeName">
+    <h2><span jhiTranslate="senseBrandApp.industryTypeName.detail.title">Industry Type Name</span> {{industryTypeName.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.industryTypeName.name">Name</span></dt>
+        <dd>
+            <span>{{industryTypeName.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industryTypeName.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{industryTypeName.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industryTypeName.iconFile">Icon File</span></dt>
+        <dd>
+            <div *ngIf="industryTypeName.iconFileUrl">
+                <a (click)="openFile(industryTypeName.iconFileContentType, industryTypeName.iconFileUrl)">
+                    <img [src]="industryTypeName.iconFileUrl" style="max-width: 100%;" alt="industryTypeName image"/>
+                </a>
+                {{industryTypeName.iconFileContentType}} {{byteSize(industryTypeName.iconFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industryTypeName.industryType">Industry Type</span></dt>
+        <dd>
+            <div *ngIf="industryTypeName.industryType">
+                <a [routerLink]="['/industry-type', industryTypeName.industryType?.id]">{{industryTypeName.industryType?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'industry-type-name/'+ industryTypeName.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

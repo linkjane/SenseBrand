@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "brandRegion" : {
+            "home": {
+                "title": "Brand Regions",
+                "createLabel": "Создать новый Brand Region",
+                "createOrEditLabel": "Создать или отредактировать Brand Region",
+                "search": "Найти Brand Region"
+            },
+            "created": "Новый Brand Region создан с идентификатором {{ param }}",
+            "updated": "Brand Region обновлен с идентификатором {{ param }}",
+            "deleted": "Brand Region удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Brand Region {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand Region"
+            },
+            "name": "Name",
+            "brand": "Brand"
+        }
+    }
+}

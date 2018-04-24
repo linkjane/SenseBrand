@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd">
+    <!--
+        Added the constraints for entity IndustryTypeName.
+    -->
+    <changeSet id="20180424092603-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="industry_type_id"
+                                 baseTableName="industry_type_name"
+                                 constraintName="fk_industry_type_name_industry_type_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="industry_type"/>
+
+    </changeSet>
+</databaseChangeLog>

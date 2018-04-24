@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryTop" : {
+            "home": {
+                "title": "IndustryTops",
+                "createLabel": "Industry Top を追加",
+                "createOrEditLabel": "Industry Topを追加または編集",
+                "search": "Search for Industry Top"
+            },
+            "created": "A new Industry Top is created with identifier {{ param }}",
+            "updated": "A Industry Top is updated with identifier {{ param }}",
+            "deleted": "A Industry Top is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Industry Top {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Industry Top"
+            },
+            "name": "Name",
+            "goLink": "Go Link",
+            "industry": "Industry"
+        }
+    }
+}

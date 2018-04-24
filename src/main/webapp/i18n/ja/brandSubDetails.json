@@ -1,0 +1,28 @@
+
+{
+    "senseBrandApp": {
+        "brandSubDetails" : {
+            "home": {
+                "title": "BrandSubDetails",
+                "createLabel": "Brand Sub Details を追加",
+                "createOrEditLabel": "Brand Sub Detailsを追加または編集",
+                "search": "Search for Brand Sub Details"
+            },
+            "created": "A new Brand Sub Details is created with identifier {{ param }}",
+            "updated": "A Brand Sub Details is updated with identifier {{ param }}",
+            "deleted": "A Brand Sub Details is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Brand Sub Details {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Brand Sub Details"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "bannerImgFile": "Banner Img File",
+            "content": "Content",
+            "createdTime": "Created Time",
+            "brandSub": "Brand Sub"
+        }
+    }
+}

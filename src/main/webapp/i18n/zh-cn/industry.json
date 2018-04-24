@@ -1,0 +1,29 @@
+
+{
+    "senseBrandApp": {
+        "industry" : {
+            "home": {
+                "title": "Industries",
+                "createLabel": "创建新 Industry",
+                "createOrEditLabel": "创建或编辑 Industry",
+                "search": "查找 Industry"
+            },
+            "created": "Industry {{ param }} 创建成功",
+            "updated": "Industry {{ param }} 更新成功",
+            "deleted": "Industry {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Industry {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Industry"
+            },
+            "name": "Name",
+            "solutionLink": "Solution Link",
+            "analysisLink": "Analysis Link",
+            "inventory": "Inventory",
+            "isShow": "Is Show",
+            "industryTop": "Industry Top",
+            "industryType": "Industry Type"
+        }
+    }
+}

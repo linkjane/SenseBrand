@@ -31,7 +31,7 @@ describe('DesignerShowImg e2e test', () => {
         designerShowImgDialogPage.close();
     });
 
-   /* it('should create and save DesignerShowImgs', () => {
+    it('should create and save DesignerShowImgs', () => {
         designerShowImgComponentsPage.clickOnCreateButton();
         designerShowImgDialogPage.setImgTileInput('imgTile');
         expect(designerShowImgDialogPage.getImgTileInput()).toMatch('imgTile');
@@ -40,7 +40,7 @@ describe('DesignerShowImg e2e test', () => {
         designerShowImgDialogPage.designerSelectLastOption();
         designerShowImgDialogPage.save();
         expect(designerShowImgDialogPage.getSaveButton().isPresent()).toBeFalsy();
-    });*/
+    });
 
     afterAll(() => {
         navBarPage.autoSignOut();

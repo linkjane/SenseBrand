@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "industryAll" : {
+            "home": {
+                "title": "IndustryAlls",
+                "createLabel": "Industry All を追加",
+                "createOrEditLabel": "Industry Allを追加または編集",
+                "search": "Search for Industry All"
+            },
+            "created": "A new Industry All is created with identifier {{ param }}",
+            "updated": "A Industry All is updated with identifier {{ param }}",
+            "deleted": "A Industry All is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Industry All {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Industry All"
+            },
+            "name": "Name",
+            "industryFirstClass": "Industry First Class"
+        }
+    }
+}

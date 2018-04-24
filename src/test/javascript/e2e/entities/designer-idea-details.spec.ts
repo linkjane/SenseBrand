@@ -31,7 +31,7 @@ describe('DesignerIdeaDetails e2e test', () => {
         designerIdeaDetailsDialogPage.close();
     });
 
-   /* it('should create and save DesignerIdeaDetails', () => {
+    it('should create and save DesignerIdeaDetails', () => {
         designerIdeaDetailsComponentsPage.clickOnCreateButton();
         designerIdeaDetailsDialogPage.setTitleInput('title');
         expect(designerIdeaDetailsDialogPage.getTitleInput()).toMatch('title');
@@ -44,7 +44,7 @@ describe('DesignerIdeaDetails e2e test', () => {
         designerIdeaDetailsDialogPage.designerSelectLastOption();
         designerIdeaDetailsDialogPage.save();
         expect(designerIdeaDetailsDialogPage.getSaveButton().isPresent()).toBeFalsy();
-    });*/
+    });
 
     afterAll(() => {
         navBarPage.autoSignOut();

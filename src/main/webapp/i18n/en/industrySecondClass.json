@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industrySecondClass" : {
+            "home": {
+                "title": "Industry Second Classes",
+                "createLabel": "Create a new Industry Second Class",
+                "createOrEditLabel": "Create or edit a Industry Second Class",
+                "search": "Search for Industry Second Class"
+            },
+            "created": "A new Industry Second Class is created with identifier {{ param }}",
+            "updated": "A Industry Second Class is updated with identifier {{ param }}",
+            "deleted": "A Industry Second Class is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Industry Second Class {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry Second Class"
+            },
+            "name": "Name",
+            "brand": "Brand",
+            "industryFirstClass": "Industry First Class"
+        }
+    }
+}

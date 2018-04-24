@@ -1,0 +1,28 @@
+
+{
+    "senseBrandApp": {
+        "brandSubDetails" : {
+            "home": {
+                "title": "Brand Sub Details",
+                "createLabel": "Создать новый Brand Sub Details",
+                "createOrEditLabel": "Создать или отредактировать Brand Sub Details",
+                "search": "Найти Brand Sub Details"
+            },
+            "created": "Новый Brand Sub Details создан с идентификатором {{ param }}",
+            "updated": "Brand Sub Details обновлен с идентификатором {{ param }}",
+            "deleted": "Brand Sub Details удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Brand Sub Details {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand Sub Details"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "bannerImgFile": "Banner Img File",
+            "content": "Content",
+            "createdTime": "Created Time",
+            "brandSub": "Brand Sub"
+        }
+    }
+}

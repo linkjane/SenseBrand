@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "industryType" : {
+            "home": {
+                "title": "Industry Types",
+                "createLabel": "创建新 Industry Type",
+                "createOrEditLabel": "创建或编辑 Industry Type",
+                "search": "查找 Industry Type"
+            },
+            "created": "Industry Type {{ param }} 创建成功",
+            "updated": "Industry Type {{ param }} 更新成功",
+            "deleted": "Industry Type {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Industry Type {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Industry Type"
+            },
+            "name": "Name",
+            "smallTitle": "Small Title",
+            "industryTypeName": "Industry Type Name",
+            "industry": "Industry"
+        }
+    }
+}

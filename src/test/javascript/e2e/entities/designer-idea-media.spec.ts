@@ -31,7 +31,7 @@ describe('DesignerIdeaMedia e2e test', () => {
         designerIdeaMediaDialogPage.close();
     });
 
-   /* it('should create and save DesignerIdeaMedias', () => {
+    it('should create and save DesignerIdeaMedias', () => {
         designerIdeaMediaComponentsPage.clickOnCreateButton();
         designerIdeaMediaDialogPage.setTitleInput('title');
         expect(designerIdeaMediaDialogPage.getTitleInput()).toMatch('title');
@@ -41,10 +41,19 @@ describe('DesignerIdeaMedia e2e test', () => {
         expect(designerIdeaMediaDialogPage.getIntroductionInput()).toMatch('introduction');
         designerIdeaMediaDialogPage.setMediaFileInput('mediaFile');
         expect(designerIdeaMediaDialogPage.getMediaFileInput()).toMatch('mediaFile');
+        designerIdeaMediaDialogPage.getIsShowInput().isSelected().then((selected) => {
+            if (selected) {
+                designerIdeaMediaDialogPage.getIsShowInput().click();
+                expect(designerIdeaMediaDialogPage.getIsShowInput().isSelected()).toBeFalsy();
+            } else {
+                designerIdeaMediaDialogPage.getIsShowInput().click();
+                expect(designerIdeaMediaDialogPage.getIsShowInput().isSelected()).toBeTruthy();
+            }
+        });
         designerIdeaMediaDialogPage.designerSelectLastOption();
         designerIdeaMediaDialogPage.save();
         expect(designerIdeaMediaDialogPage.getSaveButton().isPresent()).toBeFalsy();
-    });*/
+    });
 
     afterAll(() => {
         navBarPage.autoSignOut();
@@ -72,6 +81,7 @@ export class DesignerIdeaMediaDialogPage {
     shareTimeInput = element(by.css('input#field_shareTime'));
     introductionInput = element(by.css('textarea#field_introduction'));
     mediaFileInput = element(by.css('input#field_mediaFile'));
+    isShowInput = element(by.css('input#field_isShow'));
     designerSelect = element(by.css('select#field_designer'));
 
     getModalTitle() {
@@ -110,6 +120,9 @@ export class DesignerIdeaMediaDialogPage {
         return this.mediaFileInput.getAttribute('value');
     };
 
+    getIsShowInput = function() {
+        return this.isShowInput;
+    };
     designerSelectLastOption = function() {
         this.designerSelect.all(by.tagName('option')).last().click();
     };

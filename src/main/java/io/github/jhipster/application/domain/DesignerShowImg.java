@@ -46,8 +46,7 @@ public class DesignerShowImg implements Serializable {
     @Column(name = "img_file_content_type", nullable = false)
     private String imgFileContentType;
 
-    @ManyToOne(optional = false)
-    @NotNull
+    @ManyToOne
     private Designer designer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove

@@ -3,7 +3,6 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.SenseBrandApp;
 
 import io.github.jhipster.application.domain.DesignerShow;
-import io.github.jhipster.application.domain.Designer;
 import io.github.jhipster.application.repository.DesignerShowRepository;
 import io.github.jhipster.application.service.DesignerShowService;
 import io.github.jhipster.application.repository.search.DesignerShowSearchRepository;
@@ -97,11 +96,6 @@ public class DesignerShowResourceIntTest {
             .firstLevelTitle(DEFAULT_FIRST_LEVEL_TITLE)
             .secondLevelTitle(DEFAULT_SECOND_LEVEL_TITLE)
             .introduction(DEFAULT_INTRODUCTION);
-        // Add required entity
-        Designer designer = DesignerResourceIntTest.createEntity(em);
-        em.persist(designer);
-        em.flush();
-        designerShow.setDesigner(designer);
         return designerShow;
     }
 

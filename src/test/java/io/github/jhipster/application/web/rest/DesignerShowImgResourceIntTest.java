@@ -3,7 +3,6 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.SenseBrandApp;
 
 import io.github.jhipster.application.domain.DesignerShowImg;
-import io.github.jhipster.application.domain.Designer;
 import io.github.jhipster.application.repository.DesignerShowImgRepository;
 import io.github.jhipster.application.service.DesignerShowImgService;
 import io.github.jhipster.application.repository.search.DesignerShowImgSearchRepository;
@@ -94,11 +93,6 @@ public class DesignerShowImgResourceIntTest {
         DesignerShowImg designerShowImg = new DesignerShowImg()
             .imgTile(DEFAULT_IMG_TILE)
             .imgFile(DEFAULT_IMG_FILE);
-        // Add required entity
-        Designer designer = DesignerResourceIntTest.createEntity(em);
-        em.persist(designer);
-        em.flush();
-        designerShowImg.setDesigner(designer);
         return designerShowImg;
     }
 

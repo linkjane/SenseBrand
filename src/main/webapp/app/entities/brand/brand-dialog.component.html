@@ -1,0 +1,154 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBrandLabel" jhiTranslate="senseBrandApp.brand.home.createOrEditLabel">Create or edit a Brand</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!brand.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="brand.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="brand.title" required/>
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.bannerImgFile" for="field_bannerImgFile">Banner Img File</label>
+            <div>
+                <img [src]=" brand.bannerImgFileBase64Data ? 'data:' + brand.bannerImgFileContentType + ';base64,' + brand.bannerImgFileBase64Data : brand.bannerImgFileUrl" style="max-height: 100px;" *ngIf="brand.bannerImgFileBase64Data || brand.bannerImgFileUrl" alt="brand image"/>
+                <div *ngIf="brand.bannerImgFileBase64Data || brand.bannerImgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{brand.bannerImgFileContentType}} {{byteSize(brand.bannerImgFileBase64Data || brand.bannerImgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( bannerImgFileBase64Data ? 'bannerImgFileBase64Data' : 'bannerImgFileUrl', 'bannerImgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_bannerImgFileBase64Data" (change)="setFileData($event, brand, 'bannerImgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="bannerImgFile" id="field_bannerImgFile"
+                [(ngModel)]="brand.bannerImgFile" required/>
+            <input type="hidden" class="form-control" name="bannerImgFileContentType" id="field_bannerImgFileContentType"
+                [(ngModel)]="brand.bannerImgFileContentType" />
+            <div [hidden]="!(editForm.controls.bannerImgFile?.dirty && editForm.controls.bannerImgFile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.bannerImgFile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.profileImgFile" for="field_profileImgFile">Profile Img File</label>
+            <div>
+                <img [src]=" brand.profileImgFileBase64Data ? 'data:' + brand.profileImgFileContentType + ';base64,' + brand.profileImgFileBase64Data : brand.profileImgFileUrl" style="max-height: 100px;" *ngIf="brand.profileImgFileBase64Data || brand.profileImgFileUrl" alt="brand image"/>
+                <div *ngIf="brand.profileImgFileBase64Data || brand.profileImgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{brand.profileImgFileContentType}} {{byteSize(brand.profileImgFileBase64Data || brand.profileImgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( profileImgFileBase64Data ? 'profileImgFileBase64Data' : 'profileImgFileUrl', 'profileImgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_profileImgFileBase64Data" (change)="setFileData($event, brand, 'profileImgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="profileImgFile" id="field_profileImgFile"
+                [(ngModel)]="brand.profileImgFile" required/>
+            <input type="hidden" class="form-control" name="profileImgFileContentType" id="field_profileImgFileContentType"
+                [(ngModel)]="brand.profileImgFileContentType" />
+            <div [hidden]="!(editForm.controls.profileImgFile?.dirty && editForm.controls.profileImgFile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.profileImgFile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.introduction" for="field_introduction">Introduction</label>
+            <textarea class="form-control" name="introduction" id="field_introduction"
+                [(ngModel)]="brand.introduction" required></textarea>
+            <div [hidden]="!(editForm.controls.introduction?.dirty && editForm.controls.introduction?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.introduction?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.logo" for="field_logo">Logo</label>
+            <div>
+                <img [src]=" brand.logoBase64Data ? 'data:' + brand.logoContentType + ';base64,' + brand.logoBase64Data : brand.logoUrl" style="max-height: 100px;" *ngIf="brand.logoBase64Data || brand.logoUrl" alt="brand image"/>
+                <div *ngIf="brand.logoBase64Data || brand.logoUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{brand.logoContentType}} {{byteSize(brand.logoBase64Data || brand.logoUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( logoBase64Data ? 'logoBase64Data' : 'logoUrl', 'logoContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_logoBase64Data" (change)="setFileData($event, brand, 'logo', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="logo" id="field_logo"
+                [(ngModel)]="brand.logo" />
+            <input type="hidden" class="form-control" name="logoContentType" id="field_logoContentType"
+                [(ngModel)]="brand.logoContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.establishTime" for="field_establishTime">Establish Time</label>
+            <input type="text" class="form-control" name="establishTime" id="field_establishTime"
+                [(ngModel)]="brand.establishTime" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.chairman" for="field_chairman">Chairman</label>
+            <input type="text" class="form-control" name="chairman" id="field_chairman"
+                [(ngModel)]="brand.chairman" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.phoneNumber" for="field_phoneNumber">Phone Number</label>
+            <input type="text" class="form-control" name="phoneNumber" id="field_phoneNumber"
+                [(ngModel)]="brand.phoneNumber" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.officialWebsite" for="field_officialWebsite">Official Website</label>
+            <input type="text" class="form-control" name="officialWebsite" id="field_officialWebsite"
+                [(ngModel)]="brand.officialWebsite" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.adPhrase" for="field_adPhrase">Ad Phrase</label>
+            <input type="text" class="form-control" name="adPhrase" id="field_adPhrase"
+                [(ngModel)]="brand.adPhrase" />
+        </div>
+
+        <div class="form-group">
+            <label jhiTranslate="senseBrandApp.brand.brandRank" for="field_brandRank">Brand Rank</label>
+            <select class="form-control" id="field_brandRank" multiple name="brandRank" [(ngModel)]="brand.brandRanks">
+                <option [ngValue]="getSelected(brand.brandRanks, brandRankOption)" *ngFor="let brandRankOption of brandranks; trackBy: trackBrandRankById">{{brandRankOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label jhiTranslate="senseBrandApp.brand.brandRegion" for="field_brandRegion">Brand Region</label>
+            <select class="form-control" id="field_brandRegion" multiple name="brandRegion" [(ngModel)]="brand.brandRegions">
+                <option [ngValue]="getSelected(brand.brandRegions, brandRegionOption)" *ngFor="let brandRegionOption of brandregions; trackBy: trackBrandRegionById">{{brandRegionOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brand.industrySecondClass" for="field_industrySecondClass">Industry Second Class</label>
+            <select class="form-control" id="field_industrySecondClass" name="industrySecondClass" [(ngModel)]="brand.industrySecondClass" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="industrySecondClassOption.id === brand.industrySecondClass?.id ? brand.industrySecondClass : industrySecondClassOption" *ngFor="let industrySecondClassOption of industrysecondclasses; trackBy: trackIndustrySecondClassById">{{industrySecondClassOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

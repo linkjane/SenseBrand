@@ -1,0 +1,36 @@
+
+{
+    "senseBrandApp": {
+        "brand" : {
+            "home": {
+                "title": "Brands",
+                "createLabel": "Создать новый Brand",
+                "createOrEditLabel": "Создать или отредактировать Brand",
+                "search": "Найти Brand"
+            },
+            "created": "Новый Brand создан с идентификатором {{ param }}",
+            "updated": "Brand обновлен с идентификатором {{ param }}",
+            "deleted": "Brand удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Brand {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand"
+            },
+            "title": "Title",
+            "bannerImgFile": "Banner Img File",
+            "profileImgFile": "Profile Img File",
+            "introduction": "Introduction",
+            "logo": "Logo",
+            "establishTime": "Establish Time",
+            "chairman": "Chairman",
+            "phoneNumber": "Phone Number",
+            "officialWebsite": "Official Website",
+            "adPhrase": "Ad Phrase",
+            "brandSub": "Brand Sub",
+            "brandRank": "Brand Rank",
+            "brandRegion": "Brand Region",
+            "industrySecondClass": "Industry Second Class"
+        }
+    }
+}

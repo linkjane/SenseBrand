@@ -51,8 +51,7 @@ public class DesignerIdeaDetails implements Serializable {
     private String introduction;
 
 
-    @OneToOne(optional = false)
-    @NotNull
+    @OneToOne
     @JoinColumn(unique = true)
     private Designer designer;
 

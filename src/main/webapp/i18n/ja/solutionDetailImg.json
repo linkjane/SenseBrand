@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailImg" : {
+            "home": {
+                "title": "SolutionDetailImgs",
+                "createLabel": "Solution Detail Img を追加",
+                "createOrEditLabel": "Solution Detail Imgを追加または編集",
+                "search": "Search for Solution Detail Img"
+            },
+            "created": "A new Solution Detail Img is created with identifier {{ param }}",
+            "updated": "A Solution Detail Img is updated with identifier {{ param }}",
+            "deleted": "A Solution Detail Img is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Solution Detail Img {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Solution Detail Img"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "solution": "Solution"
+        }
+    }
+}

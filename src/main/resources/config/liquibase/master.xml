@@ -12,6 +12,25 @@
     <include file="config/liquibase/changelog/20180422092925_added_entity_DesignerAward.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180422092926_added_entity_DesignerIdeaDetails.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180422092927_added_entity_DesignerIdeaMedia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092519_added_entity_OurSight.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092532_added_entity_Solution.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092533_added_entity_SolutionDetailAnalysis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092534_added_entity_SolutionDetailAnalysisImg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092535_added_entity_SolutionDetailImg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092536_added_entity_SolutionCorrelation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092544_added_entity_IndustryAll.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092545_added_entity_IndustryFirstClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092546_added_entity_IndustrySecondClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092547_added_entity_Brand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092548_added_entity_BrandSub.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092549_added_entity_BrandSubDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092550_added_entity_BrandRank.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092551_added_entity_BrandRegion.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092600_added_entity_Industry.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092601_added_entity_IndustryTop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092602_added_entity_IndustryType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092603_added_entity_IndustryTypeName.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092604_added_entity_Question.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-changelog - JHipster will add liquibase changelogs here -->
     <include file="config/liquibase/changelog/20180422092922_added_entity_constraints_DesignerShow.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180422092923_added_entity_constraints_DesignerShowImg.xml" relativeToChangelogFile="false"/>
@@ -19,5 +38,17 @@
     <include file="config/liquibase/changelog/20180422092925_added_entity_constraints_DesignerAward.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180422092926_added_entity_constraints_DesignerIdeaDetails.xml" relativeToChangelogFile="false"/>
     <include file="config/liquibase/changelog/20180422092927_added_entity_constraints_DesignerIdeaMedia.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092533_added_entity_constraints_SolutionDetailAnalysis.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092534_added_entity_constraints_SolutionDetailAnalysisImg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092535_added_entity_constraints_SolutionDetailImg.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092536_added_entity_constraints_SolutionCorrelation.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092545_added_entity_constraints_IndustryFirstClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092546_added_entity_constraints_IndustrySecondClass.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092547_added_entity_constraints_Brand.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092548_added_entity_constraints_BrandSub.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092549_added_entity_constraints_BrandSubDetails.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092601_added_entity_constraints_IndustryTop.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092602_added_entity_constraints_IndustryType.xml" relativeToChangelogFile="false"/>
+    <include file="config/liquibase/changelog/20180424092603_added_entity_constraints_IndustryTypeName.xml" relativeToChangelogFile="false"/>
     <!-- jhipster-needle-liquibase-add-constraints-changelog - JHipster will add liquibase constraints changelogs here -->
 </databaseChangeLog>

@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "industryType" : {
+            "home": {
+                "title": "IndustryTypes",
+                "createLabel": "Industry Type を追加",
+                "createOrEditLabel": "Industry Typeを追加または編集",
+                "search": "Search for Industry Type"
+            },
+            "created": "A new Industry Type is created with identifier {{ param }}",
+            "updated": "A Industry Type is updated with identifier {{ param }}",
+            "deleted": "A Industry Type is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Industry Type {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Industry Type"
+            },
+            "name": "Name",
+            "smallTitle": "Small Title",
+            "industryTypeName": "Industry Type Name",
+            "industry": "Industry"
+        }
+    }
+}

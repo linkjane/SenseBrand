@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailAnalysis" : {
+            "home": {
+                "title": "Solution Detail Analyses",
+                "createLabel": "Create a new Solution Detail Analysis",
+                "createOrEditLabel": "Create or edit a Solution Detail Analysis",
+                "search": "Search for Solution Detail Analysis"
+            },
+            "created": "A new Solution Detail Analysis is created with identifier {{ param }}",
+            "updated": "A Solution Detail Analysis is updated with identifier {{ param }}",
+            "deleted": "A Solution Detail Analysis is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Solution Detail Analysis {{ id }}?"
+            },
+            "detail": {
+                "title": "Solution Detail Analysis"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "solutionDetailAnalysisImg": "Solution Detail Analysis Img",
+            "solution": "Solution"
+        }
+    }
+}

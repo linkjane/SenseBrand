@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "ourSight" : {
+            "home": {
+                "title": "Our Sights",
+                "createLabel": "Создать новый Our Sight",
+                "createOrEditLabel": "Создать или отредактировать Our Sight",
+                "search": "Найти Our Sight"
+            },
+            "created": "Новый Our Sight создан с идентификатором {{ param }}",
+            "updated": "Our Sight обновлен с идентификатором {{ param }}",
+            "deleted": "Our Sight удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Our Sight {{ id }}?"
+            },
+            "detail": {
+                "title": "Our Sight"
+            },
+            "title": "Title",
+            "keyWord": "Key Word",
+            "imgFile": "Img File"
+        }
+    }
+}

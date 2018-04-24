@@ -3,7 +3,6 @@
     "relationships": [
         {
             "relationshipType": "many-to-one",
-            "relationshipValidateRules": "required",
             "relationshipName": "designer",
             "otherEntityName": "designer",
             "otherEntityField": "znName"
@@ -36,6 +35,10 @@
             "fieldValidateRules": [
                 "required"
             ]
+        },
+        {
+            "fieldName": "isShow",
+            "fieldType": "Boolean"
         }
     ],
     "changelogDate": "20180422092927",

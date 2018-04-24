@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "question" : {
+            "home": {
+                "title": "Questions",
+                "createLabel": "Создать новый Question",
+                "createOrEditLabel": "Создать или отредактировать Question",
+                "search": "Найти Question"
+            },
+            "created": "Новый Question создан с идентификатором {{ param }}",
+            "updated": "Question обновлен с идентификатором {{ param }}",
+            "deleted": "Question удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Question {{ id }}?"
+            },
+            "detail": {
+                "title": "Question"
+            },
+            "name": "Name",
+            "content": "Content"
+        }
+    }
+}

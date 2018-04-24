@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailImg" : {
+            "home": {
+                "title": "Solution Detail Imgs",
+                "createLabel": "创建新 Solution Detail Img",
+                "createOrEditLabel": "创建或编辑 Solution Detail Img",
+                "search": "查找 Solution Detail Img"
+            },
+            "created": "Solution Detail Img {{ param }} 创建成功",
+            "updated": "Solution Detail Img {{ param }} 更新成功",
+            "deleted": "Solution Detail Img {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Solution Detail Img {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Solution Detail Img"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "solution": "Solution"
+        }
+    }
+}

@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industrySecondClass" : {
+            "home": {
+                "title": "Industry Second Classes",
+                "createLabel": "创建新 Industry Second Class",
+                "createOrEditLabel": "创建或编辑 Industry Second Class",
+                "search": "查找 Industry Second Class"
+            },
+            "created": "Industry Second Class {{ param }} 创建成功",
+            "updated": "Industry Second Class {{ param }} 更新成功",
+            "deleted": "Industry Second Class {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Industry Second Class {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Industry Second Class"
+            },
+            "name": "Name",
+            "brand": "Brand",
+            "industryFirstClass": "Industry First Class"
+        }
+    }
+}

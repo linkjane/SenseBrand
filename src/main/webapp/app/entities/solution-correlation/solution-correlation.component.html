@@ -1,0 +1,92 @@
+<div>
+    <h2>
+        <span jhiTranslate="senseBrandApp.solutionCorrelation.home.title">Solution Correlations</span>
+        <button class="btn btn-primary float-right jh-create-entity create-solution-correlation" [routerLink]="['/', { outlets: { popup: ['solution-correlation-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="senseBrandApp.solutionCorrelation.home.createLabel">
+            Create new Solution Correlation
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'senseBrandApp.solutionCorrelation.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="solutionCorrelations">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="imgFile"><span jhiTranslate="senseBrandApp.solutionCorrelation.imgFile">Img File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="goLink"><span jhiTranslate="senseBrandApp.solutionCorrelation.goLink">Go Link</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="solution.id"><span jhiTranslate="senseBrandApp.solutionCorrelation.solution">Solution</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let solutionCorrelation of solutionCorrelations ;trackBy: trackId">
+                <td><a [routerLink]="['../solution-correlation', solutionCorrelation.id ]">{{solutionCorrelation.id}}</a></td>
+                <td>
+                    <a *ngIf="solutionCorrelation.imgFileUrl" (click)="openFile(solutionCorrelation.imgFileContentType, solutionCorrelation.imgFileUrl)">
+                        <img [src]="solutionCorrelation.imgFileUrl" style="max-height: 30px;" alt="solutionCorrelation image"/>
+                    </a>
+                    <span *ngIf="solutionCorrelation.imgFileUrl">{{solutionCorrelation.imgFileContentType}} {{byteSize(solutionCorrelation.imgFileUrl)}}</span>
+                </td>
+                <td>{{solutionCorrelation.goLink}}</td>
+                <td>
+                    <div *ngIf="solutionCorrelation.solution">
+                        <a [routerLink]="['../solution', solutionCorrelation.solution?.id ]" >{{solutionCorrelation.solution?.id}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../solution-correlation', solutionCorrelation.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'solution-correlation/'+ solutionCorrelation.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'solution-correlation/'+ solutionCorrelation.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="solutionCorrelations && solutionCorrelations.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

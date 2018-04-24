@@ -1,0 +1,97 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "brandSub",
+            "otherEntityName": "brandSub",
+            "otherEntityRelationshipName": "brand"
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "brand",
+            "relationshipName": "brandRank",
+            "otherEntityName": "brandRank",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-many",
+            "otherEntityRelationshipName": "brand",
+            "relationshipName": "brandRegion",
+            "otherEntityName": "brandRegion",
+            "otherEntityField": "name",
+            "ownerSide": true
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "industrySecondClass",
+            "otherEntityName": "industrySecondClass",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "title",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "bannerImgFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "profileImgFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "introduction",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "logo",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "establishTime",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "chairman",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "phoneNumber",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "officialWebsite",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "adPhrase",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180424092547",
+    "entityTableName": "brand",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

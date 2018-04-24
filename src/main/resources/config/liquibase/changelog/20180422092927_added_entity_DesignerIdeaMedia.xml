@@ -44,8 +44,12 @@
                 <constraints nullable="false" />
             </column>
 
+            <column name="is_show" type="bit">
+                <constraints nullable="true" />
+            </column>
+
             <column name="designer_id" type="bigint">
-                <constraints nullable="false" />
+                <constraints nullable="true" />
             </column>
 
             <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->

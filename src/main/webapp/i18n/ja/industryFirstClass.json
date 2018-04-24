@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryFirstClass" : {
+            "home": {
+                "title": "IndustryFirstClasses",
+                "createLabel": "Industry First Class を追加",
+                "createOrEditLabel": "Industry First Classを追加または編集",
+                "search": "Search for Industry First Class"
+            },
+            "created": "A new Industry First Class is created with identifier {{ param }}",
+            "updated": "A Industry First Class is updated with identifier {{ param }}",
+            "deleted": "A Industry First Class is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Industry First Class {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Industry First Class"
+            },
+            "name": "Name",
+            "industrySecondClass": "Industry Second Class",
+            "industryAll": "Industry All"
+        }
+    }
+}

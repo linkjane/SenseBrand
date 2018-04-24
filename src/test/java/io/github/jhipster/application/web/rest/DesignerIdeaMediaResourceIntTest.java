@@ -3,7 +3,6 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.SenseBrandApp;
 
 import io.github.jhipster.application.domain.DesignerIdeaMedia;
-import io.github.jhipster.application.domain.Designer;
 import io.github.jhipster.application.repository.DesignerIdeaMediaRepository;
 import io.github.jhipster.application.service.DesignerIdeaMediaService;
 import io.github.jhipster.application.repository.search.DesignerIdeaMediaSearchRepository;
@@ -56,6 +55,9 @@ public class DesignerIdeaMediaResourceIntTest {
     private static final String DEFAULT_MEDIA_FILE = "AAAAAAAAAA";
     private static final String UPDATED_MEDIA_FILE = "BBBBBBBBBB";
 
+    private static final Boolean DEFAULT_IS_SHOW = false;
+    private static final Boolean UPDATED_IS_SHOW = true;
+
     @Autowired
     private DesignerIdeaMediaRepository designerIdeaMediaRepository;
 
@@ -103,12 +105,8 @@ public class DesignerIdeaMediaResourceIntTest {
             .title(DEFAULT_TITLE)
             .shareTime(DEFAULT_SHARE_TIME)
             .introduction(DEFAULT_INTRODUCTION)
-            .mediaFile(DEFAULT_MEDIA_FILE);
-        // Add required entity
-        Designer designer = DesignerResourceIntTest.createEntity(em);
-        em.persist(designer);
-        em.flush();
-        designerIdeaMedia.setDesigner(designer);
+            .mediaFile(DEFAULT_MEDIA_FILE)
+            .isShow(DEFAULT_IS_SHOW);
         return designerIdeaMedia;
     }
 
@@ -137,6 +135,7 @@ public class DesignerIdeaMediaResourceIntTest {
         assertThat(testDesignerIdeaMedia.getShareTime()).isEqualTo(DEFAULT_SHARE_TIME);
         assertThat(testDesignerIdeaMedia.getIntroduction()).isEqualTo(DEFAULT_INTRODUCTION);
         assertThat(testDesignerIdeaMedia.getMediaFile()).isEqualTo(DEFAULT_MEDIA_FILE);
+        assertThat(testDesignerIdeaMedia.isIsShow()).isEqualTo(DEFAULT_IS_SHOW);
 
         // Validate the DesignerIdeaMedia in Elasticsearch
         DesignerIdeaMedia designerIdeaMediaEs = designerIdeaMediaSearchRepository.findOne(testDesignerIdeaMedia.getId());
@@ -230,7 +229,8 @@ public class DesignerIdeaMediaResourceIntTest {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].shareTime").value(hasItem(DEFAULT_SHARE_TIME.toString())))
             .andExpect(jsonPath("$.[*].introduction").value(hasItem(DEFAULT_INTRODUCTION.toString())))
-            .andExpect(jsonPath("$.[*].mediaFile").value(hasItem(DEFAULT_MEDIA_FILE.toString())));
+            .andExpect(jsonPath("$.[*].mediaFile").value(hasItem(DEFAULT_MEDIA_FILE.toString())))
+            .andExpect(jsonPath("$.[*].isShow").value(hasItem(DEFAULT_IS_SHOW.booleanValue())));
     }
 
     @Test
@@ -247,7 +247,8 @@ public class DesignerIdeaMediaResourceIntTest {
             .andExpect(jsonPath("$.title").value(DEFAULT_TITLE.toString()))
             .andExpect(jsonPath("$.shareTime").value(DEFAULT_SHARE_TIME.toString()))
             .andExpect(jsonPath("$.introduction").value(DEFAULT_INTRODUCTION.toString()))
-            .andExpect(jsonPath("$.mediaFile").value(DEFAULT_MEDIA_FILE.toString()));
+            .andExpect(jsonPath("$.mediaFile").value(DEFAULT_MEDIA_FILE.toString()))
+            .andExpect(jsonPath("$.isShow").value(DEFAULT_IS_SHOW.booleanValue()));
     }
 
     @Test
@@ -274,7 +275,8 @@ public class DesignerIdeaMediaResourceIntTest {
             .title(UPDATED_TITLE)
             .shareTime(UPDATED_SHARE_TIME)
             .introduction(UPDATED_INTRODUCTION)
-            .mediaFile(UPDATED_MEDIA_FILE);
+            .mediaFile(UPDATED_MEDIA_FILE)
+            .isShow(UPDATED_IS_SHOW);
 
         restDesignerIdeaMediaMockMvc.perform(put("/api/designer-idea-medias")
             .contentType(TestUtil.APPLICATION_JSON_UTF8)
@@ -289,6 +291,7 @@ public class DesignerIdeaMediaResourceIntTest {
         assertThat(testDesignerIdeaMedia.getShareTime()).isEqualTo(UPDATED_SHARE_TIME);
         assertThat(testDesignerIdeaMedia.getIntroduction()).isEqualTo(UPDATED_INTRODUCTION);
         assertThat(testDesignerIdeaMedia.getMediaFile()).isEqualTo(UPDATED_MEDIA_FILE);
+        assertThat(testDesignerIdeaMedia.isIsShow()).isEqualTo(UPDATED_IS_SHOW);
 
         // Validate the DesignerIdeaMedia in Elasticsearch
         DesignerIdeaMedia designerIdeaMediaEs = designerIdeaMediaSearchRepository.findOne(testDesignerIdeaMedia.getId());
@@ -349,7 +352,8 @@ public class DesignerIdeaMediaResourceIntTest {
             .andExpect(jsonPath("$.[*].title").value(hasItem(DEFAULT_TITLE.toString())))
             .andExpect(jsonPath("$.[*].shareTime").value(hasItem(DEFAULT_SHARE_TIME.toString())))
             .andExpect(jsonPath("$.[*].introduction").value(hasItem(DEFAULT_INTRODUCTION.toString())))
-            .andExpect(jsonPath("$.[*].mediaFile").value(hasItem(DEFAULT_MEDIA_FILE.toString())));
+            .andExpect(jsonPath("$.[*].mediaFile").value(hasItem(DEFAULT_MEDIA_FILE.toString())))
+            .andExpect(jsonPath("$.[*].isShow").value(hasItem(DEFAULT_IS_SHOW.booleanValue())));
     }
 
     @Test

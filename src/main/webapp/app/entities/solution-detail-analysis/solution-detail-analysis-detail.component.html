@@ -1,0 +1,45 @@
+
+<div *ngIf="solutionDetailAnalysis">
+    <h2><span jhiTranslate="senseBrandApp.solutionDetailAnalysis.detail.title">Solution Detail Analysis</span> {{solutionDetailAnalysis.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysis.title">Title</span></dt>
+        <dd>
+            <span>{{solutionDetailAnalysis.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysis.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="solutionDetailAnalysis.imgFileUrl">
+                <a (click)="openFile(solutionDetailAnalysis.imgFileContentType, solutionDetailAnalysis.imgFileUrl)">
+                    <img [src]="solutionDetailAnalysis.imgFileUrl" style="max-width: 100%;" alt="solutionDetailAnalysis image"/>
+                </a>
+                {{solutionDetailAnalysis.imgFileContentType}} {{byteSize(solutionDetailAnalysis.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysis.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{solutionDetailAnalysis.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysis.solution">Solution</span></dt>
+        <dd>
+            <div *ngIf="solutionDetailAnalysis.solution">
+                <a [routerLink]="['/solution', solutionDetailAnalysis.solution?.id]">{{solutionDetailAnalysis.solution?.title}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'solution-detail-analysis/'+ solutionDetailAnalysis.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

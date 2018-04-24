@@ -36,16 +36,10 @@
 
         <div class="form-group">
             <label class="form-control-label" jhiTranslate="senseBrandApp.designerShow.designer" for="field_designer">Designer</label>
-            <select class="form-control" id="field_designer" name="designer" [(ngModel)]="designerShow.designer" required>
-                <option *ngIf="!editForm.value.designer" [ngValue]="null" selected></option>
+            <select class="form-control" id="field_designer" name="designer" [(ngModel)]="designerShow.designer">
+                <option [ngValue]="null"></option>
                 <option [ngValue]="designerOption.id === designerShow.designer?.id ? designerShow.designer : designerOption" *ngFor="let designerOption of designers; trackBy: trackDesignerById">{{designerOption.znName}}</option>
             </select>
-        </div>
-        <div [hidden]="!(editForm.controls.designer?.dirty && editForm.controls.designer?.invalid)">
-            <small class="form-text text-danger"
-                [hidden]="!editForm.controls.designer?.errors?.required" jhiTranslate="entity.validation.required">
-                This field is required.
-            </small>
         </div>
     </div>
     <div class="modal-footer">

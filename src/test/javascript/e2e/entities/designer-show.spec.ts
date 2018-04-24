@@ -31,7 +31,7 @@ describe('DesignerShow e2e test', () => {
         designerShowDialogPage.close();
     });
 
-   /* it('should create and save DesignerShows', () => {
+    it('should create and save DesignerShows', () => {
         designerShowComponentsPage.clickOnCreateButton();
         designerShowDialogPage.setFirstLevelTitleInput('firstLevelTitle');
         expect(designerShowDialogPage.getFirstLevelTitleInput()).toMatch('firstLevelTitle');
@@ -42,7 +42,7 @@ describe('DesignerShow e2e test', () => {
         designerShowDialogPage.designerSelectLastOption();
         designerShowDialogPage.save();
         expect(designerShowDialogPage.getSaveButton().isPresent()).toBeFalsy();
-    });*/
+    });
 
     afterAll(() => {
         navBarPage.autoSignOut();

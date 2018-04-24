@@ -3,7 +3,6 @@ package io.github.jhipster.application.web.rest;
 import io.github.jhipster.application.SenseBrandApp;
 
 import io.github.jhipster.application.domain.DesignerAward;
-import io.github.jhipster.application.domain.Designer;
 import io.github.jhipster.application.repository.DesignerAwardRepository;
 import io.github.jhipster.application.service.DesignerAwardService;
 import io.github.jhipster.application.repository.search.DesignerAwardSearchRepository;
@@ -102,11 +101,6 @@ public class DesignerAwardResourceIntTest {
             .introduction(DEFAULT_INTRODUCTION)
             .imgFile(DEFAULT_IMG_FILE)
             .detailLink(DEFAULT_DETAIL_LINK);
-        // Add required entity
-        Designer designer = DesignerResourceIntTest.createEntity(em);
-        em.persist(designer);
-        em.flush();
-        designerAward.setDesigner(designer);
         return designerAward;
     }
 

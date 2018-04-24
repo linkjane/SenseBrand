@@ -57,8 +57,11 @@ public class DesignerIdeaMedia implements Serializable {
     @Column(name = "media_file_content_type", nullable = false)
     private String mediaFileContentType;
 
-    @ManyToOne(optional = false)
-    @NotNull
+    @Column(name = "is_show")
+    private Boolean isShow;
+
+
+    @ManyToOne
     private Designer designer;
 
     // jhipster-needle-entity-add-field - JHipster will add fields here, do not remove
@@ -146,6 +149,19 @@ public class DesignerIdeaMedia implements Serializable {
         this.mediaFileUrl = mediaFileUrl;
     }
 
+
+    public Boolean isIsShow() {
+        return isShow;
+    }
+
+    public DesignerIdeaMedia isShow(Boolean isShow) {
+        this.isShow = isShow;
+        return this;
+    }
+
+    public void setIsShow(Boolean isShow) {
+        this.isShow = isShow;
+    }
 
     public Designer getDesigner() {
         return designer;

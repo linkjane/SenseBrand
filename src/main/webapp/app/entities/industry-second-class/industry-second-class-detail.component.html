@@ -1,0 +1,32 @@
+
+<div *ngIf="industrySecondClass">
+    <h2><span jhiTranslate="senseBrandApp.industrySecondClass.detail.title">Industry Second Class</span> {{industrySecondClass.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.industrySecondClass.name">Name</span></dt>
+        <dd>
+            <span>{{industrySecondClass.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industrySecondClass.industryFirstClass">Industry First Class</span></dt>
+        <dd>
+            <div *ngIf="industrySecondClass.industryFirstClass">
+                <a [routerLink]="['/industry-first-class', industrySecondClass.industryFirstClass?.id]">{{industrySecondClass.industryFirstClass?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'industry-second-class/'+ industrySecondClass.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

@@ -11,7 +11,9 @@ export class DesignerIdeaMedia implements BaseEntity {
         public mediaFileBase64Data?: any,
         public mediaFileFileSource?: any,
         public mediaFile?: any,
+        public isShow?: boolean,
         public designer?: BaseEntity,
     ) {
+        this.isShow = false;
     }
 }

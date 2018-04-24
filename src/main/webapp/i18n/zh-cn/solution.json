@@ -1,0 +1,35 @@
+
+{
+    "senseBrandApp": {
+        "solution" : {
+            "home": {
+                "title": "Solutions",
+                "createLabel": "创建新 Solution",
+                "createOrEditLabel": "创建或编辑 Solution",
+                "search": "查找 Solution"
+            },
+            "created": "Solution {{ param }} 创建成功",
+            "updated": "Solution {{ param }} 更新成功",
+            "deleted": "Solution {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Solution {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Solution"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "bannerImgFile": "Banner Img File",
+            "bannerIntroduction": "Banner Introduction",
+            "summarizeImgFile": "Summarize Img File",
+            "summarizeIntroduction": "Summarize Introduction",
+            "significanceTitle": "Significance Title",
+            "significanceImgFile": "Significance Img File",
+            "significanceIntroduction": "Significance Introduction",
+            "detailAnalysisTitle": "Detail Analysis Title",
+            "solutionDetailImg": "Solution Detail Img",
+            "solutionDetailAnalysis": "Solution Detail Analysis",
+            "solutionCorrelation": "Solution Correlation"
+        }
+    }
+}

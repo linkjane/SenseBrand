@@ -31,7 +31,7 @@ describe('DesignerAward e2e test', () => {
         designerAwardDialogPage.close();
     });
 
-   /* it('should create and save DesignerAwards', () => {
+    it('should create and save DesignerAwards', () => {
         designerAwardComponentsPage.clickOnCreateButton();
         designerAwardDialogPage.setTitleInput('title');
         expect(designerAwardDialogPage.getTitleInput()).toMatch('title');
@@ -44,7 +44,7 @@ describe('DesignerAward e2e test', () => {
         designerAwardDialogPage.designerSelectLastOption();
         designerAwardDialogPage.save();
         expect(designerAwardDialogPage.getSaveButton().isPresent()).toBeFalsy();
-    });*/
+    });
 
     afterAll(() => {
         navBarPage.autoSignOut();

@@ -1,0 +1,112 @@
+<div>
+    <h2>
+        <span jhiTranslate="senseBrandApp.solution.home.title">Solutions</span>
+        <button class="btn btn-primary float-right jh-create-entity create-solution" [routerLink]="['/', { outlets: { popup: ['solution-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="senseBrandApp.solution.home.createLabel">
+            Create new Solution
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'senseBrandApp.solution.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="solutions">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="senseBrandApp.solution.title">Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="introduction"><span jhiTranslate="senseBrandApp.solution.introduction">Introduction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bannerImgFile"><span jhiTranslate="senseBrandApp.solution.bannerImgFile">Banner Img File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bannerIntroduction"><span jhiTranslate="senseBrandApp.solution.bannerIntroduction">Banner Introduction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="summarizeImgFile"><span jhiTranslate="senseBrandApp.solution.summarizeImgFile">Summarize Img File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="summarizeIntroduction"><span jhiTranslate="senseBrandApp.solution.summarizeIntroduction">Summarize Introduction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="significanceTitle"><span jhiTranslate="senseBrandApp.solution.significanceTitle">Significance Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="significanceImgFile"><span jhiTranslate="senseBrandApp.solution.significanceImgFile">Significance Img File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="significanceIntroduction"><span jhiTranslate="senseBrandApp.solution.significanceIntroduction">Significance Introduction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="detailAnalysisTitle"><span jhiTranslate="senseBrandApp.solution.detailAnalysisTitle">Detail Analysis Title</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let solution of solutions ;trackBy: trackId">
+                <td><a [routerLink]="['../solution', solution.id ]">{{solution.id}}</a></td>
+                <td>{{solution.title}}</td>
+                <td>{{solution.introduction}}</td>
+                <td>
+                    <a *ngIf="solution.bannerImgFileUrl" (click)="openFile(solution.bannerImgFileContentType, solution.bannerImgFileUrl)">
+                        <img [src]="solution.bannerImgFileUrl" style="max-height: 30px;" alt="solution image"/>
+                    </a>
+                    <span *ngIf="solution.bannerImgFileUrl">{{solution.bannerImgFileContentType}} {{byteSize(solution.bannerImgFileUrl)}}</span>
+                </td>
+                <td>{{solution.bannerIntroduction}}</td>
+                <td>
+                    <a *ngIf="solution.summarizeImgFileUrl" (click)="openFile(solution.summarizeImgFileContentType, solution.summarizeImgFileUrl)">
+                        <img [src]="solution.summarizeImgFileUrl" style="max-height: 30px;" alt="solution image"/>
+                    </a>
+                    <span *ngIf="solution.summarizeImgFileUrl">{{solution.summarizeImgFileContentType}} {{byteSize(solution.summarizeImgFileUrl)}}</span>
+                </td>
+                <td>{{solution.summarizeIntroduction}}</td>
+                <td>{{solution.significanceTitle}}</td>
+                <td>
+                    <a *ngIf="solution.significanceImgFileUrl" (click)="openFile(solution.significanceImgFileContentType, solution.significanceImgFileUrl)">
+                        <img [src]="solution.significanceImgFileUrl" style="max-height: 30px;" alt="solution image"/>
+                    </a>
+                    <span *ngIf="solution.significanceImgFileUrl">{{solution.significanceImgFileContentType}} {{byteSize(solution.significanceImgFileUrl)}}</span>
+                </td>
+                <td>{{solution.significanceIntroduction}}</td>
+                <td>{{solution.detailAnalysisTitle}}</td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../solution', solution.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'solution/'+ solution.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'solution/'+ solution.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="solutions && solutions.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

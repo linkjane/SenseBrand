@@ -34,6 +34,7 @@
             <th jhiSortBy="shareTime"><span jhiTranslate="senseBrandApp.designerIdeaMedia.shareTime">Share Time</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="introduction"><span jhiTranslate="senseBrandApp.designerIdeaMedia.introduction">Introduction</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="mediaFile"><span jhiTranslate="senseBrandApp.designerIdeaMedia.mediaFile">Media File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="isShow"><span jhiTranslate="senseBrandApp.designerIdeaMedia.isShow">Is Show</span> <span class="fa fa-sort"></span></th>
             <th jhiSortBy="designer.znName"><span jhiTranslate="senseBrandApp.designerIdeaMedia.designer">Designer</span> <span class="fa fa-sort"></span></th>
             <th></th>
             </tr>
@@ -48,6 +49,7 @@
                     <a *ngIf="designerIdeaMedia.mediaFileUrl" (click)="openFile(designerIdeaMedia.mediaFileContentType, designerIdeaMedia.mediaFileUrl)" jhiTranslate="entity.action.open">open</a>
                     <span *ngIf="designerIdeaMedia.mediaFileUrl">{{designerIdeaMedia.mediaFileContentType}} {{byteSize(designerIdeaMedia.mediaFileUrl)}}</span>
                 </td>
+                <td>{{designerIdeaMedia.isShow}}</td>
                 <td>
                     <div *ngIf="designerIdeaMedia.designer">
                         <a [routerLink]="['../designer', designerIdeaMedia.designer?.id ]" >{{designerIdeaMedia.designer?.znName}}</a>

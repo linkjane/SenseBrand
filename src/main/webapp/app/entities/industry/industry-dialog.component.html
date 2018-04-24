@@ -1,0 +1,69 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIndustryLabel" jhiTranslate="senseBrandApp.industry.home.createOrEditLabel">Create or edit a Industry</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!industry.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="industry.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industry.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="industry.name" required/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industry.solutionLink" for="field_solutionLink">Solution Link</label>
+            <input type="text" class="form-control" name="solutionLink" id="field_solutionLink"
+                [(ngModel)]="industry.solutionLink" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industry.analysisLink" for="field_analysisLink">Analysis Link</label>
+            <input type="text" class="form-control" name="analysisLink" id="field_analysisLink"
+                [(ngModel)]="industry.analysisLink" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industry.inventory" for="field_inventory">Inventory</label>
+            <div>
+                <div *ngIf="industry.inventoryBase64Data || industry.inventoryUrl" class="form-text text-danger clearfix">
+                    <a class="pull-left" (click)="openFile(industry.inventoryContentType, industry.inventoryBase64Data || industry.inventoryUrl)" jhiTranslate="entity.action.open">open</a><br>
+                    <span class="pull-left">{{industry.inventoryContentType}} {{byteSize(industry.inventoryBase64Data || industry.inventoryUrl )}}</span>
+                    <button type="button" (click)="industry.inventoryBase64Data=null;industry.inventoryContentType=null;industry.inventoryUrl=null;"
+                            class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_inventoryBase64Data" (change)="setFileData($event, industry, 'inventory', false)" jhiTranslate="entity.action.addblob"/>
+            </div>
+            <input type="hidden" class="form-control" name="inventory" id="field_inventory"
+                [(ngModel)]="industry.inventory" />
+            <input type="hidden" class="form-control" name="inventoryContentType" id="field_inventoryContentType"
+                [(ngModel)]="industry.inventoryContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industry.isShow" for="field_isShow">Is Show</label>
+            <input type="checkbox" class="form-control" name="isShow" id="field_isShow"
+                [(ngModel)]="industry.isShow" />
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>
