@@ -11,15 +11,20 @@ import {
     JhiAlertComponent,
     JhiAlertErrorComponent
 } from './';
+import { WysiwygComponent } from './wysiwyg/wysiwyg.component';
+import { FroalaEditorModule, FroalaViewModule } from 'angular-froala-wysiwyg';
 
 @NgModule({
     imports: [
-        SenseBrandSharedLibsModule
+        SenseBrandSharedLibsModule,
+        FroalaEditorModule,
+        FroalaViewModule
     ],
     declarations: [
         FindLanguageFromKeyPipe,
         JhiAlertComponent,
-        JhiAlertErrorComponent
+        JhiAlertErrorComponent,
+        WysiwygComponent
     ],
     providers: [
         JhiLanguageHelper,
@@ -34,7 +39,9 @@ import {
         SenseBrandSharedLibsModule,
         FindLanguageFromKeyPipe,
         JhiAlertComponent,
-        JhiAlertErrorComponent
+        JhiAlertErrorComponent,
+        WysiwygComponent
+
     ]
 })
 export class SenseBrandSharedCommonModule {

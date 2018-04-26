@@ -82,10 +82,15 @@ public class FileUploadResource {
         file.transferTo(destFile);
 
         HashMap<String, Object> map = new HashMap<>();
-        map.put("fileName", fileOriginalName);
-        map.put("extensionName", extensionName);
-        map.put("fileUrl", "static/upload/" + dirUrl + saveFileName);
-        map.put("key", key);
+        String staticFileUrl = "static/upload/" + dirUrl + saveFileName;
+        if (key.contains("wysiwyg")) {
+            map.put("link", staticFileUrl) ;
+        } else {
+            map.put("fileName", fileOriginalName);
+            map.put("extensionName", extensionName);
+            map.put("fileUrl", staticFileUrl);
+            map.put("key", key);
+        }
 
         return ResponseEntity.ok().body(map);
     }
