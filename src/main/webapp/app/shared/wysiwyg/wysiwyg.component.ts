@@ -21,8 +21,10 @@ export class WysiwygComponent implements OnInit {
         placeholderText: 'Edit Your Content Here!',
         language: 'zh_cn',
         theme: 'dark',
+        editorClass: 'editor-class',
         fileUploadURL: FILE_UPLOAD_URL,
         fileUploadParams: {key: 'wysiwyg'},
+        height: 300,
         // maxsize is 20MB
         fileMaxSize: 20 * 1024 * 1024,
         events : {

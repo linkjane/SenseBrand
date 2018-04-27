@@ -263,3 +263,12 @@ Social button
 .fr-popup.fr-desktop.dark-theme.fr-ltr {
     z-index: 1050 !important;
 }
+
+.modal-content, .modal-content .form-control {
+    background: #c2c7ca;
+    color: #67757c;
+}
+.editor-class .fr-element.fr-view{
+    background: rgb(53, 53, 53);
+    color: white !important;
+}
