@@ -1,4 +1,5 @@
 import { Component, OnInit, Input, EventEmitter, Output } from '@angular/core';
+import { STATIC_SERVER_URL, FILE_UPLOAD_URL } from '../../app.constants';
 
 @Component({
   selector: 'jhi-wysiwyg',
@@ -10,11 +11,9 @@ export class WysiwygComponent implements OnInit {
     private _editorContent: string;
     @Input() set editorContent(editorContent: string) {
         this._editorContent = editorContent;
-    }
-    get editorContent() {
         this.editorContentChange.emit(this._editorContent);
-        return this._editorContent;
     }
+
     @Output()
     public editorContentChange: EventEmitter<string> = new EventEmitter<string>();
 
@@ -22,13 +21,13 @@ export class WysiwygComponent implements OnInit {
         placeholderText: 'Edit Your Content Here!',
         language: 'zh_cn',
         theme: 'dark',
-        fileUploadURL: 'http://localhost:8080/api/file-upload/upload',
+        fileUploadURL: FILE_UPLOAD_URL,
         fileUploadParams: {key: 'wysiwyg'},
         // maxsize is 20MB
         fileMaxSize: 20 * 1024 * 1024,
         events : {
             'froalaEditor.file.inserted': (e, editor, response) => {
-                response.attr('href', `http://localhost:8089/${response.attr('href')}`);
+                response.attr('href', `${STATIC_SERVER_URL}/${response.attr('href')}`);
             }
         }
     };
