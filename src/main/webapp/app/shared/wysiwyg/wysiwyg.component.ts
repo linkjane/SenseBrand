@@ -23,6 +23,8 @@ export class WysiwygComponent implements OnInit {
         theme: 'dark',
         editorClass: 'editor-class',
         fileUploadURL: FILE_UPLOAD_URL,
+        imageUploadURL: FILE_UPLOAD_URL,
+        videoUploadURL: FILE_UPLOAD_URL,
         fileUploadParams: {key: 'wysiwyg'},
         height: 300,
         // maxsize is 20MB
