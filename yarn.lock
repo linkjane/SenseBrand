@@ -27,6 +27,12 @@
     "@ngtools/json-schema" "^1.1.0"
     rxjs "^5.5.6"
 
+"@angular/animations@^5.2.10":
+  version "5.2.10"
+  resolved "http://registry.npm.taobao.org/@angular/animations/download/@angular/animations-5.2.10.tgz#61718792e0922ac622fd7c6dfb0afbb996638692"
+  dependencies:
+    tslib "^1.7.1"
+
 "@angular/cli@1.6.6":
   version "1.6.6"
   resolved "http://registry.npm.taobao.org/@angular/cli/download/@angular/cli-1.6.6.tgz#002119ab2ed804bbdc86075e0095eadda2a0baa0"
@@ -141,6 +147,18 @@
   resolved "http://registry.npm.taobao.org/@angular/router/download/@angular/router-5.2.0.tgz#0a43f1c6add592c9cb0b9846fc157fc5b23ee73d"
   dependencies:
     tslib "^1.7.1"
+
+"@coreui/angular@^2.0.0-beta.2":
+  version "2.0.0-beta.2"
+  resolved "http://registry.npm.taobao.org/@coreui/angular/download/@coreui/angular-2.0.0-beta.2.tgz#22ab6a667157b09e489a0f17d97d64c7221bcd33"
+  dependencies:
+    "@coreui/coreui" "^2.0.0-beta.10"
+
+"@coreui/coreui@^2.0.0-beta.10":
+  version "2.0.0-beta.10"
+  resolved "http://registry.npm.taobao.org/@coreui/coreui/download/@coreui/coreui-2.0.0-beta.10.tgz#2ff7cf3bfb3f047704d8b2c0243ced4ac6d07b9f"
+  dependencies:
+    bootstrap "^4.1.0"
 
 "@ng-bootstrap/ng-bootstrap@1.0.0":
   version "1.0.0"
@@ -846,9 +864,9 @@ boom@5.x.x:
   dependencies:
     hoek "4.x.x"
 
-bootstrap@4.0.0:
-  version "4.0.0"
-  resolved "http://registry.npm.taobao.org/bootstrap/download/bootstrap-4.0.0.tgz#ceb03842c145fcc1b9b4e15da2a05656ba68469a"
+bootstrap@^4.1.0:
+  version "4.1.0"
+  resolved "http://registry.npm.taobao.org/bootstrap/download/bootstrap-4.1.0.tgz#110b05c31a236d56dbc9adcda6dd16f53738a28a"
 
 brace-expansion@^1.1.7:
   version "1.1.11"
@@ -5671,6 +5689,10 @@ ng-jhipster@0.4.0:
     "@ngx-translate/core" "^8.0.0"
     "@ngx-translate/http-loader" "^2.0.0"
 
+ngx-bootstrap@^2.0.4:
+  version "2.0.4"
+  resolved "http://registry.npm.taobao.org/ngx-bootstrap/download/ngx-bootstrap-2.0.4.tgz#26be0eb1b9a5dc133caa93b39ae221d6872c8b55"
+
 ngx-cookie@2.0.1:
   version "2.0.1"
   resolved "http://registry.npm.taobao.org/ngx-cookie/download/ngx-cookie-2.0.1.tgz#031d8938bf9026954356b3b3ae668e2e1964e584"
@@ -5678,6 +5700,13 @@ ngx-cookie@2.0.1:
 ngx-infinite-scroll@0.5.1:
   version "0.5.1"
   resolved "http://registry.npm.taobao.org/ngx-infinite-scroll/download/ngx-infinite-scroll-0.5.1.tgz#dd9452c602ff7c3222f0ca168481aa14140286b7"
+
+ngx-perfect-scrollbar@^5.3.5:
+  version "5.3.5"
+  resolved "http://registry.npm.taobao.org/ngx-perfect-scrollbar/download/ngx-perfect-scrollbar-5.3.5.tgz#adb0ddd6f1a376dc43e99db7fa8540046fa36a5a"
+  dependencies:
+    perfect-scrollbar "^1.3.0"
+    resize-observer-polyfill "^1.4.0"
 
 ngx-spinner@^1.2.0:
   version "1.2.0"
@@ -6315,6 +6344,10 @@ pbkdf2@^3.0.3:
 pend@~1.2.0:
   version "1.2.0"
   resolved "http://registry.npm.taobao.org/pend/download/pend-1.2.0.tgz#7a57eb550a6783f9115331fcf4663d5c8e007a50"
+
+perfect-scrollbar@^1.3.0:
+  version "1.3.0"
+  resolved "http://registry.npm.taobao.org/perfect-scrollbar/download/perfect-scrollbar-1.3.0.tgz#61da56f94b58870d8e0a617bce649cee17d1e3b2"
 
 performance-now@^0.2.0:
   version "0.2.0"
@@ -7314,6 +7347,10 @@ require-main-filename@^1.0.1:
 requires-port@1.0.x, requires-port@1.x.x, requires-port@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/requires-port/download/requires-port-1.0.0.tgz#925d2601d39ac485e091cf0da5c6e694dc3dcaff"
+
+resize-observer-polyfill@^1.4.0:
+  version "1.5.0"
+  resolved "http://registry.npm.taobao.org/resize-observer-polyfill/download/resize-observer-polyfill-1.5.0.tgz#660ff1d9712a2382baa2cad450a4716209f9ca69"
 
 resolve-cwd@^2.0.0:
   version "2.0.0"
