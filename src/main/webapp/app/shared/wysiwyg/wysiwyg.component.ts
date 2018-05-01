@@ -10,7 +10,6 @@ export class WysiwygComponent implements OnInit {
 
     private _editorContent: string;
     @Input() set editorContent(editorContent: string) {
-        console.log(editorContent);
         this._editorContent = editorContent;
         this.editorContentChange.emit(this._editorContent);
     }
