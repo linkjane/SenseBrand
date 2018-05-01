@@ -278,6 +278,9 @@ Social button
 .sidebar .nav-link  {
     font-size: 14px;
     font-weight: 100;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
 }
 .table thead th {
     font-size: 14px;
