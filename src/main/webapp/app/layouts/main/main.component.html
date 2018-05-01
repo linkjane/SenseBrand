@@ -4,48 +4,16 @@
     <app-sidebar [fixed]="true" [display]="'lg'">
         <div class="sidebar-nav ps coreui-sidebar-nav">
             <ul class="nav">
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <i class="nav-icon icon-puzzle" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designer">Designer</span>
+                <li class="nav-item" ng-reflect-ng-class="nav-item">
+                    <a routerlinkactive="active" class="nav-link">
+                        <i class="nav-icon icon-speedometer"></i>
+                        <span jhiTranslate="global.menu.entities.main">
+                            Entities
+                        </span>
+                        <span class="badge badge-info" ng-reflect-ng-class="badge badge-info">NEW</span>
                     </a>
                 </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer-show" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designerShow">Designer Show</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer-show-img" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designerShowImg">Designer Show Img</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer-sentiment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
-                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designerSentiment">Designer Sentiment</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer-award" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designerAward">Designer Award</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer-idea-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
-                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designerIdeaDetails">Designer Idea Details</span>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a class="nav-link" routerLink="designer-idea-media" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
-                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
-                        <span jhiTranslate="global.menu.entities.designerIdeaMedia">Designer Idea Media</span>
-                    </a>
-                </li>
+                <!-- jhipster-needle-add-entity-to-menu - JHipster will add entities to the menu here -->
             </ul>
         </div>
         <app-sidebar-minimizer></app-sidebar-minimizer>
