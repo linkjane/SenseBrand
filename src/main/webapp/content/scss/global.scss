@@ -282,3 +282,6 @@ Social button
 .table thead th {
     font-size: 14px;
 }
+.sidebar-fixed .app-body .sidebar {
+    height: calc(100vh - 55px);
+}
