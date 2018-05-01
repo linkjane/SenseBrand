@@ -73,6 +73,10 @@ import { ModalModule, TabsModule } from 'ngx-bootstrap';
         PaginationConfig,
         UserRouteAccessService,
         {
+            provide: PERFECT_SCROLLBAR_CONFIG,
+            useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG
+        },
+        {
             provide: HTTP_INTERCEPTORS,
             useClass: AuthInterceptor,
             multi: true,

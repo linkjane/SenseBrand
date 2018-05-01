@@ -2,7 +2,7 @@
 <router-outlet name="navbar"></router-outlet>
 <div class="app-body">
     <app-sidebar [fixed]="true" [display]="'lg'">
-        <div class="sidebar-nav ps coreui-sidebar-nav">
+        <div [perfectScrollbar] class="sidebar-nav ps coreui-sidebar-nav" ng-reflect-disabled="false">
             <ul class="nav">
                 <li class="nav-item" ng-reflect-ng-class="nav-item">
                     <a routerlinkactive="active" class="nav-link">
