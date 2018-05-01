@@ -7806,6 +7806,10 @@ silent-error@^1.0.0:
   dependencies:
     debug "^2.2.0"
 
+simple-line-icons@^2.4.1:
+  version "2.4.1"
+  resolved "http://registry.npm.taobao.org/simple-line-icons/download/simple-line-icons-2.4.1.tgz#b75bc5a0d87e530928c2ccda5735274bb256f234"
+
 slash@^1.0.0:
   version "1.0.0"
   resolved "http://registry.npm.taobao.org/slash/download/slash-1.0.0.tgz#c41f2f6c39fc16d1cd17ad4b5d896114ae470d55"

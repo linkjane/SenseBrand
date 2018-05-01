@@ -11,6 +11,8 @@ eg $input-color: red;
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
 @import "node_modules/@coreui/coreui/scss/variables";
-@import 'node_modules/font-awesome/scss/font-awesome';
 @import "node_modules/@coreui/coreui/scss/coreui";
+
+//import simple icon and font awesome
+@import 'node_modules/font-awesome/scss/font-awesome';
 /* jhipster-needle-scss-add-vendor JHipster will add new css style */

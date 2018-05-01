@@ -10,6 +10,7 @@ import 'rxjs/add/observable/throw';
 // my css or scss
 import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/css/froala_style.min.css';
+import 'simple-line-icons/css/simple-line-icons.css'
 
 // my js or ts
 import 'froala-editor/js/froala_editor.pkgd.min.js';

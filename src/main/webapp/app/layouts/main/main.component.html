@@ -1,13 +1,60 @@
 <jhi-page-ribbon></jhi-page-ribbon>
-<div>
-    <router-outlet name="navbar"></router-outlet>
-</div>
-<div class="container-fluid">
-    <div class="card jh-card">
+<router-outlet name="navbar"></router-outlet>
+<div class="app-body">
+    <app-sidebar [fixed]="true" [display]="'lg'">
+        <div class="sidebar-nav ps coreui-sidebar-nav">
+            <ul class="nav">
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <i class="nav-icon icon-puzzle" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designer">Designer</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer-show" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designerShow">Designer Show</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer-show-img" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designerShowImg">Designer Show Img</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer-sentiment" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" (click)="collapseNavbar()">
+                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designerSentiment">Designer Sentiment</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer-award" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designerAward">Designer Award</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer-idea-details" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }" >
+                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designerIdeaDetails">Designer Idea Details</span>
+                    </a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" routerLink="designer-idea-media" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+                        <i class="fa fa-fw fa-asterisk" aria-hidden="true"></i>
+                        <span jhiTranslate="global.menu.entities.designerIdeaMedia">Designer Idea Media</span>
+                    </a>
+                </li>
+            </ul>
+        </div>
+        <app-sidebar-minimizer></app-sidebar-minimizer>
+    </app-sidebar>
+    <div class="card jh-card main">
         <router-outlet></router-outlet>
         <router-outlet name="popup"></router-outlet>
+        <!--<jhi-footer></jhi-footer>-->
     </div>
-    <jhi-footer></jhi-footer>
 </div>
 <ngx-spinner
     bdOpacity = 0.9

@@ -39,7 +39,7 @@ import {
     ActiveMenuDirective,
     ErrorComponent
 } from './layouts';
-import { AppSidebarModule } from '@coreui/angular';
+import { AppHeaderModule, AppSidebarModule } from '@coreui/angular';
 import { ModalModule, TabsModule } from 'ngx-bootstrap';
 
 @NgModule({
@@ -54,6 +54,7 @@ import { ModalModule, TabsModule } from 'ngx-bootstrap';
         SenseBrandEntityModule,
         PerfectScrollbarModule,
         AppSidebarModule,
+        AppHeaderModule,
         ModalModule.forRoot(),
         TabsModule.forRoot(),
         NgxSpinnerModule,
