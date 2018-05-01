@@ -29,7 +29,7 @@ public class FileUploadResource {
     private ApplicationProperties applicationProperties;
 
     @PostMapping(value = "/upload", consumes = "multipart/form-data")
-    public ResponseEntity<Map<String, Object>> upload(@RequestPart("file") MultipartFile file, @RequestPart("key") String key) throws IOException {
+    public ResponseEntity<Map<String, Object>> upload(@RequestPart("file") MultipartFile file, @RequestPart("key") String key, @RequestPart(name = "ssUrl", required = false) String ssUrl) throws IOException {
 
 
         log.warn("文件名是: {}", file.getOriginalFilename());
@@ -84,7 +84,7 @@ public class FileUploadResource {
         HashMap<String, Object> map = new HashMap<>();
         String staticFileUrl = "static/upload/" + dirUrl + saveFileName;
         if (key.contains("wysiwyg")) {
-            map.put("link", staticFileUrl) ;
+            map.put("link",ssUrl + staticFileUrl) ;
         } else {
             map.put("fileName", fileOriginalName);
             map.put("extensionName", extensionName);
