@@ -1,0 +1,27 @@
+
+{
+    "senseBrandApp": {
+        "industryTypeName" : {
+            "home": {
+                "title": "Industry Type Names",
+                "createLabel": "Create a new Industry Type Name",
+                "createOrEditLabel": "Create or edit a Industry Type Name",
+                "search": "Search for Industry Type Name"
+            },
+            "created": "A new Industry Type Name is created with identifier {{ param }}",
+            "updated": "A Industry Type Name is updated with identifier {{ param }}",
+            "deleted": "A Industry Type Name is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Industry Type Name {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry Type Name"
+            },
+            "name": "Name",
+            "introduction": "Introduction",
+            "iconFile": "Icon File",
+            "industryType": "Industry Type",
+            "industry": "Industry"
+        }
+    }
+}

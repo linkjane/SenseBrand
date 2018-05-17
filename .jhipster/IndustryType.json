@@ -1,0 +1,30 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "industryTypeName",
+            "otherEntityName": "industryTypeName",
+            "otherEntityRelationshipName": "industryType"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "smallTitle",
+            "fieldType": "String"
+        }
+    ],
+    "changelogDate": "20180511070748",
+    "entityTableName": "industry_type",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

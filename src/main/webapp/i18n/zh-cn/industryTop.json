@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryTop" : {
+            "home": {
+                "title": "Industry Tops",
+                "createLabel": "创建新 Industry Top",
+                "createOrEditLabel": "创建或编辑 Industry Top",
+                "search": "查找 Industry Top"
+            },
+            "created": "Industry Top {{ param }} 创建成功",
+            "updated": "Industry Top {{ param }} 更新成功",
+            "deleted": "Industry Top {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Industry Top {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Industry Top"
+            },
+            "name": "Name",
+            "goLink": "Go Link",
+            "industry": "Industry"
+        }
+    }
+}

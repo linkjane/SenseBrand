@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailAnalysis" : {
+            "home": {
+                "title": "SolutionDetailAnalyses",
+                "createLabel": "Solution Detail Analysis を追加",
+                "createOrEditLabel": "Solution Detail Analysisを追加または編集",
+                "search": "Search for Solution Detail Analysis"
+            },
+            "created": "A new Solution Detail Analysis is created with identifier {{ param }}",
+            "updated": "A Solution Detail Analysis is updated with identifier {{ param }}",
+            "deleted": "A Solution Detail Analysis is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Solution Detail Analysis {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Solution Detail Analysis"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "detailAnalysisImg": "Detail Analysis Img",
+            "solution": "Solution"
+        }
+    }
+}

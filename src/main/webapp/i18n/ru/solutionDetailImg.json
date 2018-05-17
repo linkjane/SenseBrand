@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailImg" : {
+            "home": {
+                "title": "Solution Detail Imgs",
+                "createLabel": "Создать новый Solution Detail Img",
+                "createOrEditLabel": "Создать или отредактировать Solution Detail Img",
+                "search": "Найти Solution Detail Img"
+            },
+            "created": "Новый Solution Detail Img создан с идентификатором {{ param }}",
+            "updated": "Solution Detail Img обновлен с идентификатором {{ param }}",
+            "deleted": "Solution Detail Img удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Solution Detail Img {{ id }}?"
+            },
+            "detail": {
+                "title": "Solution Detail Img"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "solution": "Solution"
+        }
+    }
+}

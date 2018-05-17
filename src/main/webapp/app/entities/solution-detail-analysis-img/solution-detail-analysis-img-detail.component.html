@@ -1,0 +1,45 @@
+
+<div *ngIf="solutionDetailAnalysisImg">
+    <h2><span jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.detail.title">Solution Detail Analysis Img</span> {{solutionDetailAnalysisImg.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.title">Title</span></dt>
+        <dd>
+            <span>{{solutionDetailAnalysisImg.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="solutionDetailAnalysisImg.imgFileUrl">
+                <a (click)="openFile(solutionDetailAnalysisImg.imgFileContentType, solutionDetailAnalysisImg.imgFileUrl)">
+                    <img [src]="solutionDetailAnalysisImg.imgFileUrl" style="max-width: 100%;" alt="solutionDetailAnalysisImg image"/>
+                </a>
+                {{solutionDetailAnalysisImg.imgFileContentType}} {{byteSize(solutionDetailAnalysisImg.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{solutionDetailAnalysisImg.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.detailAnalysis">Detail Analysis</span></dt>
+        <dd>
+            <div *ngIf="solutionDetailAnalysisImg.detailAnalysis">
+                <a [routerLink]="['/solution-detail-analysis', solutionDetailAnalysisImg.detailAnalysis?.id]">{{solutionDetailAnalysisImg.detailAnalysis?.title}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'solution-detail-analysis-img/'+ solutionDetailAnalysisImg.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

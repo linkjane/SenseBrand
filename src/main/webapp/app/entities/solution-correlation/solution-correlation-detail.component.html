@@ -1,0 +1,41 @@
+
+<div *ngIf="solutionCorrelation">
+    <h2><span jhiTranslate="senseBrandApp.solutionCorrelation.detail.title">Solution Correlation</span> {{solutionCorrelation.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.solutionCorrelation.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="solutionCorrelation.imgFileUrl">
+                <a (click)="openFile(solutionCorrelation.imgFileContentType, solutionCorrelation.imgFileUrl)">
+                    <img [src]="solutionCorrelation.imgFileUrl" style="max-width: 100%;" alt="solutionCorrelation image"/>
+                </a>
+                {{solutionCorrelation.imgFileContentType}} {{byteSize(solutionCorrelation.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionCorrelation.goLink">Go Link</span></dt>
+        <dd>
+            <span>{{solutionCorrelation.goLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionCorrelation.solution">Solution</span></dt>
+        <dd>
+            <div *ngIf="solutionCorrelation.solution">
+                <a [routerLink]="['/solution', solutionCorrelation.solution?.id]">{{solutionCorrelation.solution?.id}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'solution-correlation/'+ solutionCorrelation.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

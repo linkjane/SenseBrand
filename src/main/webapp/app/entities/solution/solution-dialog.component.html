@@ -1,0 +1,173 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySolutionLabel" jhiTranslate="senseBrandApp.solution.home.createOrEditLabel">Create or edit a Solution</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!solution.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="solution.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="solution.title" required/>
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.introduction" for="field_introduction">Introduction</label>
+            <textarea class="form-control" name="introduction" id="field_introduction"
+                [(ngModel)]="solution.introduction" required></textarea>
+            <div [hidden]="!(editForm.controls.introduction?.dirty && editForm.controls.introduction?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.introduction?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.bannerImgFile" for="field_bannerImgFile">Banner Img File</label>
+            <div>
+                <img [src]=" solution.bannerImgFileBase64Data ? 'data:' + solution.bannerImgFileContentType + ';base64,' + solution.bannerImgFileBase64Data : solution.bannerImgFileUrl" style="max-height: 100px;" *ngIf="solution.bannerImgFileBase64Data || solution.bannerImgFileUrl" alt="solution image"/>
+                <div *ngIf="solution.bannerImgFileBase64Data || solution.bannerImgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{solution.bannerImgFileContentType}} {{byteSize(solution.bannerImgFileBase64Data || solution.bannerImgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( bannerImgFileBase64Data ? 'bannerImgFileBase64Data' : 'bannerImgFileUrl', 'bannerImgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_bannerImgFileBase64Data" (change)="setFileData($event, solution, 'bannerImgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="bannerImgFile" id="field_bannerImgFile"
+                [(ngModel)]="solution.bannerImgFile" />
+            <input type="hidden" class="form-control" name="bannerImgFileContentType" id="field_bannerImgFileContentType"
+                [(ngModel)]="solution.bannerImgFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.bannerIntroduction" for="field_bannerIntroduction">Banner Introduction</label>
+            <textarea class="form-control" name="bannerIntroduction" id="field_bannerIntroduction"
+                [(ngModel)]="solution.bannerIntroduction" required></textarea>
+            <div [hidden]="!(editForm.controls.bannerIntroduction?.dirty && editForm.controls.bannerIntroduction?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.bannerIntroduction?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.summarizeTitle" for="field_summarizeTitle">Summarize Title</label>
+            <input type="text" class="form-control" name="summarizeTitle" id="field_summarizeTitle"
+                [(ngModel)]="solution.summarizeTitle" required/>
+            <div [hidden]="!(editForm.controls.summarizeTitle?.dirty && editForm.controls.summarizeTitle?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.summarizeTitle?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.summarizeImgFile" for="field_summarizeImgFile">Summarize Img File</label>
+            <div>
+                <img [src]=" solution.summarizeImgFileBase64Data ? 'data:' + solution.summarizeImgFileContentType + ';base64,' + solution.summarizeImgFileBase64Data : solution.summarizeImgFileUrl" style="max-height: 100px;" *ngIf="solution.summarizeImgFileBase64Data || solution.summarizeImgFileUrl" alt="solution image"/>
+                <div *ngIf="solution.summarizeImgFileBase64Data || solution.summarizeImgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{solution.summarizeImgFileContentType}} {{byteSize(solution.summarizeImgFileBase64Data || solution.summarizeImgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( summarizeImgFileBase64Data ? 'summarizeImgFileBase64Data' : 'summarizeImgFileUrl', 'summarizeImgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_summarizeImgFileBase64Data" (change)="setFileData($event, solution, 'summarizeImgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="summarizeImgFile" id="field_summarizeImgFile"
+                [(ngModel)]="solution.summarizeImgFile" />
+            <input type="hidden" class="form-control" name="summarizeImgFileContentType" id="field_summarizeImgFileContentType"
+                [(ngModel)]="solution.summarizeImgFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.summarizeContent" for="field_summarizeContent">Summarize Content</label>
+            <textarea class="form-control" name="summarizeContent" id="field_summarizeContent"
+                [(ngModel)]="solution.summarizeContent" required></textarea>
+            <div [hidden]="!(editForm.controls.summarizeContent?.dirty && editForm.controls.summarizeContent?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.summarizeContent?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.significanceTitle" for="field_significanceTitle">Significance Title</label>
+            <input type="text" class="form-control" name="significanceTitle" id="field_significanceTitle"
+                [(ngModel)]="solution.significanceTitle" required/>
+            <div [hidden]="!(editForm.controls.significanceTitle?.dirty && editForm.controls.significanceTitle?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.significanceTitle?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.significanceImgFile" for="field_significanceImgFile">Significance Img File</label>
+            <div>
+                <img [src]=" solution.significanceImgFileBase64Data ? 'data:' + solution.significanceImgFileContentType + ';base64,' + solution.significanceImgFileBase64Data : solution.significanceImgFileUrl" style="max-height: 100px;" *ngIf="solution.significanceImgFileBase64Data || solution.significanceImgFileUrl" alt="solution image"/>
+                <div *ngIf="solution.significanceImgFileBase64Data || solution.significanceImgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{solution.significanceImgFileContentType}} {{byteSize(solution.significanceImgFileBase64Data || solution.significanceImgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( significanceImgFileBase64Data ? 'significanceImgFileBase64Data' : 'significanceImgFileUrl', 'significanceImgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_significanceImgFileBase64Data" (change)="setFileData($event, solution, 'significanceImgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="significanceImgFile" id="field_significanceImgFile"
+                [(ngModel)]="solution.significanceImgFile" />
+            <input type="hidden" class="form-control" name="significanceImgFileContentType" id="field_significanceImgFileContentType"
+                [(ngModel)]="solution.significanceImgFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.significanceIntroduction" for="field_significanceIntroduction">Significance Introduction</label>
+            <textarea class="form-control" name="significanceIntroduction" id="field_significanceIntroduction"
+                [(ngModel)]="solution.significanceIntroduction" required></textarea>
+            <div [hidden]="!(editForm.controls.significanceIntroduction?.dirty && editForm.controls.significanceIntroduction?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.significanceIntroduction?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.detailAnalysisTitle" for="field_detailAnalysisTitle">Detail Analysis Title</label>
+            <input type="text" class="form-control" name="detailAnalysisTitle" id="field_detailAnalysisTitle"
+                [(ngModel)]="solution.detailAnalysisTitle" required/>
+            <div [hidden]="!(editForm.controls.detailAnalysisTitle?.dirty && editForm.controls.detailAnalysisTitle?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.detailAnalysisTitle?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solution.isShow" for="field_isShow">Is Show</label>
+            <div>
+                <label class="switch switch-label switch-pill switch-outline-danger-alt">
+                    <input type="checkbox" class="switch-input" name="isShow" id="field_isShow" [(ngModel)]="solution.isShow">
+                    <span class="switch-slider" data-checked="on" data-unchecked="off"></span>
+                </label>
+            </div>
+        </div>
+
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

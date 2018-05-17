@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "brandRegion" : {
+            "home": {
+                "title": "Brand Regions",
+                "createLabel": "Create a new Brand Region",
+                "createOrEditLabel": "Create or edit a Brand Region",
+                "search": "Search for Brand Region"
+            },
+            "created": "A new Brand Region is created with identifier {{ param }}",
+            "updated": "A Brand Region is updated with identifier {{ param }}",
+            "deleted": "A Brand Region is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Brand Region {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand Region"
+            },
+            "name": "Name",
+            "brand": "Brand"
+        }
+    }
+}

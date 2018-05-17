@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryFirstClass" : {
+            "home": {
+                "title": "Industry First Classes",
+                "createLabel": "创建新 Industry First Class",
+                "createOrEditLabel": "创建或编辑 Industry First Class",
+                "search": "查找 Industry First Class"
+            },
+            "created": "Industry First Class {{ param }} 创建成功",
+            "updated": "Industry First Class {{ param }} 更新成功",
+            "deleted": "Industry First Class {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Industry First Class {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Industry First Class"
+            },
+            "name": "Name",
+            "industrySecondClass": "Industry Second Class",
+            "industryAll": "Industry All"
+        }
+    }
+}

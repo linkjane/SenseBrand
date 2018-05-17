@@ -1,0 +1,87 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myBrandSubDetailsLabel" jhiTranslate="senseBrandApp.brandSubDetails.home.createOrEditLabel">Create or edit a Brand Sub Details</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!brandSubDetails.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="brandSubDetails.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="brandSubDetails.title" required/>
+            <div [hidden]="!(editForm.controls.title?.dirty && editForm.controls.title?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.title?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.introduction" for="field_introduction">Introduction</label>
+            <textarea class="form-control" name="introduction" id="field_introduction"
+                [(ngModel)]="brandSubDetails.introduction" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.bannerImgFile" for="field_bannerImgFile">Banner Img File</label>
+            <div>
+                <img [src]=" brandSubDetails.bannerImgFileBase64Data ? 'data:' + brandSubDetails.bannerImgFileContentType + ';base64,' + brandSubDetails.bannerImgFileBase64Data : brandSubDetails.bannerImgFileUrl" style="max-height: 100px;" *ngIf="brandSubDetails.bannerImgFileBase64Data || brandSubDetails.bannerImgFileUrl" alt="brandSubDetails image"/>
+                <div *ngIf="brandSubDetails.bannerImgFileBase64Data || brandSubDetails.bannerImgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{brandSubDetails.bannerImgFileContentType}} {{byteSize(brandSubDetails.bannerImgFileBase64Data || brandSubDetails.bannerImgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( bannerImgFileBase64Data ? 'bannerImgFileBase64Data' : 'bannerImgFileUrl', 'bannerImgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_bannerImgFileBase64Data" (change)="setFileData($event, brandSubDetails, 'bannerImgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="bannerImgFile" id="field_bannerImgFile"
+                [(ngModel)]="brandSubDetails.bannerImgFile" />
+            <input type="hidden" class="form-control" name="bannerImgFileContentType" id="field_bannerImgFileContentType"
+                [(ngModel)]="brandSubDetails.bannerImgFileContentType" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.content" for="field_content">Content</label>
+            <textarea class="form-control" name="content" id="field_content"
+                [(ngModel)]="brandSubDetails.content" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.createdTime" for="field_createdTime">Created Time</label>
+            <div class="input-group">
+                <input id="field_createdTime" type="text" class="form-control" name="createdTime" ngbDatepicker  #createdTimeDp="ngbDatepicker" [(ngModel)]="brandSubDetails.createdTime"
+                />
+                <span class="input-group-append">
+                    <button type="button" class="btn btn-secondary" (click)="createdTimeDp.toggle()"><i class="fa fa-calendar"></i></button>
+                </span>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.brand" for="field_brand">Brand</label>
+            <select class="form-control" id="field_brand" name="brand" [(ngModel)]="brandSubDetails.brand" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="brandOption.id === brandSubDetails.brand?.id ? brandSubDetails.brand : brandOption" *ngFor="let brandOption of brands; trackBy: trackBrandById">{{brandOption.title}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.brandSubDetails.brandSub" for="field_brandSub">Brand Sub</label>
+            <select class="form-control" id="field_brandSub" name="brandSub" [(ngModel)]="brandSubDetails.brandSub" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="brandSubOption.id === brandSubDetails.brandSub?.id ? brandSubDetails.brandSub : brandSubOption" *ngFor="let brandSubOption of brandsubs; trackBy: trackBrandSubById">{{brandSubOption.title}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

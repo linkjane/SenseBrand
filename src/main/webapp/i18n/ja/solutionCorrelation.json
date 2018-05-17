@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "solutionCorrelation" : {
+            "home": {
+                "title": "SolutionCorrelations",
+                "createLabel": "Solution Correlation を追加",
+                "createOrEditLabel": "Solution Correlationを追加または編集",
+                "search": "Search for Solution Correlation"
+            },
+            "created": "A new Solution Correlation is created with identifier {{ param }}",
+            "updated": "A Solution Correlation is updated with identifier {{ param }}",
+            "deleted": "A Solution Correlation is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Solution Correlation {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Solution Correlation"
+            },
+            "imgFile": "Img File",
+            "goLink": "Go Link",
+            "solution": "Solution"
+        }
+    }
+}

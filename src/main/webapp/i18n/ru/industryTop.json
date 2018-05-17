@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryTop" : {
+            "home": {
+                "title": "Industry Tops",
+                "createLabel": "Создать новый Industry Top",
+                "createOrEditLabel": "Создать или отредактировать Industry Top",
+                "search": "Найти Industry Top"
+            },
+            "created": "Новый Industry Top создан с идентификатором {{ param }}",
+            "updated": "Industry Top обновлен с идентификатором {{ param }}",
+            "deleted": "Industry Top удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Industry Top {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry Top"
+            },
+            "name": "Name",
+            "goLink": "Go Link",
+            "industry": "Industry"
+        }
+    }
+}

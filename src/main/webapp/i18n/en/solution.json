@@ -1,0 +1,37 @@
+
+{
+    "senseBrandApp": {
+        "solution" : {
+            "home": {
+                "title": "Solutions",
+                "createLabel": "Create a new Solution",
+                "createOrEditLabel": "Create or edit a Solution",
+                "search": "Search for Solution"
+            },
+            "created": "A new Solution is created with identifier {{ param }}",
+            "updated": "A Solution is updated with identifier {{ param }}",
+            "deleted": "A Solution is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Solution {{ id }}?"
+            },
+            "detail": {
+                "title": "Solution"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "bannerImgFile": "Banner Img File",
+            "bannerIntroduction": "Banner Introduction",
+            "summarizeTitle": "Summarize Title",
+            "summarizeImgFile": "Summarize Img File",
+            "summarizeContent": "Summarize Content",
+            "significanceTitle": "Significance Title",
+            "significanceImgFile": "Significance Img File",
+            "significanceIntroduction": "Significance Introduction",
+            "detailAnalysisTitle": "Detail Analysis Title",
+            "isShow": "Is Show",
+            "detailImg": "Detail Img",
+            "detailAnalysis": "Detail Analysis",
+            "correlation": "Correlation"
+        }
+    }
+}

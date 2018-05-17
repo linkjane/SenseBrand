@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryType" : {
+            "home": {
+                "title": "Industry Types",
+                "createLabel": "Создать новый Industry Type",
+                "createOrEditLabel": "Создать или отредактировать Industry Type",
+                "search": "Найти Industry Type"
+            },
+            "created": "Новый Industry Type создан с идентификатором {{ param }}",
+            "updated": "Industry Type обновлен с идентификатором {{ param }}",
+            "deleted": "Industry Type удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Industry Type {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry Type"
+            },
+            "name": "Name",
+            "smallTitle": "Small Title",
+            "industryTypeName": "Industry Type Name"
+        }
+    }
+}

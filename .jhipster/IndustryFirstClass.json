@@ -1,0 +1,32 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "industrySecondClass",
+            "otherEntityName": "industrySecondClass",
+            "otherEntityRelationshipName": "industryFirstClass"
+        },
+        {
+            "relationshipType": "many-to-one",
+            "relationshipName": "industryAll",
+            "otherEntityName": "industryAll",
+            "otherEntityField": "name"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        }
+    ],
+    "changelogDate": "20180511070735",
+    "entityTableName": "industry_first_class",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

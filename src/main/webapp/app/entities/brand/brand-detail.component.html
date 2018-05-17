@@ -1,0 +1,99 @@
+
+<div *ngIf="brand">
+    <h2><span jhiTranslate="senseBrandApp.brand.detail.title">Brand</span> {{brand.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.brand.title">Title</span></dt>
+        <dd>
+            <span>{{brand.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.bannerImgFile">Banner Img File</span></dt>
+        <dd>
+            <div *ngIf="brand.bannerImgFileUrl">
+                <a (click)="openFile(brand.bannerImgFileContentType, brand.bannerImgFileUrl)">
+                    <img [src]="brand.bannerImgFileUrl" style="max-width: 100%;" alt="brand image"/>
+                </a>
+                {{brand.bannerImgFileContentType}} {{byteSize(brand.bannerImgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.profileImgFile">Profile Img File</span></dt>
+        <dd>
+            <div *ngIf="brand.profileImgFileUrl">
+                <a (click)="openFile(brand.profileImgFileContentType, brand.profileImgFileUrl)">
+                    <img [src]="brand.profileImgFileUrl" style="max-width: 100%;" alt="brand image"/>
+                </a>
+                {{brand.profileImgFileContentType}} {{byteSize(brand.profileImgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{brand.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.logo">Logo</span></dt>
+        <dd>
+            <div *ngIf="brand.logoUrl">
+                <a (click)="openFile(brand.logoContentType, brand.logoUrl)">
+                    <img [src]="brand.logoUrl" style="max-width: 100%;" alt="brand image"/>
+                </a>
+                {{brand.logoContentType}} {{byteSize(brand.logo)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.establishTime">Establish Time</span></dt>
+        <dd>
+            <span>{{brand.establishTime}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.cradle">Cradle</span></dt>
+        <dd>
+            <span>{{brand.cradle}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.chairman">Chairman</span></dt>
+        <dd>
+            <span>{{brand.chairman}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.phoneNumber">Phone Number</span></dt>
+        <dd>
+            <span>{{brand.phoneNumber}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.officialWebsite">Official Website</span></dt>
+        <dd>
+            <span>{{brand.officialWebsite}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.adPhrase">Ad Phrase</span></dt>
+        <dd>
+            <span>{{brand.adPhrase}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.brandRank">Brand Rank</span></dt>
+        <dd>
+            <span *ngFor="let brandRank of brand.brandRanks; let last = last">
+                <a [routerLink]="['/brand-rank', brandRank?.id ]">{{brandRank.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.brandRegion">Brand Region</span></dt>
+        <dd>
+            <span *ngFor="let brandRegion of brand.brandRegions; let last = last">
+                <a [routerLink]="['/brand-region', brandRegion?.id ]">{{brandRegion.name}}</a>{{last ? '' : ', '}}
+            </span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brand.industrySecondClass">Industry Second Class</span></dt>
+        <dd>
+            <div *ngIf="brand.industrySecondClass">
+                <a [routerLink]="['/industry-second-class', brand.industrySecondClass?.id]">{{brand.industrySecondClass?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'brand/'+ brand.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

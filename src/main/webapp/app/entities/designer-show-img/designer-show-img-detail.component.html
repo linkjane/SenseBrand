@@ -1,0 +1,41 @@
+
+<div *ngIf="designerShowImg">
+    <h2><span jhiTranslate="senseBrandApp.designerShowImg.detail.title">Designer Show Img</span> {{designerShowImg.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.designerShowImg.imgTile">Img Tile</span></dt>
+        <dd>
+            <span>{{designerShowImg.imgTile}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerShowImg.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="designerShowImg.imgFileUrl">
+                <a (click)="openFile(designerShowImg.imgFileContentType, designerShowImg.imgFileUrl)">
+                    <img [src]="designerShowImg.imgFileUrl" style="max-width: 100%;" alt="designerShowImg image"/>
+                </a>
+                {{designerShowImg.imgFileContentType}} {{byteSize(designerShowImg.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.designerShowImg.designer">Designer</span></dt>
+        <dd>
+            <div *ngIf="designerShowImg.designer">
+                <a [routerLink]="['/designer', designerShowImg.designer?.id]">{{designerShowImg.designer?.znName}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'designer-show-img/'+ designerShowImg.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

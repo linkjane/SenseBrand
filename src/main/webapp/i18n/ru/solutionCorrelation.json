@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "solutionCorrelation" : {
+            "home": {
+                "title": "Solution Correlations",
+                "createLabel": "Создать новый Solution Correlation",
+                "createOrEditLabel": "Создать или отредактировать Solution Correlation",
+                "search": "Найти Solution Correlation"
+            },
+            "created": "Новый Solution Correlation создан с идентификатором {{ param }}",
+            "updated": "Solution Correlation обновлен с идентификатором {{ param }}",
+            "deleted": "Solution Correlation удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Solution Correlation {{ id }}?"
+            },
+            "detail": {
+                "title": "Solution Correlation"
+            },
+            "imgFile": "Img File",
+            "goLink": "Go Link",
+            "solution": "Solution"
+        }
+    }
+}

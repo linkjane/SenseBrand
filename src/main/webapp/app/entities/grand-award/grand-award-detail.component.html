@@ -1,0 +1,43 @@
+
+<div *ngIf="grandAward">
+    <h2><span jhiTranslate="senseBrandApp.grandAward.detail.title">Grand Award</span> {{grandAward.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.grandAward.title">Title</span></dt>
+        <dd>
+            <span>{{grandAward.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.grandAward.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="grandAward.imgFileUrl">
+                <a (click)="openFile(grandAward.imgFileContentType, grandAward.imgFileUrl)">
+                    <img [src]="grandAward.imgFileUrl" style="max-width: 100%;" alt="grandAward image"/>
+                </a>
+                {{grandAward.imgFileContentType}} {{byteSize(grandAward.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.grandAward.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{grandAward.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.grandAward.detailLink">Detail Link</span></dt>
+        <dd>
+            <span>{{grandAward.detailLink}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'grand-award/'+ grandAward.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

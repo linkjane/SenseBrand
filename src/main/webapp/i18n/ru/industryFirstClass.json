@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "industryFirstClass" : {
+            "home": {
+                "title": "Industry First Classes",
+                "createLabel": "Создать новый Industry First Class",
+                "createOrEditLabel": "Создать или отредактировать Industry First Class",
+                "search": "Найти Industry First Class"
+            },
+            "created": "Новый Industry First Class создан с идентификатором {{ param }}",
+            "updated": "Industry First Class обновлен с идентификатором {{ param }}",
+            "deleted": "Industry First Class удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Industry First Class {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry First Class"
+            },
+            "name": "Name",
+            "industrySecondClass": "Industry Second Class",
+            "industryAll": "Industry All"
+        }
+    }
+}

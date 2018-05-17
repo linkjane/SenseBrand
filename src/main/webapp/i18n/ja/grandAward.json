@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "grandAward" : {
+            "home": {
+                "title": "GrandAwards",
+                "createLabel": "Grand Award を追加",
+                "createOrEditLabel": "Grand Awardを追加または編集",
+                "search": "Search for Grand Award"
+            },
+            "created": "A new Grand Award is created with identifier {{ param }}",
+            "updated": "A Grand Award is updated with identifier {{ param }}",
+            "deleted": "A Grand Award is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Grand Award {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Grand Award"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "detailLink": "Detail Link"
+        }
+    }
+}

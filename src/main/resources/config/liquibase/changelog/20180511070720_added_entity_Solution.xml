@@ -1,0 +1,96 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:ext="http://www.liquibase.org/xml/ns/dbchangelog-ext"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.5.xsd
+                        http://www.liquibase.org/xml/ns/dbchangelog-ext http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-ext.xsd">
+
+    <property name="now" value="now()" dbms="h2"/>
+
+    <property name="now" value="now()" dbms="mysql"/>
+    <property name="autoIncrement" value="true"/>
+
+    <property name="floatType" value="float4" dbms="postgresql, h2"/>
+    <property name="floatType" value="float" dbms="mysql, oracle, mssql"/>
+
+    <!--
+        Added the entity Solution.
+    -->
+    <changeSet id="20180511070720-1" author="jhipster">
+        <createTable tableName="solution">
+            <column name="id" type="bigint" autoIncrement="${autoIncrement}">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="title" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="introduction" type="clob">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="banner_img_file" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="banner_img_file_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="banner_img_file_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="banner_introduction" type="clob">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="summarize_title" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="summarize_img_file" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="summarize_img_file_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="summarize_img_file_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="summarize_content" type="clob">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="significance_title" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="significance_img_file" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="significance_img_file_content_type" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+            <column name="significance_img_file_url" type="varchar(255)">
+                <constraints nullable="true" />
+            </column>
+
+            <column name="significance_introduction" type="clob">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="detail_analysis_title" type="varchar(255)">
+                <constraints nullable="false" />
+            </column>
+
+            <column name="is_show" type="bit">
+                <constraints nullable="true" />
+            </column>
+
+            <!-- jhipster-needle-liquibase-add-column - JHipster will add columns here, do not remove-->
+        </createTable>
+        
+    </changeSet>
+    <!-- jhipster-needle-liquibase-add-changeset - JHipster will add changesets here, do not remove-->
+</databaseChangeLog>

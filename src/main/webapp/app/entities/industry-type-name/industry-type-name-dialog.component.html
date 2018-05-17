@@ -1,0 +1,72 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myIndustryTypeNameLabel" jhiTranslate="senseBrandApp.industryTypeName.home.createOrEditLabel">Create or edit a Industry Type Name</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!industryTypeName.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="industryTypeName.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industryTypeName.name" for="field_name">Name</label>
+            <input type="text" class="form-control" name="name" id="field_name"
+                [(ngModel)]="industryTypeName.name" required/>
+            <div [hidden]="!(editForm.controls.name?.dirty && editForm.controls.name?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.name?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industryTypeName.introduction" for="field_introduction">Introduction</label>
+            <textarea class="form-control" name="introduction" id="field_introduction"
+                [(ngModel)]="industryTypeName.introduction" ></textarea>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industryTypeName.iconFile" for="field_iconFile">Icon File</label>
+            <div>
+                <img [src]=" industryTypeName.iconFileBase64Data ? 'data:' + industryTypeName.iconFileContentType + ';base64,' + industryTypeName.iconFileBase64Data : industryTypeName.iconFileUrl" style="max-height: 100px;" *ngIf="industryTypeName.iconFileBase64Data || industryTypeName.iconFileUrl" alt="industryTypeName image"/>
+                <div *ngIf="industryTypeName.iconFileBase64Data || industryTypeName.iconFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{industryTypeName.iconFileContentType}} {{byteSize(industryTypeName.iconFileBase64Data || industryTypeName.iconFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( iconFileBase64Data ? 'iconFileBase64Data' : 'iconFileUrl', 'iconFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_iconFileBase64Data" (change)="setFileData($event, industryTypeName, 'iconFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="iconFile" id="field_iconFile"
+                [(ngModel)]="industryTypeName.iconFile" />
+            <input type="hidden" class="form-control" name="iconFileContentType" id="field_iconFileContentType"
+                [(ngModel)]="industryTypeName.iconFileContentType" />
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industryTypeName.industryType" for="field_industryType">Industry Type</label>
+            <select class="form-control" id="field_industryType" name="industryType" [(ngModel)]="industryTypeName.industryType" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="industryTypeOption.id === industryTypeName.industryType?.id ? industryTypeName.industryType : industryTypeOption" *ngFor="let industryTypeOption of industrytypes; trackBy: trackIndustryTypeById">{{industryTypeOption.name}}</option>
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.industryTypeName.industry" for="field_industry">Industry</label>
+            <select class="form-control" id="field_industry" name="industry" [(ngModel)]="industryTypeName.industry" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="industryOption.id === industryTypeName.industry?.id ? industryTypeName.industry : industryOption" *ngFor="let industryOption of industries; trackBy: trackIndustryById">{{industryOption.name}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

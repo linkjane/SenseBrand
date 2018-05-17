@@ -1,0 +1,36 @@
+
+<div *ngIf="industryTop">
+    <h2><span jhiTranslate="senseBrandApp.industryTop.detail.title">Industry Top</span> {{industryTop.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.industryTop.name">Name</span></dt>
+        <dd>
+            <span>{{industryTop.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industryTop.goLink">Go Link</span></dt>
+        <dd>
+            <span>{{industryTop.goLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industryTop.industry">Industry</span></dt>
+        <dd>
+            <div *ngIf="industryTop.industry">
+                <a [routerLink]="['/industry', industryTop.industry?.id]">{{industryTop.industry?.name}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'industry-top/'+ industryTop.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

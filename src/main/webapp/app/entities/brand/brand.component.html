@@ -1,0 +1,120 @@
+<div>
+    <h2>
+        <span jhiTranslate="senseBrandApp.brand.home.title">Brands</span>
+        <button class="btn btn-primary float-right jh-create-entity create-brand" [routerLink]="['/', { outlets: { popup: ['brand-new'] } }]">
+            <span class="fa fa-plus"></span>
+            <span class="hidden-sm-down"  jhiTranslate="senseBrandApp.brand.home.createLabel">
+            Create new Brand
+            </span>
+        </button>
+    </h2>
+    <jhi-alert></jhi-alert>
+    <div class="row">
+        <div class="col-sm-12">
+            <form name="searchForm" class="form-inline">
+                <div class="input-group w-100 mt-3">
+                    <input type="text" class="form-control" [(ngModel)]="currentSearch" id="currentSearch" name="currentSearch" placeholder="{{ 'senseBrandApp.brand.home.search' | translate }}">
+                    <button class="input-group-append btn btn-info" (click)="search(currentSearch)">
+                        <span class="fa fa-search"></span>
+                    </button>
+                    <button class="input-group-append btn btn-danger" (click)="clear()" *ngIf="currentSearch">
+                        <span class="fa fa-trash-o"></span>
+                    </button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <br/>
+    <div class="table-responsive" *ngIf="brands">
+        <table class="table table-striped">
+            <thead>
+            <tr jhiSort [(predicate)]="predicate" [(ascending)]="reverse" [callback]="transition.bind(this)">
+            <th jhiSortBy="id"><span jhiTranslate="global.field.id">ID</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="title"><span jhiTranslate="senseBrandApp.brand.title">Title</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="bannerImgFile"><span jhiTranslate="senseBrandApp.brand.bannerImgFile">Banner Img File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="profileImgFile"><span jhiTranslate="senseBrandApp.brand.profileImgFile">Profile Img File</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="introduction"><span jhiTranslate="senseBrandApp.brand.introduction">Introduction</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="logo"><span jhiTranslate="senseBrandApp.brand.logo">Logo</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="establishTime"><span jhiTranslate="senseBrandApp.brand.establishTime">Establish Time</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="cradle"><span jhiTranslate="senseBrandApp.brand.cradle">Cradle</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="chairman"><span jhiTranslate="senseBrandApp.brand.chairman">Chairman</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="phoneNumber"><span jhiTranslate="senseBrandApp.brand.phoneNumber">Phone Number</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="officialWebsite"><span jhiTranslate="senseBrandApp.brand.officialWebsite">Official Website</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="adPhrase"><span jhiTranslate="senseBrandApp.brand.adPhrase">Ad Phrase</span> <span class="fa fa-sort"></span></th>
+            <th jhiSortBy="industrySecondClass.name"><span jhiTranslate="senseBrandApp.brand.industrySecondClass">Industry Second Class</span> <span class="fa fa-sort"></span></th>
+            <th></th>
+            </tr>
+            </thead>
+            <tbody>
+            <tr *ngFor="let brand of brands ;trackBy: trackId">
+                <td><a [routerLink]="['../brand', brand.id ]">{{brand.id}}</a></td>
+                <td>{{brand.title}}</td>
+                <td>
+                    <a *ngIf="brand.bannerImgFileUrl" (click)="openFile(brand.bannerImgFileContentType, brand.bannerImgFileUrl)">
+                        <img [src]="brand.bannerImgFileUrl" style="max-height: 30px;" alt="brand image"/>
+                    </a>
+                    <span *ngIf="brand.bannerImgFileUrl">{{brand.bannerImgFileContentType}} {{byteSize(brand.bannerImgFileUrl)}}</span>
+                </td>
+                <td>
+                    <a *ngIf="brand.profileImgFileUrl" (click)="openFile(brand.profileImgFileContentType, brand.profileImgFileUrl)">
+                        <img [src]="brand.profileImgFileUrl" style="max-height: 30px;" alt="brand image"/>
+                    </a>
+                    <span *ngIf="brand.profileImgFileUrl">{{brand.profileImgFileContentType}} {{byteSize(brand.profileImgFileUrl)}}</span>
+                </td>
+                <td>{{brand.introduction}}</td>
+                <td>
+                    <a *ngIf="brand.logoUrl" (click)="openFile(brand.logoContentType, brand.logoUrl)">
+                        <img [src]="brand.logoUrl" style="max-height: 30px;" alt="brand image"/>
+                    </a>
+                    <span *ngIf="brand.logoUrl">{{brand.logoContentType}} {{byteSize(brand.logoUrl)}}</span>
+                </td>
+                <td>{{brand.establishTime}}</td>
+                <td>{{brand.cradle}}</td>
+                <td>{{brand.chairman}}</td>
+                <td>{{brand.phoneNumber}}</td>
+                <td>{{brand.officialWebsite}}</td>
+                <td>{{brand.adPhrase}}</td>
+                <td>
+                    <div *ngIf="brand.industrySecondClass">
+                        <a [routerLink]="['../industry-second-class', brand.industrySecondClass?.id ]" >{{brand.industrySecondClass?.name}}</a>
+                    </div>
+                </td>
+                <td class="text-right">
+                    <div class="btn-group flex-btn-group-container">
+                        <button type="submit"
+                                [routerLink]="['../brand', brand.id ]"
+                                class="btn btn-info btn-sm">
+                            <span class="fa fa-eye"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'brand/'+ brand.id + '/edit'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-primary btn-sm">
+                            <span class="fa fa-pencil"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                        </button>
+                        <button type="submit"
+                                [routerLink]="['/', { outlets: { popup: 'brand/'+ brand.id + '/delete'} }]"
+                                replaceUrl="true"
+                                queryParamsHandling="merge"
+                                class="btn btn-danger btn-sm">
+                            <span class="fa fa-remove"></span>
+                            <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                        </button>
+                    </div>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+    </div>
+    <div *ngIf="brands && brands.length">
+        <div class="row justify-content-center">
+            <jhi-item-count [page]="page" [total]="queryCount" [maxSize]="5" [itemsPerPage]="itemsPerPage"></jhi-item-count>
+        </div>
+        <div class="row justify-content-center">
+            <ngb-pagination [collectionSize]="totalItems" [(page)]="page" [pageSize]="itemsPerPage" [maxSize]="5" [rotate]="true" [boundaryLinks]="true" (pageChange)="loadPage(page)"></ngb-pagination>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "ourSight" : {
+            "home": {
+                "title": "OurSights",
+                "createLabel": "Our Sight を追加",
+                "createOrEditLabel": "Our Sightを追加または編集",
+                "search": "Search for Our Sight"
+            },
+            "created": "A new Our Sight is created with identifier {{ param }}",
+            "updated": "A Our Sight is updated with identifier {{ param }}",
+            "deleted": "A Our Sight is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Our Sight {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Our Sight"
+            },
+            "title": "Title",
+            "keyWord": "Key Word",
+            "imgFile": "Img File"
+        }
+    }
+}

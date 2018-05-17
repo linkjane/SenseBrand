@@ -21,6 +21,7 @@
             "shareTime": "Share Time",
             "introduction": "Introduction",
             "mediaFile": "Media File",
+            "isShow": "Is Show",
             "designer": "Designer"
         }
     }

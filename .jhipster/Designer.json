@@ -1,0 +1,85 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "showImg",
+            "otherEntityName": "designerShowImg",
+            "otherEntityRelationshipName": "designer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "sentiment",
+            "otherEntityName": "designerSentiment",
+            "otherEntityRelationshipName": "designer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "award",
+            "otherEntityName": "designerAward",
+            "otherEntityRelationshipName": "designer"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "ideaMedia",
+            "otherEntityName": "designerIdeaMedia",
+            "otherEntityRelationshipName": "designer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "ideaDetails",
+            "otherEntityName": "designerIdeaDetails",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "designer"
+        },
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "show",
+            "otherEntityName": "designerShow",
+            "ownerSide": false,
+            "otherEntityRelationshipName": "designer"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "znName",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "enName",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "profileBackFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "profileThumbnailFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "image"
+        },
+        {
+            "fieldName": "position",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "introduction",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        },
+        {
+            "fieldName": "isShow",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180511070644",
+    "entityTableName": "designer",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

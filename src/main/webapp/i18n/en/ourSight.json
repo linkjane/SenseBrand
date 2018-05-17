@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "ourSight" : {
+            "home": {
+                "title": "Our Sights",
+                "createLabel": "Create a new Our Sight",
+                "createOrEditLabel": "Create or edit a Our Sight",
+                "search": "Search for Our Sight"
+            },
+            "created": "A new Our Sight is created with identifier {{ param }}",
+            "updated": "A Our Sight is updated with identifier {{ param }}",
+            "deleted": "A Our Sight is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Our Sight {{ id }}?"
+            },
+            "detail": {
+                "title": "Our Sight"
+            },
+            "title": "Title",
+            "keyWord": "Key Word",
+            "imgFile": "Img File"
+        }
+    }
+}

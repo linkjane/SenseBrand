@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "grandAward" : {
+            "home": {
+                "title": "Grand Awards",
+                "createLabel": "Создать новый Grand Award",
+                "createOrEditLabel": "Создать или отредактировать Grand Award",
+                "search": "Найти Grand Award"
+            },
+            "created": "Новый Grand Award создан с идентификатором {{ param }}",
+            "updated": "Grand Award обновлен с идентификатором {{ param }}",
+            "deleted": "Grand Award удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Grand Award {{ id }}?"
+            },
+            "detail": {
+                "title": "Grand Award"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "detailLink": "Detail Link"
+        }
+    }
+}

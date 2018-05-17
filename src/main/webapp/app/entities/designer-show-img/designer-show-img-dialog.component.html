@@ -1,0 +1,66 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="myDesignerShowImgLabel" jhiTranslate="senseBrandApp.designerShowImg.home.createOrEditLabel">Create or edit a Designer Show Img</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!designerShowImg.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="designerShowImg.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.designerShowImg.imgTile" for="field_imgTile">Img Tile</label>
+            <input type="text" class="form-control" name="imgTile" id="field_imgTile"
+                [(ngModel)]="designerShowImg.imgTile" required/>
+            <div [hidden]="!(editForm.controls.imgTile?.dirty && editForm.controls.imgTile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.imgTile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.designerShowImg.imgFile" for="field_imgFile">Img File</label>
+            <div>
+                <img [src]=" designerShowImg.imgFileBase64Data ? 'data:' + designerShowImg.imgFileContentType + ';base64,' + designerShowImg.imgFileBase64Data : designerShowImg.imgFileUrl" style="max-height: 100px;" *ngIf="designerShowImg.imgFileBase64Data || designerShowImg.imgFileUrl" alt="designerShowImg image"/>
+                <div *ngIf="designerShowImg.imgFileBase64Data || designerShowImg.imgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{designerShowImg.imgFileContentType}} {{byteSize(designerShowImg.imgFileBase64Data || designerShowImg.imgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( imgFileBase64Data ? 'imgFileBase64Data' : 'imgFileUrl', 'imgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_imgFileBase64Data" (change)="setFileData($event, designerShowImg, 'imgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="imgFile" id="field_imgFile"
+                [(ngModel)]="designerShowImg.imgFile" required/>
+            <input type="hidden" class="form-control" name="imgFileContentType" id="field_imgFileContentType"
+                [(ngModel)]="designerShowImg.imgFileContentType" />
+            <div [hidden]="!(editForm.controls.imgFile?.dirty && editForm.controls.imgFile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.imgFile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.designerShowImg.designer" for="field_designer">Designer</label>
+            <select class="form-control" id="field_designer" name="designer" [(ngModel)]="designerShowImg.designer" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="designerOption.id === designerShowImg.designer?.id ? designerShowImg.designer : designerOption" *ngFor="let designerOption of designers; trackBy: trackDesignerById">{{designerOption.znName}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

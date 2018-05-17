@@ -3,7 +3,7 @@ services:
     sensebrand-mysql:
         image: mysql:5.7.20
         volumes:
-            - D:\\data\\mysql:/var/lib/mysql/
+            - ~/docker/mysql-new/:/var/lib/mysql/
         environment:
             - MYSQL_USER=sensebrand
             - MYSQL_ALLOW_EMPTY_PASSWORD=no

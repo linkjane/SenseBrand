@@ -1,0 +1,29 @@
+
+{
+    "senseBrandApp": {
+        "industry" : {
+            "home": {
+                "title": "Industries",
+                "createLabel": "Создать новый Industry",
+                "createOrEditLabel": "Создать или отредактировать Industry",
+                "search": "Найти Industry"
+            },
+            "created": "Новый Industry создан с идентификатором {{ param }}",
+            "updated": "Industry обновлен с идентификатором {{ param }}",
+            "deleted": "Industry удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Industry {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry"
+            },
+            "name": "Name",
+            "solutionLink": "Solution Link",
+            "analysisLink": "Analysis Link",
+            "inventoryFile": "Inventory File",
+            "isShow": "Is Show",
+            "industryTop": "Industry Top",
+            "industryType": "Industry Type"
+        }
+    }
+}

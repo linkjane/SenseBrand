@@ -1,0 +1,45 @@
+
+<div *ngIf="industry">
+    <h2><span jhiTranslate="senseBrandApp.industry.detail.title">Industry</span> {{industry.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.industry.name">Name</span></dt>
+        <dd>
+            <span>{{industry.name}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industry.solutionLink">Solution Link</span></dt>
+        <dd>
+            <span>{{industry.solutionLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industry.analysisLink">Analysis Link</span></dt>
+        <dd>
+            <span>{{industry.analysisLink}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industry.inventoryFile">Inventory File</span></dt>
+        <dd>
+            <div *ngIf="industry.inventoryFileUrl">
+                <a (click)="openFile(industry.inventoryFileContentType, industry.inventoryFileUrl)" jhiTranslate="entity.action.open">open</a>
+                {{industry.inventoryFileContentType}} {{byteSize(industry.inventoryFileUrl)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.industry.isShow">Is Show</span></dt>
+        <dd>
+            <span>{{industry.isShow}}</span>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'industry/'+ industry.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

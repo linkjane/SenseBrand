@@ -24,12 +24,12 @@
             "position": "Position",
             "introduction": "Introduction",
             "isShow": "Is Show",
-            "designerShowImg": "Designer Show Img",
-            "designerSentiment": "Designer Sentiment",
-            "designerAward": "Designer Award",
-            "designerIdeaMedia": "Designer Idea Media",
-            "designerIdeaDetails": "Designer Idea Details",
-            "designerShow": "Designer Show"
+            "showImg": "Show Img",
+            "sentiment": "Sentiment",
+            "award": "Award",
+            "ideaMedia": "Idea Media",
+            "ideaDetails": "Idea Details",
+            "show": "Show"
         }
     }
 }

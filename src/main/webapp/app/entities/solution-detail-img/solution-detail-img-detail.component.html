@@ -1,0 +1,45 @@
+
+<div *ngIf="solutionDetailImg">
+    <h2><span jhiTranslate="senseBrandApp.solutionDetailImg.detail.title">Solution Detail Img</span> {{solutionDetailImg.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailImg.title">Title</span></dt>
+        <dd>
+            <span>{{solutionDetailImg.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailImg.imgFile">Img File</span></dt>
+        <dd>
+            <div *ngIf="solutionDetailImg.imgFileUrl">
+                <a (click)="openFile(solutionDetailImg.imgFileContentType, solutionDetailImg.imgFileUrl)">
+                    <img [src]="solutionDetailImg.imgFileUrl" style="max-width: 100%;" alt="solutionDetailImg image"/>
+                </a>
+                {{solutionDetailImg.imgFileContentType}} {{byteSize(solutionDetailImg.imgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailImg.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{solutionDetailImg.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.solutionDetailImg.solution">Solution</span></dt>
+        <dd>
+            <div *ngIf="solutionDetailImg.solution">
+                <a [routerLink]="['/solution', solutionDetailImg.solution?.id]">{{solutionDetailImg.solution?.title}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'solution-detail-img/'+ solutionDetailImg.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

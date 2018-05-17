@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "grandAward" : {
+            "home": {
+                "title": "Grand Awards",
+                "createLabel": "Create a new Grand Award",
+                "createOrEditLabel": "Create or edit a Grand Award",
+                "search": "Search for Grand Award"
+            },
+            "created": "A new Grand Award is created with identifier {{ param }}",
+            "updated": "A Grand Award is updated with identifier {{ param }}",
+            "deleted": "A Grand Award is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Grand Award {{ id }}?"
+            },
+            "detail": {
+                "title": "Grand Award"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "detailLink": "Detail Link"
+        }
+    }
+}

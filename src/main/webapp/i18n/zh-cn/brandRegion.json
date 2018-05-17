@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "brandRegion" : {
+            "home": {
+                "title": "Brand Regions",
+                "createLabel": "创建新 Brand Region",
+                "createOrEditLabel": "创建或编辑 Brand Region",
+                "search": "查找 Brand Region"
+            },
+            "created": "Brand Region {{ param }} 创建成功",
+            "updated": "Brand Region {{ param }} 更新成功",
+            "deleted": "Brand Region {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Brand Region {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Brand Region"
+            },
+            "name": "Name",
+            "brand": "Brand"
+        }
+    }
+}

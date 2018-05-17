@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "brandRank" : {
+            "home": {
+                "title": "Brand Ranks",
+                "createLabel": "Создать новый Brand Rank",
+                "createOrEditLabel": "Создать или отредактировать Brand Rank",
+                "search": "Найти Brand Rank"
+            },
+            "created": "Новый Brand Rank создан с идентификатором {{ param }}",
+            "updated": "Brand Rank обновлен с идентификатором {{ param }}",
+            "deleted": "Brand Rank удален с идентификатором {{ param }}",
+            "delete": {
+                "question": "Вы уверены что хотите удалить Brand Rank {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand Rank"
+            },
+            "name": "Name",
+            "brand": "Brand"
+        }
+    }
+}

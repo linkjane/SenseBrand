@@ -1,0 +1,37 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-one",
+            "relationshipName": "designer",
+            "otherEntityName": "designer",
+            "otherEntityField": "znName",
+            "ownerSide": true,
+            "otherEntityRelationshipName": "show"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "firstLevelTitle",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "secondLevelTitle",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "introduction",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "text"
+        }
+    ],
+    "changelogDate": "20180511070645",
+    "entityTableName": "designer_show",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}

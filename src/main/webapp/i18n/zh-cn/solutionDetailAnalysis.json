@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailAnalysis" : {
+            "home": {
+                "title": "Solution Detail Analyses",
+                "createLabel": "创建新 Solution Detail Analysis",
+                "createOrEditLabel": "创建或编辑 Solution Detail Analysis",
+                "search": "查找 Solution Detail Analysis"
+            },
+            "created": "Solution Detail Analysis {{ param }} 创建成功",
+            "updated": "Solution Detail Analysis {{ param }} 更新成功",
+            "deleted": "Solution Detail Analysis {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Solution Detail Analysis {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Solution Detail Analysis"
+            },
+            "title": "Title",
+            "introduction": "Introduction",
+            "detailAnalysisImg": "Detail Analysis Img",
+            "solution": "Solution"
+        }
+    }
+}

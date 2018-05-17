@@ -1,0 +1,65 @@
+<form name="editForm" role="form" novalidate (ngSubmit)="save()" #editForm="ngForm">
+
+    <div class="modal-header">
+        <h4 class="modal-title" id="mySolutionDetailAnalysisImgLabel" jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.home.createOrEditLabel">Create or edit a Solution Detail Analysis Img</h4>
+        <button type="button" class="close" data-dismiss="modal" aria-hidden="true"
+                (click)="clear()">&times;</button>
+    </div>
+    <div class="modal-body">
+        <jhi-alert-error></jhi-alert-error>
+        <div class="form-group" [hidden]="!solutionDetailAnalysisImg.id">
+            <label for="id" jhiTranslate="global.field.id">ID</label>
+            <input type="text" class="form-control" id="id" name="id"
+                   [(ngModel)]="solutionDetailAnalysisImg.id" readonly />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.title" for="field_title">Title</label>
+            <input type="text" class="form-control" name="title" id="field_title"
+                [(ngModel)]="solutionDetailAnalysisImg.title" />
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.imgFile" for="field_imgFile">Img File</label>
+            <div>
+                <img [src]=" solutionDetailAnalysisImg.imgFileBase64Data ? 'data:' + solutionDetailAnalysisImg.imgFileContentType + ';base64,' + solutionDetailAnalysisImg.imgFileBase64Data : solutionDetailAnalysisImg.imgFileUrl" style="max-height: 100px;" *ngIf="solutionDetailAnalysisImg.imgFileBase64Data || solutionDetailAnalysisImg.imgFileUrl" alt="solutionDetailAnalysisImg image"/>
+                <div *ngIf="solutionDetailAnalysisImg.imgFileBase64Data || solutionDetailAnalysisImg.imgFileUrl" class="form-text text-danger clearfix">
+                    <span class="pull-left">{{solutionDetailAnalysisImg.imgFileContentType}} {{byteSize(solutionDetailAnalysisImg.imgFileBase64Data || solutionDetailAnalysisImg.imgFileUrl)}}</span>
+                    <button type="button" (click)="clearInputImage( imgFileBase64Data ? 'imgFileBase64Data' : 'imgFileUrl', 'imgFileContentType', 'fileImage')" class="btn btn-secondary btn-xs pull-right">
+                        <span class="fa fa-times"></span>
+                    </button>
+                </div>
+                <input type="file" id="file_imgFileBase64Data" (change)="setFileData($event, solutionDetailAnalysisImg, 'imgFile', true)" accept="image/*" jhiTranslate="entity.action.addimage"/>
+            </div>
+            <input type="hidden" class="form-control" name="imgFile" id="field_imgFile"
+                [(ngModel)]="solutionDetailAnalysisImg.imgFile" required/>
+            <input type="hidden" class="form-control" name="imgFileContentType" id="field_imgFileContentType"
+                [(ngModel)]="solutionDetailAnalysisImg.imgFileContentType" />
+            <div [hidden]="!(editForm.controls.imgFile?.dirty && editForm.controls.imgFile?.invalid)">
+                <small class="form-text text-danger"
+                   [hidden]="!editForm.controls.imgFile?.errors?.required" jhiTranslate="entity.validation.required">
+                   This field is required.
+                </small>
+            </div>
+        </div>
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.introduction" for="field_introduction">Introduction</label>
+            <textarea class="form-control" name="introduction" id="field_introduction"
+                [(ngModel)]="solutionDetailAnalysisImg.introduction" ></textarea>
+        </div>
+
+        <div class="form-group">
+            <label class="form-control-label" jhiTranslate="senseBrandApp.solutionDetailAnalysisImg.detailAnalysis" for="field_detailAnalysis">Detail Analysis</label>
+            <select class="form-control" id="field_detailAnalysis" name="detailAnalysis" [(ngModel)]="solutionDetailAnalysisImg.detailAnalysis" >
+                <option [ngValue]="null"></option>
+                <option [ngValue]="solutionDetailAnalysisOption.id === solutionDetailAnalysisImg.detailAnalysis?.id ? solutionDetailAnalysisImg.detailAnalysis : solutionDetailAnalysisOption" *ngFor="let solutionDetailAnalysisOption of solutiondetailanalyses; trackBy: trackSolutionDetailAnalysisById">{{solutionDetailAnalysisOption.title}}</option>
+            </select>
+        </div>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal" (click)="clear()">
+            <span class="fa fa-ban"></span>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+        <button type="submit" [disabled]="editForm.form.invalid || isSaving" class="btn btn-primary">
+            <span class="fa fa-save"></span>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+    </div>
+</form>

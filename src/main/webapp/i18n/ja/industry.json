@@ -1,0 +1,29 @@
+
+{
+    "senseBrandApp": {
+        "industry" : {
+            "home": {
+                "title": "Industries",
+                "createLabel": "Industry を追加",
+                "createOrEditLabel": "Industryを追加または編集",
+                "search": "Search for Industry"
+            },
+            "created": "A new Industry is created with identifier {{ param }}",
+            "updated": "A Industry is updated with identifier {{ param }}",
+            "deleted": "A Industry is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Industry {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Industry"
+            },
+            "name": "Name",
+            "solutionLink": "Solution Link",
+            "analysisLink": "Analysis Link",
+            "inventoryFile": "Inventory File",
+            "isShow": "Is Show",
+            "industryTop": "Industry Top",
+            "industryType": "Industry Type"
+        }
+    }
+}

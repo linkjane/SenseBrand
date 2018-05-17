@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "industryAll" : {
+            "home": {
+                "title": "Industry Alls",
+                "createLabel": "Create a new Industry All",
+                "createOrEditLabel": "Create or edit a Industry All",
+                "search": "Search for Industry All"
+            },
+            "created": "A new Industry All is created with identifier {{ param }}",
+            "updated": "A Industry All is updated with identifier {{ param }}",
+            "deleted": "A Industry All is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Industry All {{ id }}?"
+            },
+            "detail": {
+                "title": "Industry All"
+            },
+            "name": "Name",
+            "industryFirstClass": "Industry First Class"
+        }
+    }
+}

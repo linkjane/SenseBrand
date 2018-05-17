@@ -1,0 +1,59 @@
+
+<div *ngIf="brandSubDetails">
+    <h2><span jhiTranslate="senseBrandApp.brandSubDetails.detail.title">Brand Sub Details</span> {{brandSubDetails.id}}</h2>
+    <hr>
+    <jhi-alert-error></jhi-alert-error>
+    <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.title">Title</span></dt>
+        <dd>
+            <span>{{brandSubDetails.title}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.introduction">Introduction</span></dt>
+        <dd>
+            <span>{{brandSubDetails.introduction}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.bannerImgFile">Banner Img File</span></dt>
+        <dd>
+            <div *ngIf="brandSubDetails.bannerImgFileUrl">
+                <a (click)="openFile(brandSubDetails.bannerImgFileContentType, brandSubDetails.bannerImgFileUrl)">
+                    <img [src]="brandSubDetails.bannerImgFileUrl" style="max-width: 100%;" alt="brandSubDetails image"/>
+                </a>
+                {{brandSubDetails.bannerImgFileContentType}} {{byteSize(brandSubDetails.bannerImgFile)}}
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.content">Content</span></dt>
+        <dd>
+            <span>{{brandSubDetails.content}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.createdTime">Created Time</span></dt>
+        <dd>
+            <span>{{brandSubDetails.createdTime | date:'mediumDate'}}</span>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.brand">Brand</span></dt>
+        <dd>
+            <div *ngIf="brandSubDetails.brand">
+                <a [routerLink]="['/brand', brandSubDetails.brand?.id]">{{brandSubDetails.brand?.title}}</a>
+            </div>
+        </dd>
+        <dt><span jhiTranslate="senseBrandApp.brandSubDetails.brandSub">Brand Sub</span></dt>
+        <dd>
+            <div *ngIf="brandSubDetails.brandSub">
+                <a [routerLink]="['/brand-sub', brandSubDetails.brandSub?.id]">{{brandSubDetails.brandSub?.title}}</a>
+            </div>
+        </dd>
+    </dl>
+
+    <button type="submit"
+            (click)="previousState()"
+            class="btn btn-info">
+        <span class="fa fa-arrow-left"></span>&nbsp;<span jhiTranslate="entity.action.back"> Back</span>
+    </button>
+
+    <button type="button"
+            [routerLink]="['/', { outlets: { popup: 'brand-sub-details/'+ brandSubDetails.id + '/edit'} }]"
+            replaceUrl="true"
+            queryParamsHandling="merge"
+            class="btn btn-primary">
+        <span class="fa fa-pencil"></span>&nbsp;<span jhiTranslate="entity.action.edit"> Edit</span>
+    </button>
+</div>

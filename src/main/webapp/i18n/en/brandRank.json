@@ -1,0 +1,24 @@
+
+{
+    "senseBrandApp": {
+        "brandRank" : {
+            "home": {
+                "title": "Brand Ranks",
+                "createLabel": "Create a new Brand Rank",
+                "createOrEditLabel": "Create or edit a Brand Rank",
+                "search": "Search for Brand Rank"
+            },
+            "created": "A new Brand Rank is created with identifier {{ param }}",
+            "updated": "A Brand Rank is updated with identifier {{ param }}",
+            "deleted": "A Brand Rank is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Are you sure you want to delete Brand Rank {{ id }}?"
+            },
+            "detail": {
+                "title": "Brand Rank"
+            },
+            "name": "Name",
+            "brand": "Brand"
+        }
+    }
+}

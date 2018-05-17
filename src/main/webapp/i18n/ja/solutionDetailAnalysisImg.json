@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "solutionDetailAnalysisImg" : {
+            "home": {
+                "title": "SolutionDetailAnalysisImgs",
+                "createLabel": "Solution Detail Analysis Img を追加",
+                "createOrEditLabel": "Solution Detail Analysis Imgを追加または編集",
+                "search": "Search for Solution Detail Analysis Img"
+            },
+            "created": "A new Solution Detail Analysis Img is created with identifier {{ param }}",
+            "updated": "A Solution Detail Analysis Img is updated with identifier {{ param }}",
+            "deleted": "A Solution Detail Analysis Img is deleted with identifier {{ param }}",
+            "delete": {
+                "question": "Solution Detail Analysis Img {{ id }}を削除してもよろしいですか？"
+            },
+            "detail": {
+                "title": "Solution Detail Analysis Img"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "detailAnalysis": "Detail Analysis"
+        }
+    }
+}

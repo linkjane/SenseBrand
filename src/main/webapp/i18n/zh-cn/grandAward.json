@@ -1,0 +1,26 @@
+
+{
+    "senseBrandApp": {
+        "grandAward" : {
+            "home": {
+                "title": "Grand Awards",
+                "createLabel": "创建新 Grand Award",
+                "createOrEditLabel": "创建或编辑 Grand Award",
+                "search": "查找 Grand Award"
+            },
+            "created": "Grand Award {{ param }} 创建成功",
+            "updated": "Grand Award {{ param }} 更新成功",
+            "deleted": "Grand Award {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Grand Award {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Grand Award"
+            },
+            "title": "Title",
+            "imgFile": "Img File",
+            "introduction": "Introduction",
+            "detailLink": "Detail Link"
+        }
+    }
+}

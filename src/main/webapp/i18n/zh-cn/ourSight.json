@@ -1,0 +1,25 @@
+
+{
+    "senseBrandApp": {
+        "ourSight" : {
+            "home": {
+                "title": "Our Sights",
+                "createLabel": "创建新 Our Sight",
+                "createOrEditLabel": "创建或编辑 Our Sight",
+                "search": "查找 Our Sight"
+            },
+            "created": "Our Sight {{ param }} 创建成功",
+            "updated": "Our Sight {{ param }} 更新成功",
+            "deleted": "Our Sight {{ param }} 删除成功",
+            "delete": {
+                "question": "你确定要删除 Our Sight {{ id }} 吗？"
+            },
+            "detail": {
+                "title": "Our Sight"
+            },
+            "title": "Title",
+            "keyWord": "Key Word",
+            "imgFile": "Img File"
+        }
+    }
+}

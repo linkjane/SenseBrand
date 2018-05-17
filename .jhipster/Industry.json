@@ -1,0 +1,49 @@
+{
+    "fluentMethods": true,
+    "relationships": [
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "industryTop",
+            "otherEntityName": "industryTop",
+            "otherEntityRelationshipName": "industry"
+        },
+        {
+            "relationshipType": "one-to-many",
+            "relationshipName": "industryType",
+            "otherEntityName": "industryTypeName",
+            "otherEntityRelationshipName": "industry"
+        }
+    ],
+    "fields": [
+        {
+            "fieldName": "name",
+            "fieldType": "String",
+            "fieldValidateRules": [
+                "required"
+            ]
+        },
+        {
+            "fieldName": "solutionLink",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "analysisLink",
+            "fieldType": "String"
+        },
+        {
+            "fieldName": "inventoryFile",
+            "fieldType": "byte[]",
+            "fieldTypeBlobContent": "any"
+        },
+        {
+            "fieldName": "isShow",
+            "fieldType": "Boolean"
+        }
+    ],
+    "changelogDate": "20180511070746",
+    "entityTableName": "industry",
+    "dto": "no",
+    "pagination": "pagination",
+    "service": "serviceClass",
+    "jpaMetamodelFiltering": false
+}
