@@ -1,7 +1,7 @@
 version: '2'
 services:
     sensebrand-app:
-        image: pp7589/sensebrand
+        image: registry.cn-hangzhou.aliyuncs.com/sensebrand/sensebrand
         environment:
             - SPRING_PROFILES_ACTIVE=prod,swagger
             - SPRING_DATASOURCE_URL=jdbc:mysql://sensebrand-mysql:3306/sensebrand?useUnicode=true&characterEncoding=utf8&useSSL=false

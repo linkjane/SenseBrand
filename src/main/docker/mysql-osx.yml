@@ -7,9 +7,9 @@ services:
         environment:
             - MYSQL_USER=sensebrand
             - MYSQL_ALLOW_EMPTY_PASSWORD=no
-            - MYSQL_PASSWORD=sensebrandpasswd
             - MYSQL_DATABASE=sensebrand
-            - MYSQL_ROOT_PASSWORD=Idonotgiveyou
+            - MYSQL_PASSWORD=E7kCGh01VrV8KKmX
+            - MYSQL_ROOT_PASSWORD=sense090327
         ports:
             - 3307:3306
         command: mysqld --lower_case_table_names=1 --skip-ssl --character_set_server=utf8 --explicit_defaults_for_timestamp
