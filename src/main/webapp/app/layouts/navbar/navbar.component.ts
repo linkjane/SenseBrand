@@ -23,7 +23,7 @@ export class NavbarComponent implements OnInit {
     modalRef: NgbModalRef;
     version: string;
 
-    navbarLogo = require('../../../content/images/logo-jhipster.png');
+    navbarLogo = require('./logo-jhipster.png');
 
     constructor(
         private loginService: LoginService,

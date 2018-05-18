@@ -1,6 +1,6 @@
 /* after changing this file run 'yarn run webpack:build' */
 $fa-font-path: '~font-awesome/fonts';
-
+$simple-line-font-path: '~/simple-line-icons/fonts/';
 /***************************
 put Sass variables here:
 eg $input-color: red;
@@ -10,6 +10,7 @@ eg $input-color: red;
 @import "bootstrap-variables";
 // Import Bootstrap source files from node_modules
 @import 'node_modules/bootstrap/scss/bootstrap';
+@import 'node_modules/simple-line-icons/scss/simple-line-icons.scss';
 @import "node_modules/@coreui/coreui/scss/variables";
 @import "node_modules/@coreui/coreui/scss/coreui";
 
