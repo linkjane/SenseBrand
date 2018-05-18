@@ -12,7 +12,7 @@ import 'froala-editor/css/froala_editor.pkgd.min.css';
 import 'froala-editor/css/froala_style.min.css';
 
 // my js or ts
-import 'froala-editor/js/froala_editor.pkgd.min.js';
+import '../content/js/froala_editor.pkgd.min.js';
 
 import 'froala-editor/js/languages/zh_cn';
 import 'froala-editor/js/languages/ja';
